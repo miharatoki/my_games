@@ -18,7 +18,7 @@
 
  body{
   // background-image: url('black0007.png');
-  background-color: silver;
+  background-image: url('black0007.png');
    .notice{
     width: 80%;
     height: 50px;
@@ -31,30 +31,58 @@
    }
  }
 
- footer{
+ .footer{
   width: 100%;
+  height: 50px;
   position: absolute;
   bottom: 0;
+  margin-bottom: 0;
+  background-color: silver;
  }
 
- .sign-up-in-form{
+ .error-explanation{
+ border-radius: 10px;
+ background-color: $alert;
+ h4{
+  padding: 15px;
+  color: black;
+ }
+ p{
+  padding-left: 30px;
+  padding-bottom: 0;
+  margin: 0;
+  color: black;
+ }
+}
+
+.sign-up-in-form{
+ background-color: white;
+ border: 1px solid;
+ border-radius: 10px;
+ width: 400px;
+ .sign-up-in-heading{
+  width: 150px;
+  border-bottom: 2px solid;
+ }
+}
+ .form-group{
+  margin: 15px;
+ }
+
+.posts-new{
+ .post-new-form{
   background-color: white;
   border: 1px solid;
   border-radius: 10px;
-  width: 400px;
-  .sign-up-in-title{
-   width: 150px;
-   border-bottom: 2px solid;
+  width: 50%;
+  .post-new-heading{
+   width: 200px;
+  border-bottom: 2px solid;
   }
-  .form-group{
-   margin: 15px;
+  .rate-group{
+   width: 80%;
+   border: 1px solid;
+   border-radius: 10px;
   }
- }
-
-#error-explanation{
- border-radius: 10px;
- background-color: $alert;
- li{
-  list-style: none;
  }
 }
