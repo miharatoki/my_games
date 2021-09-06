@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      post: '記録'
+    attributes:
+      user:
+        name: '姓'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      post:
+        title: 'ゲームタイトル'
+        body: '感想'
+        total_score: '総合'
+        story_score: 'ストーリー'
+        graphic_score: 'グラフィック'
+        sound_socre: '主題歌、BGM'
+        operability_score: '操作性'
+        balance_score: 'ゲームバランス'

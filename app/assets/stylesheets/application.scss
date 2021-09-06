@@ -37,24 +37,42 @@
   bottom: 0;
  }
 
- .sign-up-in-form{
-  background-color: white;
-  border: 1px solid;
-  border-radius: 10px;
-  width: 400px;
-  .sign-up-in-title{
-   width: 150px;
-   border-bottom: 2px solid;
-  }
-  .form-group{
-   margin: 15px;
-  }
- }
-
-#error-explanation{
+ #error-explanation{
  border-radius: 10px;
  background-color: $alert;
  li{
   list-style: none;
+ }
+}
+
+.sign-up-in-form{
+ background-color: white;
+ border: 1px solid;
+ border-radius: 10px;
+ width: 400px;
+ .sign-up-in-heading{
+  width: 150px;
+  border-bottom: 2px solid;
+ }
+}
+ .form-group{
+  margin: 15px;
+ }
+
+.posts-new{
+ .post-new-form{
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 50%;
+  .post-new-heading{
+   width: 200px;
+  border-bottom: 2px solid;
+  }
+  .rate-group{
+   width: 80%;
+   border: 1px solid;
+   border-radius: 10px;
+  }
  }
 }

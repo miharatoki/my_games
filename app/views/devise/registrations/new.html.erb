@@ -4,32 +4,33 @@
 
       <div class='row'>
         <div class='sign-up-in-form mx-auto'>
-          <div class='sign-up-in-title my-4 mx-auto text-center h3'>Sign Up</div>
-
+          <div class='sign-up-in-heading my-4 mx-auto text-center h3'>Sign Up</div>
+          <!--ユーザ名-->
           <div class='form-group text-center mt-4'>
             <%= f.label :name %><br>
             <%= f.text_field :name, autofocus: true %>
           </div>
-
+          <!--メールアドレス-->
           <div class='form-group text-center'>
             <%= f.label :email %><br>
             <%= f.email_field :email, autofocus: true%>
           </div>
-
+          <!--パスワード-->
           <div class='form-group text-center'>
             <%= f.label :password %>
             <br />
             <%= f.password_field :password, autofocus: true, autocomplete: 'new-password' %>
           </div>
-
+          <!--パスワード（確認用）-->
           <div class='form-group text-center'>
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autofocus: true %>
           </div>
-
+          <!--登録ボタン-->
           <div class='actions text-center mt-4'>
-            <%= f.submit t('.sign_up'), class:'btn btn-info' %>
+            <%= f.submit t('.sign_up'), class: 'btn btn-info' %>
           </div>
+          <!--ログイン画面リンク-->
           <div class='text-center my-5'>
             <%= link_to 'アカウントをお持ちの方はこちら', new_user_session_path %>
           </div>
