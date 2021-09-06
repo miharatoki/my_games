@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_genre_array, only: [:new, :create, :edit, :update]
 
   def new
     @post = Post.new
@@ -14,15 +15,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    
-    if @post.save!
-      flash[:notice] = '記録を作成しました。'
-      redirect_to posts_path
-    else
-      @post = Post.new
-      render :new
-    end
+    @post = current_user.posts.new(post_params)
+      if @post.save
+        flash[:notice] = '記録を作成しました。'
+        redirect_to posts_path
+      else
+        render :new
+      end
   end
 
   def update
@@ -33,7 +32,15 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:genre_id, :title, :body, :total_score, :story_score, :graphic_score, :operability_score, :sound_socre, :balance_socre)
+    params.require(:post).permit(:genre_id, :title, :body, :total_score, :story_score, :graphic_score, :operability_score, :sound_score, :balance_score)
+  end
+
+  def genre_params
+    params.require(:post).permit(:genre)
+  end
+
+  def set_genre_array
+    @genre_array = Genre.select_array
   end
 
 end

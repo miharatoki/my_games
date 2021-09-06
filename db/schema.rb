@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_06_031730) do
+ActiveRecord::Schema.define(version: 2021_09_06_071439) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 2021_09_06_031730) do
     t.integer "total_score"
     t.integer "story_score"
     t.integer "operability_score"
-    t.integer "sound_socre"
-    t.integer "balance_socre"
+    t.integer "sound_score"
+    t.integer "balance_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "graphic_score"
   end
 
   create_table "users", force: :cascade do |t|

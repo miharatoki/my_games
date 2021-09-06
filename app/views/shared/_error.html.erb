@@ -1,0 +1,8 @@
+<div class='error-explanation text-danger'>
+  <% if model.errors.any? %>
+    <h4>入力内容に<%= model.errors.count %> つ誤りがあります。</h4>
+    <% model.errors.full_messages.each do |message| %>
+      <p>・<%= message %></p>
+    <% end %>
+  <% end %>
+</div>

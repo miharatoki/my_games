@@ -13,7 +13,7 @@
     </div>
     <!--サウンド評価-->
     <div class='form-group d-flex align-items-center sound-score'>
-      <%= f.label :sound_socre, class: 'col-4 offset-1' %>
+      <%= f.label :sound_score, class: 'col-4 offset-1' %>
     </div>
     <!--操作性評価-->
     <div class='form-group d-flex align-items-center operability-score'>
@@ -54,7 +54,7 @@
   $('.sound-score').raty({
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[sound_socre]'
+    scoreName: 'post[sound_score]'
   });
 </script>
 <!--操作性評価-->
@@ -70,6 +70,6 @@
   $('.balance-score').raty({
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[balance_score'
+    scoreName: 'post[balance_score]'
   });
 </script>
