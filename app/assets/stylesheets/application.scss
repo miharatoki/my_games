@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import "colors";
+
+ body{
+  // background-image: url('black0007.png');
+  background-color: silver;
+   .notice{
+    width: 80%;
+    height: 50px;
+    background-color: $notice;
+   }
+   .alert{
+    width: 80%;
+    height: 50px;
+    background-color: $alert;
+   }
+ }
+
+ footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+ }
+
+ .sign-up-in-form{
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 400px;
+  .sign-up-in-title{
+   width: 150px;
+   border-bottom: 2px solid;
+  }
+  .form-group{
+   margin: 15px;
+  }
+ }
+
+#error-explanation{
+ border-radius: 10px;
+ background-color: $alert;
+ li{
+  list-style: none;
+ }
+}

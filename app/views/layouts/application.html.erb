@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <%= render 'shared/header' %>
+
+    <!--フラッシュメッセージ-->
+    <% flash.each do |flash_type, message| %>
+      <%= content_tag :div, message, class: "#{flash_type} mx-auto" %>
+    <% end %>
+
     <%= yield %>
+    <footer class='text-center'>
+      <%= render 'shared/footer' %>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,27 @@
+<div class='container'>
+  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+    <div class='row'>
+      <div class='sign-up-in-form mx-auto'>
+        <div class='sign-up-in-title my-4 mx-auto text-center h3'>Log In</div>
+        <!--メールアドレス入力フォーム-->
+        <div class='form-group text-center mt-4'>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+        <!--パスワード入力フォーム-->
+        <div class='form-group text-center'>
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: 'new-password' %>
+        </div>
+        <!--ログインボタン-->
+        <div class='actions text-center mt-4'>
+          <%= f.submit t('.sign_in'), class: 'btn btn-info' %>
+        </div>
+        <!--新規登録画面へのリンク-->
+        <div class='text-center my-5'>
+          <%= link_to '新規登録はこちら', new_user_registration_path %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

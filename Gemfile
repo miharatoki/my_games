@@ -81,6 +81,7 @@ gem 'kaminari'
 # レイアウト
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
 
 # 画像アップロード
 gem "refile", require: "refile/rails", github: 'manfe/refile'
