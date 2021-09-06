@@ -107,6 +107,8 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.4)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     globalid (0.5.2)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -300,6 +302,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
