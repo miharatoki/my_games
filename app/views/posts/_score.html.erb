@@ -1,75 +1,112 @@
+<p class='ml-5 mb-2'>評価</p>
 <div class='rate-group mx-auto'>
     <!--総合評価-->
     <div class='form-group d-flex align-items-center total-score'>
-      <%= f.label :total_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.total_score' %></label>
     </div>
     <!--ストーリー評価-->
     <div class='form-group d-flex align-items-center story-score'>
-      <%= f.label :story_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.story_score' %></label>
     </div>
     <!--グラフィック評価-->
     <div class='form-group d-flex align-items-center graphic-score'>
-      <%= f.label :graphic_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.graphic_score' %></label>
     </div>
     <!--サウンド評価-->
     <div class='form-group d-flex align-items-center sound-score'>
-      <%= f.label :sound_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.sound_score' %></label>
     </div>
     <!--操作性評価-->
     <div class='form-group d-flex align-items-center operability-score'>
-      <%= f.label :operability_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.operability_score' %></label>
     </div>
     <!--ゲームバランス評価-->
     <div class='form-group d-flex align-items-center balance-score'>
-      <%= f.label :balance_score, class: 'col-4 offset-1' %>
+      <label class='col-4 offset-1'><%= t '.balance_score' %></label>
     </div>
   </div>
 
-<!--総合評価-->
-<script>
-  $('.total-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[total_score]'
-  });
-</script>
-<!--ストーリー評価-->
-<script>
-  $('.story-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[story_score]'
-  });
-</script>
-<!--グラフィック評価-->
-<script>
-  $('.graphic-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[graphic_score]'
-  });
-</script>
-<!--サウンド評価-->
-<script>
-  $('.sound-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[sound_score]'
-  });
-</script>
-<!--操作性評価-->
-<script>
-  $('.operability-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[operability_score]'
-  });
-</script>
-<!--ゲームバランス評価-->
-<script>
-  $('.balance-score').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    scoreName: 'post[balance_score]'
-  });
-</script>
+<% if current_page?(new_post_path) %>
+  <script>
+    $('.total-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[total_score]'
+    });
+
+
+    $('.story-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[story_score]'
+    });
+
+    $('.graphic-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[graphic_score]'
+    });
+
+    $('.sound-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[sound_score]'
+    });
+
+    $('.operability-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[operability_score]'
+    });
+
+    $('.balance-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[balance_score]'
+    });
+  </script>
+<% else %>
+  <script>
+    $('.total-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.total_score %>,
+    });
+
+    $('.story-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.story_score %>,
+    });
+
+    $('.graphic-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.graphic_score %>,
+    });
+
+    $('.sound-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.sound_score %>,
+    });
+
+    $('.operability-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.operability_score %>
+    });
+
+    $('.balance-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      readOnly: true,
+      score: <%= post.balance_score %>,
+    });
+  </script>
+<% end %>

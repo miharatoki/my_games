@@ -17,8 +17,11 @@
  @import "colors";
 
  body{
-  // background-image: url('black0007.png');
   background-image: url('black0007.png');
+  .wrapper{
+   width: 100%;
+   height: 100%;
+   margin-bottom: -50px;
    .notice{
     width: 80%;
     height: 50px;
@@ -29,16 +32,21 @@
     height: 50px;
     background-color: $alert;
    }
+   .push{
+    height: 70px;
+   }
+  }
  }
 
- .footer{
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0;
-  background-color: silver;
- }
+.footer{
+width: 100%;
+height: 50px;
+// position: absolute;
+// bottom: 0;
+background-color: silver;
+}
+
+
 
  .error-explanation{
  border-radius: 10px;
@@ -84,5 +92,13 @@
    border: 1px solid;
    border-radius: 10px;
   }
+ }
+}
+
+.posts-index{
+ .item{
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
  }
 }

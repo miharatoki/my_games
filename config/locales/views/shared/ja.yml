@@ -1,7 +1,7 @@
 ja:
-  posts:
-    new:
-      title: '新しい記録'
+  _shared:
+    score:
+      total_score: '総合評価'
     index:
       title: 'ゲームタイトル'
     show:
@@ -10,10 +10,6 @@ ja:
     edit:
       # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
       title: '%{user_name}さんのユーザ情報を編集'
-    score:
-      total_score: '総合評価'
-      story_score: 'ストーリー'
-      graphic_score: 'グラフィック'
-      sound_score: '主題歌・BGM'
-      operability_score: '操作性'
-      balance_score: 'ゲームバランス'
+    helpers:
+      submit:
+        submit: '記録する'

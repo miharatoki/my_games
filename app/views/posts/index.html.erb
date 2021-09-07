@@ -1,2 +1,15 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class='container posts-index'>
+  <div class='row mt-5'>
+    <div class='col-12 d-flex flex-wrap justify-content-center'>
+      <% @posts.each do |post| %>
+        <div class='col-3 m-3 item'>
+          <div><%= post.title %></div><br>
+          <%= post.genre.name %><br>
+          <%#<%= render 'score', post: post %>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
