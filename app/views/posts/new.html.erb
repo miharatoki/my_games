@@ -1,4 +1,3 @@
-
 <div class='container posts-new'>
   <%= render 'shared/error', model: @post %>
   <%= form_with model: @post, local: true do |f| %>
@@ -24,7 +23,7 @@
       </div>
 
       <!--評価グループ-->
-      <%= render 'score', f: f %>
+      <%= render 'score_new', f: f %>
 
       <!--記録作成ボタン-->
       <div class='form-group'>

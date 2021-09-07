@@ -1,13 +1,18 @@
 <div class='container posts-index'>
   <div class='row mt-5'>
     <div class='col-12 d-flex flex-wrap justify-content-center'>
+      <% a = 0 %>
       <% @posts.each do |post| %>
-        <div class='col-3 m-3 item'>
-          <div><%= post.title %></div><br>
-          <%= post.genre.name %><br>
-          <%#<%= render 'score', post: post %>
+        <%= link_to post_path(post.id), class: 'col-3 ml-3 mb-5 link-btn' do %>
+            <div class='title-field'><%= post.title %></div><br>
+            <div class='genre-field'><%= post.genre.name %></div><br>
+            <%= render 'score_show', post: post %>
+            <% a += 1 %>
+            <% if a > 3 %>
+              <% byebug %>
+            <% end %>
+        <% end %>
 
-        </div>
       <% end %>
 
     </div>

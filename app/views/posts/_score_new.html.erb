@@ -26,7 +26,6 @@
     </div>
   </div>
 
-<% if current_page?(new_post_path) %>
   <script>
     $('.total-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
@@ -65,48 +64,3 @@
       scoreName: 'post[balance_score]'
     });
   </script>
-<% else %>
-  <script>
-    $('.total-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.total_score %>,
-    });
-
-    $('.story-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.story_score %>,
-    });
-
-    $('.graphic-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.graphic_score %>,
-    });
-
-    $('.sound-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.sound_score %>,
-    });
-
-    $('.operability-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.operability_score %>
-    });
-
-    $('.balance-score').raty({
-      starOn: "<%= asset_path('star-on.png') %>",
-      starOff: "<%= asset_path('star-off.png') %>",
-      readOnly: true,
-      score: <%= post.balance_score %>,
-    });
-  </script>
-<% end %>
