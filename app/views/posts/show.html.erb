@@ -19,10 +19,14 @@
           <%= render 'score_show', post: @post %>
         </div>
       </div>
-      <div class='btn-group'>
-        <%= link_to t('posts.show.edit'), edit_post_path(@post.id), class: 'btn btn-info' %>
-        <%= link_to t('posts.show.edit'), edit_post_path(@post.id), class: 'btn btn-info' %>
-        
+      <div class='col-4 offset-8 mb-3 edit-destroy-btn'>
+        <%= link_to edit_post_path(@post.id), class: 'btn btn-info' do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+
+        <%= link_to post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger ml-3' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
       </div>
     </div>
   </div>

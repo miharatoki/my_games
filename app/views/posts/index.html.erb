@@ -1,18 +1,19 @@
 <div class='container posts-index'>
   <div class='row mt-5'>
     <div class='col-12 d-flex flex-wrap justify-content-center'>
-      <% a = 0 %>
       <% @posts.each do |post| %>
-        <%= link_to post_path(post.id), class: 'col-3 ml-3 mb-5 link-btn' do %>
-            <div class='title-field'><%= post.title %></div><br>
-            <div class='genre-field'><%= post.genre.name %></div><br>
-            <%= render 'score_show', post: post %>
-            <% a += 1 %>
-            <% if a > 3 %>
-              <% byebug %>
-            <% end %>
-        <% end %>
+        <%= link_to post_path(post.id), class: 'ml-3 mb-5 posts-list' do %>
+            <div class='form-inline d-flex align-items-center mt-3 title-field'>
+              <p class='col-6 text-right mb-0'><%= t '.title' %>：</p>
+              <strong><%= post.title %></strong>
+            </div>
 
+            <div class='form-inline d-flex align-items-center my-3 genre-field'>
+              <p class='col-6 text-right mb-0'><%= t '.genre' %>：</p>
+              <strong><%= post.genre.name %></strong>
+            </div>
+            <%= render 'score_show', post: post %>
+        <% end %>
       <% end %>
 
     </div>

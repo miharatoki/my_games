@@ -4,6 +4,7 @@ ja:
       title: '新しい記録'
     index:
       title: 'ゲームタイトル'
+      genre: 'ジャンル'
     show:
       edit: '編集'
     edit:
@@ -17,6 +18,13 @@ ja:
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
     score_show:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    score_index:
       total_score: '総合評価'
       story_score: 'ストーリー'
       graphic_score: 'グラフィック'
