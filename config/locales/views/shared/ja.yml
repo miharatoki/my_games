@@ -1,0 +1,15 @@
+ja:
+  _shared:
+    score_new:
+      total_score: '総合評価'
+    index:
+      title: 'ゲームタイトル'
+    show:
+      # 引数の指定もできる。
+      title: '%{user_name}さんのユーザ情報'
+    edit:
+      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
+      title: '%{user_name}さんのユーザ情報を編集'
+    helpers:
+      submit:
+        submit: '記録する'

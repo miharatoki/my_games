@@ -1,2 +1,36 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class='container posts-show'>
+  <div class='row mt-5'>
+    <div class='col-5 posts-show-form'>
+      <div class='posts-show-heading my-4 mx-auto text-center h3'><%= "#{@post.title}" %></div>
+      <!--ジャンル-->
+      <div class='form-inline mb-4'>
+        <p class='col-3 text-right'>ジャンル：</p>
+        <p class='offset-1'><%= @post.genre.name %></p>
+      </div>
+      <!--感想-->
+      <div class='form-inline d-flex align-items-start mb-4'>
+        <p class='col-3 text-right'>感想：</p>
+        <p class='col-9 posts-body-box'><%= @post.body %></p>
+      </div>
+      <!--評価グループ-->
+      <div class='form-inline d-flex align-items-start mb-4'>
+        <p class='col-3 text-right'>評価：</p>
+        <div class='col-9 px-0'>
+          <%= render 'score_show', post: @post %>
+        </div>
+      </div>
+      <div class='col-4 offset-8 mb-3 edit-destroy-btn'>
+        <%= link_to edit_post_path(@post.id), class: 'btn btn-info' do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+
+        <%= link_to post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger ml-3' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

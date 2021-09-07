@@ -3,13 +3,31 @@ ja:
     new:
       title: '新しい記録'
     index:
-      title: 'ユーザ一覧'
+      title: 'ゲームタイトル'
+      genre: 'ジャンル'
     show:
-      # 引数の指定もできる。
-      title: '%{user_name}さんのユーザ情報'
+      edit: '編集'
     edit:
       # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
       title: '%{user_name}さんのユーザ情報を編集'
-    helpers:
-      submit:
-        submit: '記録する'
+    score_new:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    score_show:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    score_index:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'

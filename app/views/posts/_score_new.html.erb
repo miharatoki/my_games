@@ -1,0 +1,66 @@
+<p class='ml-5 mb-2'>評価</p>
+<div class='rate-group mx-auto'>
+    <!--総合評価-->
+    <div class='form-group d-flex align-items-center total-score'>
+      <label class='col-4 offset-1'><%= t '.total_score' %></label>
+    </div>
+    <!--ストーリー評価-->
+    <div class='form-group d-flex align-items-center story-score'>
+      <label class='col-4 offset-1'><%= t '.story_score' %></label>
+    </div>
+    <!--グラフィック評価-->
+    <div class='form-group d-flex align-items-center graphic-score'>
+      <label class='col-4 offset-1'><%= t '.graphic_score' %></label>
+    </div>
+    <!--サウンド評価-->
+    <div class='form-group d-flex align-items-center sound-score'>
+      <label class='col-4 offset-1'><%= t '.sound_score' %></label>
+    </div>
+    <!--操作性評価-->
+    <div class='form-group d-flex align-items-center operability-score'>
+      <label class='col-4 offset-1'><%= t '.operability_score' %></label>
+    </div>
+    <!--ゲームバランス評価-->
+    <div class='form-group d-flex align-items-center balance-score'>
+      <label class='col-4 offset-1'><%= t '.balance_score' %></label>
+    </div>
+  </div>
+
+  <script>
+    $('.total-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[total_score]'
+    });
+
+
+    $('.story-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[story_score]'
+    });
+
+    $('.graphic-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[graphic_score]'
+    });
+
+    $('.sound-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[sound_score]'
+    });
+
+    $('.operability-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[operability_score]'
+    });
+
+    $('.balance-score').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'post[balance_score]'
+    });
+  </script>

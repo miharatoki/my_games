@@ -1,10 +1,10 @@
-
 <div class='container posts-new'>
   <%= render 'shared/error', model: @post %>
   <%= form_with model: @post, local: true do |f| %>
   <div class='row mt-5'>
     <div class='post-new-form mx-auto'>
       <div class='post-new-heading my-4 mx-auto text-center h3'>新しい記録</div>
+
       <!--ゲームタイトル-->
       <div class='form-group ml-5 mt-5 mb-4'>
         <%= f.label :title %><br>
@@ -23,7 +23,7 @@
       </div>
 
       <!--評価グループ-->
-      <%= render 'score', f: f %>
+      <%= render 'score_new', f: f %>
 
       <!--記録作成ボタン-->
       <div class='form-group'>

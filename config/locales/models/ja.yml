@@ -13,7 +13,7 @@ ja:
         title: 'ゲームタイトル'
         body: '感想'
         genre: 'ジャンル'
-        total_score: '総合'
+        total_score: '総合評価'
         story_score: 'ストーリー'
         graphic_score: 'グラフィック'
         sound_score: '主題歌・BGM'
