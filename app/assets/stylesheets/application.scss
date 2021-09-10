@@ -19,6 +19,13 @@
 @import "bootstrap";
 @import "colors";
 
+@font-face {
+  font-family: "Koruri-Semibold";
+  src: url('/assets/Koruri-Semibold.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
  *{
   margin: 0;
   padding: 0;
@@ -26,9 +33,10 @@
  }
 
  body{
+  width: 100%;
   height: 100%;
   margin: 0;
-  background-image: url('tatami02.jpeg');
+  background-image: url('black0007.png');
   .wrapper{
    min-height: 100%;
    margin-bottom: -50px;
@@ -48,9 +56,22 @@
   }
  .footer{
  height: 50px;
- background-color: silver;
+ background-color: $header_footer;
  }
 }
+
+.navbar{
+ background-color: $header_footer;
+ .header-left{
+  font-family: "Koruri-Semibold";
+  text-decoration: none;
+  color: white;
+ }
+ .welcom{
+  color: $nav_link;
+ }
+}
+
 
 // .container{
 //  margin-left: 150px;
@@ -156,3 +177,16 @@
   }
  }
 }
+
+.nav-link{
+ font-family: "Koruri-Semibold";
+ text-decoration: none;
+ .nav-link-word{
+  color: $nav_link;
+
+ }
+}
+.nav-icon{
+ color: orange;
+}
+

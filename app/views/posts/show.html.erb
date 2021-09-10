@@ -12,11 +12,11 @@
         <p class='col-3 text-right'>感想：</p>
         <p class='col-9 posts-body-box'><%= @post.body %></p>
       </div>
-      <!--評価グループ-->
+      <!--評価-->
       <div class='form-inline d-flex align-items-start mb-4'>
         <p class='col-3 text-right'>評価：</p>
         <div class='col-9 px-0'>
-          <%= render 'score_show', post: @post %>
+          <%= render 'score_read_only', post: @post %>
         </div>
       </div>
       <div class='col-4 offset-8 mb-3 edit-destroy-btn'>
@@ -24,7 +24,7 @@
           <i class="far fa-edit"></i>
         <% end %>
 
-        <%= link_to post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger ml-3' do %>
+        <%= link_to post_path(@post.id), method: :delete, data: { confirm: (t '.confirm') }, class: 'btn btn-danger ml-3' do %>
           <i class="fas fa-trash"></i>
         <% end %>
       </div>
