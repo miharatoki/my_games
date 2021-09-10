@@ -38,16 +38,18 @@
   margin: 0;
   background-image: url('black0007.png');
   .wrapper{
+   width: 100%;
    min-height: 100%;
    margin-bottom: -50px;
+
    .notice{
     width: 80%;
-    height: 50px;
+    height: 30px;
     background-color: $notice;
    }
    .alert{
     width: 80%;
-    height: 50px;
+    height: 30px;
     background-color: $alert;
    }
    .push{
@@ -94,6 +96,10 @@
  }
 }
 
+ .form-group{
+  margin: 15px;
+ }
+
 .sign-up-in-form{
  background-color: white;
  border: 1px solid;
@@ -104,18 +110,16 @@
   border-bottom: 2px solid;
  }
 }
- .form-group{
-  margin: 15px;
- }
 
+.users-edit,
 .posts-new{
- .post-new-form{
+ .input-form{
+  padding: 0;
+  margin: 0 auto;
   background-color: white;
   border: 1px solid;
   border-radius: 10px;
-  width: 50%;
-  .post-new-heading{
-   width: 30%;
+  .form-heading{
    border-bottom: 2px solid;
   }
   .rate-group{
@@ -184,10 +188,14 @@
  text-decoration: none;
  .nav-link-word{
   color: $nav_link;
-
  }
 }
+
 .nav-icon{
  color: orange;
 }
 
+.no-posts{
+ color: white;
+ height: 30px;
+}

@@ -1,0 +1,12 @@
+<!--フラッシュメッセージ-->
+<% flash.each do |flash_type, message| %>
+  <% if flash_type == "notice" %>
+    <div class='notice d-flex align-items-center mx-auto my-3'>
+      <%= content_tag :div, message,class: ' ml-3' %>
+    </div>
+  <% else %>
+    <div class='alert d-flex align-items-center mx-auto my-3'>
+      <%= content_tag :div, message,class: ' ml-3'%>
+    </div>
+  <% end %>
+<% end %>

@@ -5,7 +5,9 @@ ja:
       post: '記録'
     attributes:
       user:
-        name: '姓'
+        name: 'ユーザー名'
+        introduction: 'プロフィール文'
+        profile_image_id: 'プロフィール画像'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'

@@ -14,13 +14,8 @@
   <body>
     <div class='wrapper'>
       <%= render 'shared/header' %>
+      <%= render 'shared/flash' %>
 
-      <!--フラッシュメッセージ-->
-      <div class='falsh-message my-3'>
-        <% flash.each do |flash_type, message| %>
-          <%= content_tag :div, message, class: "#{flash_type} mx-auto" %>
-        <% end %>
-      </div>
 
       <%= yield %>
 

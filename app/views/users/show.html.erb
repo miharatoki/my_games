@@ -1,5 +1,13 @@
 <div class='container users-show'>
   <div class='row my-5'>
-    <%= render 'posts/index', posts: @user.posts %>
+    <!--ログインユーザの記録が一つもなかったら-->
+    <% if no_posts?(@user) %>
+      <div class='no-posts my-3 h5'>
+        <%= t '.no_posts' %>
+      </div>
+    <% else %>
+      <!--記録が一つ以上あったら-->
+      <%= render 'posts/index', posts: @posts %>
+    <% end %>
   </div>
 </div>

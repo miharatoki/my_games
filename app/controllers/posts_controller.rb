@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(6)
   end
 
   def show
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
       if @post.save
-        flash[:notice] = '記録を作成しました。'
+        flash[:notice] = '記録を作成しました'
         redirect_to post_path(@post.id)
       else
         render :new
@@ -29,10 +29,20 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      flash[:notice] = '記録を更新しました'
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    post = Post.find(params[:id])
+    if post.destroy
+      flash[:notice] = '記録を削除しました'
+      redirect_to user_path(current_user.id)
+    end
   end
 
   private
