@@ -1,2 +1,36 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class='container posts-new'>
+  <%= render 'shared/error', model: @post %>
+  <%= form_with model: @post, local: true do |f| %>
+  <div class='row mt-5'>
+    <div class='col-xl-6 col-lg-8 col-xs-10 input-form'>
+      <div class='form-heading my-4 mx-auto w-50 text-center h3'><%= t '.title'%></div>
+
+      <!--ゲームタイトル-->
+      <div class=' mx-5 mt-5 mb-4 form-group'>
+        <%= f.label :title %><br>
+        <%= f.text_field :title, size: 30 %>
+      </div>
+      <!--ジャンル-->
+      <div class='form-group mx-5 mb-4'>
+        <%= f.label :genre %><br>
+        <%= f.select :genre_id, @genre_array, { include_blank: 'ジャンルを選択してください' } %>
+      </div>
+
+      <!--感想-->
+      <div class='form-group mx-5'>
+        <%= f.label :body%><br>
+        <%= f.text_area :body, cols: 30, rows: 5 %>
+      </div>
+
+      <!--評価グループ-->
+      <%= render 'score_new', f: f %>
+
+      <!--記録作成ボタン-->
+      <div class='form-group'>
+        <%= f.submit (t '.delete'), type: 'reset', class: 'offset-5 mr-3 btn btn-danger' %>
+        <%= f.submit (t '.post'), class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

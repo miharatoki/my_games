@@ -5,19 +5,10 @@ ja:
       my_page: 'マイページ'
       my_index: '自分の記録'
       all_index: 'みんなの記録'
-      new_post: '新しい記録を作成'
+      new_post: '新しく記録する'
       sign_out: 'ログアウト'
       sign_in: 'ログイン'
       welcom: 'ようこそ、%{user_name}さん！'
-
-    index:
-      title: 'ゲームタイトル'
-    show:
-      # 引数の指定もできる。
-      title: '%{user_name}さんのユーザ情報'
-    edit:
-      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
-      title: '%{user_name}さんのユーザ情報を編集'
     helpers:
       submit:
         submit: '記録する'

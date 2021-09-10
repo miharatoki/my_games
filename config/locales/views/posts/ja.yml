@@ -2,14 +2,19 @@ ja:
   posts:
     new:
       title: '新しい記録'
+      delete: '書いた内容を消す'
+      post: '記録する'
     index:
       title: 'ゲームタイトル'
       genre: 'ジャンル'
       posted_user: '投稿者： %{user_name}さん'
       posted_date: '投稿日：'
+    show:
       confirm: '削除しますか？'
-
-
+    edit:
+      title: '記録を編集する'
+      delete: '書いた内容を消す'
+      post: '記録する'
     score_new:
       total_score: '総合評価'
       story_score: 'ストーリー'
@@ -24,4 +29,12 @@ ja:
       sound_score: '主題歌・BGM'
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
+
+  users:
+    show:
+      no_posts: '記録がありません、画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
+    edit:
+      profile: 'プロフィール'
+      edit: '変更する'
+
 

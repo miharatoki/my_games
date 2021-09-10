@@ -8,5 +8,6 @@ class User < ApplicationRecord
                    length: { minimum: 2, maximum: 10 }
 
   has_many :posts, dependent: :destroy
+  attachment :profile_image
 
 end
