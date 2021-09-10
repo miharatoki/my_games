@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_genre_array,     only: [:new, :create, :edit, :update]
   before_action :ensure_posted_user,  only: [:edit, :update, :destroy]
-  
+  before_action :ensure_sign_in
 
   def new
     @post = Post.new
@@ -32,14 +32,21 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private
   def post_params
     params.require(:post).permit(:genre_id, :title, :body, :total_score, :story_score, :graphic_score, :operability_score, :sound_score, :balance_score)
   end
-  
+
+  def ensure_sign_in
+    unless user_signed_in?
+      flash[:alert] = 'ログイン、または新規登録をしてください。'
+      redirect_to new_user_session_path
+    end
+  end
+
   def ensure_posted_user
     @post = Post.find(params[:id])
     unless @post.user_id = current_user.id

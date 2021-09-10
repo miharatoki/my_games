@@ -4,6 +4,7 @@
     <title>MyGames</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/12d0bb0516.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,9 +16,11 @@
       <%= render 'shared/header' %>
 
       <!--フラッシュメッセージ-->
-      <% flash.each do |flash_type, message| %>
-        <%= content_tag :div, message, class: "#{flash_type} mx-auto" %>
-      <% end %>
+      <div class='falsh-message my-3'>
+        <% flash.each do |flash_type, message| %>
+          <%= content_tag :div, message, class: "#{flash_type} mx-auto" %>
+        <% end %>
+      </div>
 
       <%= yield %>
 

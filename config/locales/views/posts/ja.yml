@@ -5,11 +5,11 @@ ja:
     index:
       title: 'ゲームタイトル'
       genre: 'ジャンル'
-    show:
-      edit: '編集'
-    edit:
-      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
-      title: '%{user_name}さんのユーザ情報を編集'
+      posted_user: '投稿者： %{user_name}さん'
+      posted_date: '投稿日：'
+      confirm: '削除しますか？'
+
+
     score_new:
       total_score: '総合評価'
       story_score: 'ストーリー'
@@ -17,17 +17,11 @@ ja:
       sound_score: '主題歌・BGM'
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
-    score_show:
+    score_read_only:
       total_score: '総合評価'
       story_score: 'ストーリー'
       graphic_score: 'グラフィック'
       sound_score: '主題歌・BGM'
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
-    score_index:
-      total_score: '総合評価'
-      story_score: 'ストーリー'
-      graphic_score: 'グラフィック'
-      sound_score: '主題歌・BGM'
-      operability_score: '操作性'
-      balance_score: 'ゲームバランス'
+
