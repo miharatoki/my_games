@@ -9,6 +9,6 @@ ja:
       sign_out: 'ログアウト'
       sign_in: 'ログイン'
       welcom: 'ようこそ、%{user_name}さん！'
-    helpers:
-      submit:
-        submit: '記録する'
+    error:
+      content: '入力した内容に'
+      mistake: 'つ不備があります。'

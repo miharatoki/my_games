@@ -1,30 +1,29 @@
- <div class='col-12 d-flex flex-wrap justify-content-center'>
-      <% posts.each do |post| %>
-        <%= link_to post_path(post.id), class: 'ml-3 mb-5 posts-list' do %>
-            <!--ゲームタイトル-->
-            <div class='form-inline d-flex align-items-center mt-3 title-field'>
-              <p class='col-6 text-right mb-0'><%= t '.title' %>：</p>
-              <strong><%= post.title %></strong>
-            </div>
-            <!--ジャンル-->
-            <div class='form-inline d-flex align-items-center my-3 genre-field'>
-              <p class='col-6 text-right mb-0'><%= t '.genre' %>：</p>
-              <strong><%= post.genre.name %></strong>
-            </div>
-            <!--評価-->
-            <%= render 'posts/score_read_only', post: post %>
-              <!--投稿者名-->
-              <div class='col-7 offset-4 mb-2'>
-              　<%= t '.posted_user', user_name: post.user.name %>
-              </div>
-              <!--投稿日-->
-              <div class='col-8 offset-4 mb-3'>
-              　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
-              </div>
-        <% end %>
-      <% end %>
-
-    </div>
-    <div class='mx-auto pagenate-label'>
-      <%= paginate posts %>
-    </div>
+<div class='col-12 d-flex flex-wrap'>
+  <% posts.each do |post| %>
+    <%= link_to post_path(post.id), class: 'ml-3 mb-5 posts-list' do %>
+      <!--ゲームタイトル-->
+      <div class='form-inline d-flex align-items-center mt-3 title-field'>
+        <p class='col-6 text-right mb-0'><%= t '.title' %>：</p>
+        <strong class='col-6 text-truncate'><%= post.title %></strong>
+      </div>
+      <!--ジャンル-->
+      <div class='form-inline d-flex align-items-center my-3 genre-field'>
+        <p class='col-6 text-right mb-0'><%= t '.genre' %>：</p>
+        <strong class='col-6'><%= post.genre.name %></strong>
+      </div>
+      <!--評価-->
+      <%= render 'posts/score_read_only', post: post %>
+      <!--投稿者名-->
+      <div class='col-7 offset-4 mb-2'>
+      　<%= t '.posted_user', user_name: post.user.name %>
+      </div>
+      <!--投稿日-->
+      <div class='col-8 offset-4 mb-3'>
+      　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class='mx-auto pagenate-label'>
+  <%= paginate posts %>
+</div>

@@ -9,8 +9,6 @@ ja:
       genre: 'ジャンル'
       posted_user: '投稿者： %{user_name}さん'
       posted_date: '投稿日：'
-    show:
-      confirm: '削除しますか？'
     edit:
       title: '記録を編集する'
       delete: '書いた内容を消す'
@@ -29,6 +27,16 @@ ja:
       sound_score: '主題歌・BGM'
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
+    detail:
+      genre: 'ジャンル：'
+      impression: '感想：'
+      score: '評価：'
+      posted_user: '投稿者： 　'
+      posted_user_name: '%{user_name}さん'
+      posted_date: '投稿日：'
+      confirm: '削除しますか？'
+    post_comment:
+      send: '送信'
 
   users:
     show:

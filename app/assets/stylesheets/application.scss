@@ -81,7 +81,7 @@
 // }
 
 
- .error-explanation{
+ #error-explanation{
  border-radius: 10px;
  background-color: $alert;
  h4{
@@ -152,18 +152,24 @@
 }
 
 .posts-show{
- .posts-show-form{
+ .posts-show-box{
   background-color: white;
   border: 1px solid;
   border-radius: 10px;
   width: 50%;
+  height: 77vh;
   .posts-show-heading{
    width: 200px;
    border-bottom: 2px solid;
   }
-  .posts-body-box{
-   border: 1px solid;
-   width: 80%;
+  .impression-field{
+   height: 15%;
+   .posts-body-box{
+    overflow: auto;
+    border: 1px solid;
+    width: 80%;
+    height: 80%;
+   }
   }
   .score-group{
    width: 100%;
@@ -177,8 +183,25 @@
     margin: 15px;
    }
   }
-  .btn{
-
+ }
+ .comment-box{
+  border-radius: 10px;
+  background-color: white;
+  height: 77vh;
+  .comment-form{
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 10%;
+   border-bottom: 1px;
+  }
+  .comment-field{
+   height: 85%;
+   overflow: auto;
+   .comment{
+    border: 1px solid ;
+    border-radius: 10px;
+   }
   }
  }
 }

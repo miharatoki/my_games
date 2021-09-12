@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -39,10 +40,9 @@ class PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
-    if post.destroy
-      flash[:notice] = '記録を削除しました'
-      redirect_to user_path(current_user.id)
-    end
+    post.destroy
+    flash[:notice] = '記録を削除しました'
+    redirect_to user_path(current_user.id)
   end
 
   private

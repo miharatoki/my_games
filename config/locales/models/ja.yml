@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '記録'
+      post_comment: 'コメント'
     attributes:
       user:
         name: 'ユーザー名'
@@ -21,3 +22,5 @@ ja:
         sound_score: '主題歌・BGM'
         operability_score: '操作性'
         balance_score: 'ゲームバランス'
+      post_comment:
+        comment: 'コメント'

@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   before_action :ensure_user, only: [:edit, :update]
   before_action :ensure_sign_in
 
-  def index
-    @users = User.all
-  end
-
   def show
     @posts = Post.where(user_id: params[:id])
     @posts = @posts.page(params[:page])
@@ -16,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
+
     if @user.update(user_params)
       flash[:notice] = 'アカウント情報を編集しました。'
       redirect_to user_path(current_user.id)
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image_id)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def set_user
