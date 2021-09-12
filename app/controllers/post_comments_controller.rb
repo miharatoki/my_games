@@ -7,18 +7,18 @@ class PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     if @post_comment.save
       flash[:notice] = '投稿しました'
-      redirect_to post_path(params[:post_id])
+      @post = Post.find(params[:post_id])
+      render :comment_field
     else
       @post = Post.find(params[:post_id])
       @post_comment = @post_comment
-      render 'posts/show'
+      render :error
     end
   end
 
   def destroy
 
-    @post_comment = Post.all
-    # @post_comment.destroy
+    render :index
   end
 
   private

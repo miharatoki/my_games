@@ -1,4 +1,4 @@
-<div class='error-explanation text-danger'>
+<div id='error-explanation'>
   <% if model.errors.any? %>
     <h4><%= t '.content' %> <%= model.errors.count %><%= t '.mistake' %> </h4>
     <% model.errors.full_messages.each do |message| %>

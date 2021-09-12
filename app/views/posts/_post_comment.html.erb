@@ -1,43 +1,10 @@
 <div class='offset-xl-1 col-xl-6 my-3 comment-box'>
+  <!--コメント表示エリア-->
   <div class='mt-3 comment-field'>
-    <% post.post_comments.each do |comment| %>
-      <% if comment.user.id == current_user.id %>
-        <!--自分のコメントの場合-->
-        <div class='d-flex justify-content-end my-2 my-comment'>
-          <!--コメント-->
-          <div class='offset-1 text-break p-1 comment'>
-            <%= comment.comment %>
-          </div>
-          <!--アカウント名-->
-          <div class='col-1 p-0 pl-1 account-image'>
-            <%= link_to user_path(comment.user.id) do %>
-              <%= attachment_image_tag comment.user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size: '40x40' %>
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <!--他ユーザのコメントの場合-->
-        <!--アカウント名-->
-        <div class='pb-0 comment-user'>
-          <%= comment.user.name %>
-        </div>
-        <div class='d-flex justify-content-start mt-0 mb-2 others-comment'>
-          <!--アカウントの画像-->
-          <div class='col-1 p-0 pl-1 account-image'>
-            <%= link_to user_path(comment.user.id) do %>
-              <%= attachment_image_tag comment.user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size: '40x40' %>
-            <% end %>
-          </div>
-          <!--コメント-->
-          <div class=' text-break p-1 comment'>
-            <%= comment.comment %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render 'post_comments/comment_field', post: post %>
   </div>
   <!--コメント入力フォーム-->
-  <%= form_with model:[post, post_comment], local: true do |f| %>
+  <%= form_with model:[post, post_comment] do |f| %>
     <div class='col-12 form-inline my-3 p-0 comment-form'>
       <%= f.text_area :comment, placeholder: 'コメントを入力', class: 'col-8' %>
       <%= f.submit (t '.send'), class: 'offset-1 col-2 btn btn-success' %>
