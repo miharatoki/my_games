@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :genre
+  has_many   :post_comments
 
   validates :title,             presence: true
   validates :body,              presence: true
@@ -10,6 +11,5 @@ class Post < ApplicationRecord
   validates :operability_score, presence: true
   validates :sound_score,       presence: true
   validates :balance_score,     presence: true
-
 
 end
