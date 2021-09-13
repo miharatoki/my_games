@@ -5,14 +5,13 @@ class UsersController < ApplicationController
 
   def show
     @posts = Post.where(user_id: params[:id])
-    @posts = @posts.page(params[:page])
+    @posts = @posts.page(params[:page]).per(6)
   end
 
   def edit
   end
 
   def update
-
     if @user.update(user_params)
       flash[:notice] = 'アカウント情報を編集しました。'
       redirect_to user_path(current_user.id)
@@ -20,6 +19,13 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       render :edit
     end
+  end
+
+  def genre_search
+    searched_posts = Post.where(genre_id: (params[:genre]))
+    @posts = searched_posts.page(params[:page]).per(6)
+    @user = User.find(params[:user_id])
+    render :show
   end
 
   private

@@ -1,0 +1,14 @@
+<div class='search-form'>
+  <% if current_page?(posts_path) || current_page?(posts_genre_search_path) %>
+  　<!--投稿一覧ページだったら-->
+    <%= form_with url: posts_genre_search_path, method: :get, id: 'genre-search-form', local: true do |f| %>
+      <%= f.select :genre, genre_array, { include_blank: (t '.genre_search') }, id: 'select' %>
+    <% end %>
+  <% else %>
+    <!--ユーザ詳細ページだったら-->
+    <%= form_with url: user_genre_search_path(user.id), method: :get, id: 'genre-search-form', local: true do |f| %>
+      <%= f.hidden_field :user_id, :value => user.id %>
+      <%= f.select :genre, genre_array, { include_blank: (t '.genre_search') }, id: 'select' %>
+    <% end %>
+  <% end %>
+</div>

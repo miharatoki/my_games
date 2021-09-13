@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_genre_array,     only: [:new, :create, :edit, :update]
   before_action :ensure_posted_user,  only: [:edit, :update, :destroy]
   before_action :ensure_sign_in
 
@@ -45,6 +44,12 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def genre_search
+    searched_posts = Post.where(genre_id: (params[:genre]))
+    @posts = searched_posts.page(params[:page]).per(6)
+    render :index
+  end
+
   private
   def post_params
     params.require(:post).permit(:genre_id, :title, :body, :total_score, :story_score, :graphic_score, :operability_score, :sound_score, :balance_score)
@@ -63,10 +68,6 @@ class PostsController < ApplicationController
       flash[:alert] = '権限がないため処理できません。'
       redirect_to :posts_path
     end
-  end
-
-  def set_genre_array
-    @genre_array = Genre.select_array
   end
 
 end
