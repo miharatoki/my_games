@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
-  get 'users/edit'
   devise_for :users
   root to: 'homes#top'
   resources :users, only: [:index, :show, :edit, :update] do
-    get 'users/:id/genres/:id' => 'genres#show'
+    get '/genre_search' => 'users#genre_search'
   end
+
+  get 'posts/genre_search' => 'posts#genre_search'
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
   end

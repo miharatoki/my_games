@@ -7,6 +7,7 @@
       </div>
     <% else %>
       <!--記録が一つ以上あったら-->
+      <%= render 'shared/search', user: @user %>
       <%= render 'posts/index', posts: @posts %>
     <% end %>
   </div>

@@ -13,7 +13,8 @@
       <!--ジャンル-->
       <div class='form-group mx-5 mb-4'>
         <%= f.label :genre %><br>
-        <%= f.select :genre_id, @genre_array, { include_blank: 'ジャンルを選択してください' } %>
+        <!--genre_arrayはヘルパーで定義-->
+        <%= f.select :genre_id, genre_array, { include_blank: 'ジャンルを選択してください' } %>
       </div>
 
       <!--感想-->

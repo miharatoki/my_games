@@ -1,5 +1,6 @@
 <div class='container posts-index'>
   <div class='row my-5'>
-    <%= render 'index', posts: @posts %>
+    <%= render 'shared/search' %>
+    <%= render 'posts/index', posts: @posts %>
   </div>
 </div>

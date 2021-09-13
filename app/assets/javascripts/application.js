@@ -20,3 +20,10 @@
 //= require_tree .
 
 //= require jquery.raty.js
+
+/*global $*/
+$(document).on ("turbolinks:load", function(){
+  $('#select').change(function(){
+    $('#genre-search-form').submit();
+  });
+});
