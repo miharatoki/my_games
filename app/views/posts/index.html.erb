@@ -1,6 +1,10 @@
 <div class='container posts-index'>
+  <div class='row my-5 '>
+    <div class='col-12 my-2 d-flex justify-content-end align-items-end search-sort'>
+      <%= render 'shared/search', user: @user %>
+    </div>
+  </div>
   <div class='row my-5'>
-    <%= render 'shared/search' %>
     <%= render 'posts/index', posts: @posts %>
   </div>
 </div>

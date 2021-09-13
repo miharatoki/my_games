@@ -1,14 +1,19 @@
 <div class='container users-show'>
-  <div class='row my-5'>
-    <!--ログインユーザの記録が一つもなかったら-->
-    <% if no_posts?(@user) %>
-      <div class='no-posts my-3 h5'>
-        <%= t '.no_posts' %>
+
+  <!--ログインユーザの記録が一つもなかったら-->
+  <% if no_posts?(@user) %>
+    <div class='no-posts my-3 h5'>
+      <%= t '.no_posts' %>
+    </div>
+  <% else %>
+    <!--記録が一つ以上あったら-->
+    <div class='row my-5'>
+      <div class='col-12 my-2 d-flex justify-content-end align-items-end search-sort'>
+        <%= render 'shared/search', user: @user %>
       </div>
-    <% else %>
-      <!--記録が一つ以上あったら-->
-      <%= render 'shared/search', user: @user %>
-      <%= render 'posts/index', posts: @posts %>
-    <% end %>
+    </div>
+  <div class='row mb-5'>
+    <%= render 'posts/index', posts: @posts %>
+  <% end %>
   </div>
 </div>

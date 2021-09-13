@@ -22,8 +22,13 @@
 //= require jquery.raty.js
 
 /*global $*/
-$(document).on ("turbolinks:load", function(){
-  $('#select').change(function(){
-    $('#genre-search-form').submit();
+  $(document).on ("turbolinks:load", function(){
+    $('#select').change(function(){
+      $('#genre-search-form').submit();
+    });
+    $('#sort').change(function(){
+      $('#sort-form').submit();
+    });
   });
-});
+
+

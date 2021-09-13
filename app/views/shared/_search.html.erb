@@ -1,4 +1,18 @@
-<div class='search-form'>
+<div class='mr-2 sort'>
+  <% if current_page?(posts_path) %>
+    <%= form_with url: posts_path, method: :get, id: 'sort-form', local: true do |f| %>
+      <%= f.select :sort, sort_array, { include_blank: (t '.sort') }, id: 'sort' %>
+    <% end %>
+  <% else %>
+    <%= form_with url: user_path(user.id), method: :get, id: 'sort-form', local: true do |f| %>
+      <%= f.hidden_field :user_id, :value => user.id %>
+      <%= f.select :sort, sort_array, { include_blank: (t '.sort') }, id: 'sort' %>
+    <% end %>
+  <% end %>
+</div>
+
+<!--ジャンル検索-->
+<div class='mr-2 genre-search'>
   <% if current_page?(posts_path) || current_page?(posts_genre_search_path) %>
   　<!--投稿一覧ページだったら-->
     <%= form_with url: posts_genre_search_path, method: :get, id: 'genre-search-form', local: true do |f| %>
@@ -9,6 +23,24 @@
     <%= form_with url: user_genre_search_path(user.id), method: :get, id: 'genre-search-form', local: true do |f| %>
       <%= f.hidden_field :user_id, :value => user.id %>
       <%= f.select :genre, genre_array, { include_blank: (t '.genre_search') }, id: 'select' %>
+    <% end %>
+  <% end %>
+</div>
+
+<!--ゲームタイトル検索-->
+<div class='title-search'>
+  <% if current_page?(posts_path) || current_page?(posts_title_search_path) %>
+  　<!--投稿一覧ページだったら-->
+    <%= form_with url: posts_title_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, placeholder: (t '.title_search') %>
+      <%= f.submit (t '.search'), class: 'btn btn-success btn-sm' %>
+    <% end %>
+  <% else %>
+    <!--ユーザ詳細ページだったら-->
+    <%= form_with url: user_title_search_path(user.id), method: :get, local: true do |f| %>
+      <%= f.hidden_field :user_id, :value => user.id %>
+      <%= f.text_field :keyword, placeholder: (t '.title_search') %>
+      <%= f.submit (t '.search'), class: 'btn btn-success btn-sm' %>
     <% end %>
   <% end %>
 </div>

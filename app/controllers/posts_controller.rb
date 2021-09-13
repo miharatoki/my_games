@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
-  before_action :ensure_posted_user,  only: [:edit, :update, :destroy]
   before_action :ensure_sign_in
+  before_action :set_post,  only: [:show, :edit, :update, :destroy]
+  before_action :ensure_posted_user,  only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
   end
 
   def index
-    @posts = Post.page(params[:page]).per(6)
+    @posts = Post.order(params[:sort]).page(params[:page]).per(6)
   end
 
   def show
-    @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
 
@@ -45,8 +45,20 @@ class PostsController < ApplicationController
   end
 
   def genre_search
+    # パラメーターのジャンルIDでPostモデルから検索
     searched_posts = Post.where(genre_id: (params[:genre]))
     @posts = searched_posts.page(params[:page]).per(6)
+    # shared/searchの条件分岐の際、userのidが必要なため記述
+    @user = User.find(current_user.id)
+    render :index
+  end
+
+  def title_search
+    # indexページの検索フォームの値でPostモデルから検索
+    searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
+    @posts = searched_posts.page(params[:page]).per(6)
+    # shared/searchの条件分岐の際、userのidが必要なため記述
+    @user = User.find(current_user.id)
     render :index
   end
 
@@ -56,17 +68,22 @@ class PostsController < ApplicationController
   end
 
   def ensure_sign_in
+    # ログインしていないとログイン画面へ遷移
     unless user_signed_in?
-      flash[:alert] = 'ログイン、または新規登録をしてください。'
+      flash[:alert] = 'ログイン、または新規登録をしてください'
       redirect_to new_user_session_path
     end
   end
 
-  def ensure_posted_user
+  def set_post
     @post = Post.find(params[:id])
-    unless @post.user_id = current_user.id
-      flash[:alert] = '権限がないため処理できません。'
-      redirect_to :posts_path
+  end
+
+  def ensure_posted_user
+    # urlから直接、自分以外の投稿を編集しようとすると投稿一覧へ遷移
+    unless @post.user_id == current_user.id
+      flash[:alert] = '自分以外の投稿は編集できません'
+      redirect_to posts_path
     end
   end
 

@@ -11,6 +11,10 @@ ja:
       welcom: 'ようこそ、%{user_name}さん！'
     search:
       genre_search: 'ジャンル検索'
+      title_search: 'タイトルを入力'
+      search: '検索'
+      sort: '並び替え'
+    sort:
     error:
       content: '入力した内容に'
       mistake: 'つ不備があります。'
