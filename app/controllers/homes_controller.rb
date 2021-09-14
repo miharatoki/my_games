@@ -5,6 +5,14 @@ class HomesController < ApplicationController
 
   end
 
+  def guest_sign_in
+    user = User.find_or_create_by(name: 'ゲストユーザー', email: 'guest@example.com') do |user|
+      user.password = 'guestuser'
+    end
+    sign_in user
+    redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました'
+  end
+
   private
   def ensure_sign_in
     if user_signed_in?

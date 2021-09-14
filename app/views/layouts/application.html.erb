@@ -13,7 +13,7 @@
 
   <body>
     <% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
-      <div class='wrapper'>
+      <div class='jfwrapper'>
           <%= yield %>
       </div>
     <% else %>
@@ -21,9 +21,8 @@
         <%= render 'shared/header' %>
         <%= render 'shared/flash' %>
         <%= yield %>
-        <div class='push'></div>
+        <%= render 'shared/footer' %>
       </div>
-      <%= render 'shared/footer' %>
     <% end %>
   </body>
 </html>

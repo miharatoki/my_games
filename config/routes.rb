@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
+  get 'homes/guest_sign_in' => 'homes#guest_sign_in'
   resources :users, only: [:index, :show, :edit, :update] do
     get '/genre_search' => 'users#genre_search'
     get '/title_search' => 'users#title_search'

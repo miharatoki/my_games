@@ -2,8 +2,10 @@
 
   <!--ログインユーザの記録が一つもなかったら-->
   <% if no_posts?(@user) %>
-    <div class='no-posts my-3 h5'>
-      <%= t '.no_posts' %>
+    <div class='row no-posts-row d-flex align-items-center justify-content-center'>
+      <div class='col-lg-12 col-md-12 col-12  my-3 h3 no-posts'>
+        <%= t '.no_posts' %>
+      </div>
     </div>
   <% else %>
     <!--記録が一つ以上あったら-->
@@ -12,8 +14,8 @@
         <%= render 'shared/sort_search', user: @user %>
       </div>
     </div>
-  <div class='row mb-5'>
-    <%= render 'posts/index', posts: @posts %>
+    <div class='row mb-5'>
+      <%= render 'posts/index', posts: @posts %>
+    </div>
   <% end %>
-  </div>
 </div>
