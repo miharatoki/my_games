@@ -45,4 +45,10 @@ ja:
       profile: 'プロフィール'
       edit: '変更する'
 
+  homes:
+    top:
+      sign_up: '新規登録'
+      sign_in: 'アカウントをお持ちの方'
+      gest: 'ゲストログイン'
+
 
