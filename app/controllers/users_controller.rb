@@ -12,11 +12,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
+    if @user.name == 'ゲストユーザー'
+      redirect_to edit_user_path(@user.id), alert: 'ゲストユーザーはプロフィール編集ができません'
     else
-      @user = User.find(params[:id])
-      render :edit
+      if @user.update(user_params)
+        redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
+      else
+        @user = User.find(params[:id])
+        render :edit
+      end
     end
   end
 

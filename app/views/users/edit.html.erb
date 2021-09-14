@@ -4,11 +4,11 @@
   <div class='row mt-5'>
     <div class='input-form mx-auto'>
       <div class='form-heading my-4 mx-auto w-75 text-center h3'><%= t '.profile' %></div>
-
+      <p class='text-center' style='color: red'><%= t '.caution' %></p>
       <!--ユーザー名-->
       <div class='form-group mx-4 mt-5 mb-4'>
         <%= f.label :name %><br>
-        <%= f.text_field :name%>
+        <%= f.text_field :name, class: 'readonly-field'%>
       </div>
       <!--プロフィール画像-->
       <div class='form-group mx-4 mt-5 mb-4'>
@@ -29,11 +29,18 @@
       </div>
     </div>
   </div>
+
   <% end %>
 </div>
 
+
 <script>
-  if (<%= @user.name %> == 'ゲストユーザー'){
-    $('input').attr('readonly');
-  };
+$(function(){
+  var user = "<%= @user.name %>";
+  if (user == 'ゲストユーザー'){
+    $('input[type=text], textarea').attr('readonly', 'readonly');
+    $('input[type=text], textarea').addClass('readonly-field');
+  }
+});
+
 </script>
