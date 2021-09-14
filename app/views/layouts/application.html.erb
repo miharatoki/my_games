@@ -12,15 +12,18 @@
   </head>
 
   <body>
-    <div class='wrapper'>
-      <%= render 'shared/header' %>
-      <%= render 'shared/flash' %>
-
-
-      <%= yield %>
-
-      <div class='push'></div>
-    </div>
-    <%= render 'shared/footer' %>
+    <% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+      <div class='wrapper'>
+          <%= yield %>
+      </div>
+    <% else %>
+      <div class='wrapper'>
+        <%= render 'shared/header' %>
+        <%= render 'shared/flash' %>
+        <%= yield %>
+        <div class='push'></div>
+      </div>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

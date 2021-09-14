@@ -1,6 +1,16 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
-
-<% if user_signed_in? %>
-<%= link_to "sign_out", destroy_user_session_path, method: :delete %>
-<% end %>
+<div class='container top'>
+  <%= render 'shared/flash' %>
+  <div class='top-push'></div>
+  <div class='row'>
+    <div class='col-lg-12 col-md-12 col-12 mx-auto mb-5 content'>
+      <div class='text-center h3 text'>プレイしたゲームを記録しよう！！</div>
+      <div class='text-center p text'>MyGamesでは、自分がプレイしたゲームのを記録することができます。</div>
+      <div class='text-center p text'>自身のゲーム歴を振り返りや、みんなのプレイしてきたゲームを知ることがで、<br>
+        プレイしたことのないタイトル、ジャンルを発見したり、<br>みんながどんな感想を抱いたのかを知ることができます。</div>
+    </div>
+    <div class='col-12 d-flex justify-content-center'>
+        <%= link_to (t '.sign_up'), new_user_registration_path %>
+        <%= link_to (t '.sign_in'), new_user_session_path, class: 'ml-3' %>
+    </div>
+  </div>
+</div>
