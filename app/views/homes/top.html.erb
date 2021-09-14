@@ -4,13 +4,18 @@
   <div class='row'>
     <div class='col-lg-12 col-md-12 col-12 mx-auto mb-5 content'>
       <div class='text-center h3 text'>プレイしたゲームを記録しよう！！</div>
-      <div class='text-center p text'>MyGamesでは、自分がプレイしたゲームのを記録することができます。</div>
-      <div class='text-center p text'>自身のゲーム歴を振り返りや、みんなのプレイしてきたゲームを知ることがで、<br>
-        プレイしたことのないタイトル、ジャンルを発見したり、<br>みんながどんな感想を抱いたのかを知ることができます。</div>
     </div>
-    <div class='col-12 d-flex justify-content-center'>
-        <%= link_to (t '.sign_up'), new_user_registration_path %>
-        <%= link_to (t '.sign_in'), new_user_session_path, class: 'ml-3' %>
+    <div class='col-lg-6 col-md-12 col-12  mx-auto mb-5 content'>
+      <div class=' p text'>　MyGamesでは、自分がプレイしたゲームのを記録できます。<br>
+        　自身のゲーム歴を振り返りや、みんながプレイしてきたゲームを知ることで、
+        プレイしたことのないタイトル、ジャンルを発見したり、みんながどんな感想を抱いたのかを知ることができます。
+      </div>
     </div>
+    <div class='col-12 d-flex flex-wrap justify-content-center'>
+        <%= link_to (t '.sign_up'), new_user_registration_path, class: 'col-lg-2 col-sm-3 col-7 mx-3 mb-2 text-center btn btn-light btn-sm' %>
+        <%= link_to (t '.sign_in'), new_user_session_path,      class: 'col-lg-3 col-md-4 col-7 mx-3 mb-2 text-center btn btn-light btn-sm' %>
+        <%= link_to (t '.guest_sign_in'), homes_guest_sign_in_path, class: 'col-lg-2 col-md-3 col-7 mx-3 mb-2 text-center btn btn-light btn-sm'%>
+    </div>
+
   </div>
 </div>

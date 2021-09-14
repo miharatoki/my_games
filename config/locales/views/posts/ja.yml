@@ -49,6 +49,6 @@ ja:
     top:
       sign_up: '新規登録'
       sign_in: 'アカウントをお持ちの方'
-      gest: 'ゲストログイン'
+      guest_sign_in: 'ゲストログイン'
 
 

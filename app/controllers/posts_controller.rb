@@ -21,8 +21,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
       if @post.save
-        flash[:notice] = '記録を作成しました'
-        redirect_to post_path(@post.id)
+        redirect_to post_path(@post.id), notice: '記録を作成しました'
       else
         render :new
       end
@@ -30,8 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = '記録を更新しました'
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id), notice: '記録を更新しました'
     else
       render :edit
     end
@@ -40,8 +38,7 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    flash[:notice] = '記録を削除しました'
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), notice: '記録を削除しました'
   end
 
   def genre_search
@@ -70,8 +67,7 @@ class PostsController < ApplicationController
   def ensure_sign_in
     # ログインしていないとログイン画面へ遷移
     unless user_signed_in?
-      flash[:alert] = 'ログイン、または新規登録をしてください'
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
     end
   end
 
@@ -82,8 +78,7 @@ class PostsController < ApplicationController
   def ensure_posted_user
     # urlから直接、自分以外の投稿を編集しようとすると投稿一覧へ遷移
     unless @post.user_id == current_user.id
-      flash[:alert] = '自分以外の投稿は編集できません'
-      redirect_to posts_path
+      redirect_to posts_path, alert: '自分以外の投稿は編集できません'
     end
   end
 

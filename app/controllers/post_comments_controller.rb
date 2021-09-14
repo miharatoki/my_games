@@ -6,7 +6,6 @@ class PostCommentsController < ApplicationController
     @post_comment.post_id = params[:post_id]
     @post_comment.user_id = current_user.id
     if @post_comment.save
-      flash[:notice] = '投稿しました'
       @post = Post.find(params[:post_id])
       render :comment_field
     else
@@ -28,8 +27,7 @@ class PostCommentsController < ApplicationController
 
   def ensure_sign_in
     unless user_signed_in?
-      flash[:alert] = 'ログイン、または新規登録をしてください。'
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
     end
   end
 

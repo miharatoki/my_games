@@ -9,13 +9,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     if @user.update(user_params)
-      flash[:notice] = 'アカウント情報を編集しました。'
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
     else
       @user = User.find(params[:id])
       render :edit
@@ -46,8 +44,7 @@ class UsersController < ApplicationController
   def ensure_sign_in
     # ログインしていないとログイン画面へ遷移
     unless user_signed_in?
-      flash[:alert] = 'ログイン、または新規登録をしてください'
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
     end
   end
 
@@ -58,8 +55,7 @@ class UsersController < ApplicationController
   def ensure_user
     # 自分以外の編集ページを表示しようとすると投稿一覧へ遷移
     unless @user.id == current_user.id
-      flash[:alert] = '自分以外のアカウント情報は編集できません'
-      redirect_to posts_path
+      redirect_to posts_path, alert: '自分以外のアカウント情報は編集できません'
     end
   end
 
