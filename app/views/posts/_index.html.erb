@@ -17,16 +17,13 @@
       </div>
       <!--評価-->
       <%= render 'posts/score_read_only', post: post %>
-      <!--いいね-->
-      <div class='col-7 offset-5 mb-2'>
-        <%= render 'favorites/favorite_btn', post: post %>
-      </div>
       <!--投稿者名-->
-      <div class='col-7 offset-4 mb-2'>
+      <div class='col-12 d-flex justify-content-end mt-2'>
+        
       　<%= t '.posted_user', user_name: post.user.name %>
       </div>
       <!--投稿日-->
-      <div class='col-8 offset-4 mb-3'>
+      <div class='col-12 d-flex justify-content-end mb-2'>
       　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
       </div>
     </div>

@@ -90,8 +90,6 @@
  color: orange;
 }
 
-
-
 .top{
  height: 100%;
  .top-push{
@@ -105,7 +103,6 @@
   }
  }
 }
-
 
  #error-explanation{
  border-radius: 10px;
@@ -137,50 +134,6 @@
  }
 }
 
-.users-edit{
- .input-form{
-  padding: 0;
-  margin: 0 auto;
-  background-color: white;
-  border: 1px solid;
-  border-radius: 10px;
-  .readonly-field{
-    background-color: lightgray;
-   }
-  .form-heading{
-   border-bottom: 2px solid;
-  }
-  .rate-group{
-   width: 80%;
-   border: 1px solid;
-   border-radius: 10px;
-  }
- }
-}
-
-.users-show{
- .posts-list{
-   width: 30%;
-   text-decoration: none;
-   color: black ;
-   background-color: white;
-   border: 1px solid;
-   border-radius: 10px;
-   .score-group{
-    width: 90%;
-    border: 1px solid;
-    border-radius: 10px;
-    .score-list{
-     margin-top: 5px;
-     width: 95%;
-    }
-   }
- }
-}
-
-
-
-
 .no-posts-row{
  height: 80vh;
  .no-posts{
@@ -192,7 +145,26 @@
 
 .sort-serach{
  height: 5vh;
+ .sort-select{
+  margin-left: 40%;
+ }
+ #select{
+  margin-bottom: 4px;
+ }
  .btn{
   height: 28px;
  }
+}
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+
 }

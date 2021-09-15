@@ -1,3 +1,87 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.users-edit{
+ .input-form{
+  padding: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  .readonly-field{
+    background-color: lightgray;
+   }
+  .form-heading{
+   border-bottom: 2px solid;
+  }
+  .rate-group{
+   width: 80%;
+   border: 1px solid;
+   border-radius: 10px;
+  }
+ }
+}
+
+.users-show{
+ .posts-list:nth-child(3n+1){
+  margin-left: 0;
+ }
+ .posts-list{
+   width: 32%;
+   margin-left: 2%;
+   text-decoration: none;
+   color: black ;
+   background-color: white;
+   border: 1px solid;
+   border-radius: 10px;
+   .score-group{
+    width: 90%;
+    border: 1px solid;
+    border-radius: 10px;
+    .score-list{
+     margin-top: 5px;
+     width: 95%;
+    }
+   }
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+.users-show{
+ .posts-list:nth-child(even){
+  margin-left: 4%;
+ }
+ .posts-list{
+   width: 46%;
+   margin-left: 0;
+ }
+ }
+}
+
+@media screen and (max-width: 768px) {
+.users-show{
+ .posts-list:nth-child(even){
+  margin-left: 3%;
+ }
+ .posts-list{
+   width: 47%;
+   margin-left: 0;
+   text-decoration: none;
+ }
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 425px) {
+.users-show{
+ .posts-list:nth-child(even){
+  margin-left: 0;
+ }
+ .posts-list{
+   width: 100%;
+   margin-left: 0;
+  }
+ }
+}
