@@ -1,46 +1,52 @@
- <div class='col-lg-5 col-md-11 col-xs-12 mx-lg-0 mx-lg-auto my-3 posts-show-box'>
-      <div class='posts-show-heading my-4 mx-auto text-center h3'><%= "#{post.title}" %></div>
-      <!--ジャンル-->
-      <div class='form-inline mb-4'>
-        <p class='col-3 text-right'><%= t '.genre' %></p>
-        <p class='offset-1'><%= post.genre.name %></p>
+ <div class='col-lg-6 col-12 d-flex align-items-cneter posts-detail-box'>
+   <div class='col-12 '>
+       <!--ジャンル-->
+      <div class='mt-5 mb-2 form-inline'>
+        <p class='col-3 p-0 text-right'><%= t '.genre' %></p>
+        <strong><p><%= post.genre.name %></p></strong>
       </div>
       <!--感想-->
       <div class='form-inline d-flex align-items-start mb-4 impression-field'>
-        <p class='col-3 text-right'><%= t '.impression' %></p>
+        <p class='col-3 p-0 text-right'><%= t '.impression' %></p>
         <p class='col-9 posts-body-box'><%= post.body %></p>
       </div>
       <!--評価-->
       <div class='form-inline d-flex align-items-start mb-4'>
-        <p class='col-3 text-right'><%= t '.score' %></p>
+        <p class='col-3 p-0 text-right'><%= t '.score' %></p>
         <div class='col-9 px-0'>
           <%= render 'posts/score_read_only', post: post %>
         </div>
       </div>
       <!--いいね-->
-      <%= render 'favorites/favorite_btn', post: post %>
-      <!--投稿者-->
-      <div class='text-right mb-2'>
-        <%= t '.posted_user' %>
-        <%= link_to user_path(post.id) do %>
-          <%= t '.posted_user_name', user_name: post.user.name %>
-        <% end %>
+      <div class='col-12 d-flex justify-content-end form-inline favorite-btn-group-<%= post.id %>'>
+        <%= render 'favorites/favorite_btn', post: post %>
       </div>
+      <!--投稿者-->
+      <% if post.user == current_user %>
+      <% else %>
+        <div class='text-right mb-2'>
+          <%= t '.posted' %>
+          <%= link_to user_path(post.user.id) do %>
+            <%= t '.post_user', user_name: post.user.name %>
+          <% end %>
+        </div>
+      <% end %>
       <!--投稿日-->
-      <div class='text-right mb-3'>
+      <div class='col-12 text-right mb-2'>
       　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
       </div>
       <!--自分の投稿の場合表示-->
       <% if @post.user.id == current_user.id %>
-        <div class='text-right mb-3 edit-destroy-btn'>
+        <div class=' mb-3 edit-destroy-btn'>
           <!--編集画面リンク-->
-          <%= link_to edit_post_path(post.id), class: 'btn btn-info' do %>
+          <%= link_to edit_post_path(post.id), class: 'offset-9 col-1 btn btn-info' do %>
             <i class="far fa-edit"></i>
           <% end %>
           <!--削除リンク-->
-          <%= link_to post_path(post.id), method: :delete, data: { confirm: (t '.confirm') }, class: 'btn btn-danger ml-3' do %>
+          <%= link_to post_path(post.id), method: :delete, data: { confirm: (t '.confirm') }, class: 'col-1 btn btn-danger ml-3' do %>
             <i class="fas fa-trash"></i>
           <% end %>
         </div>
       <% end %>
+   </div>
 </div>

@@ -7,7 +7,8 @@ ja:
     index:
       title: 'ゲームタイトル'
       genre: 'ジャンル'
-      posted_user: '投稿者： %{user_name}さん'
+      posted: '投稿者： 　'
+      post_user: '%{user_name}さん'
       posted_date: '投稿日：'
     edit:
       title: '記録を編集する'
@@ -31,8 +32,8 @@ ja:
       genre: 'ジャンル：'
       impression: '感想：'
       score: '評価：'
-      posted_user: '投稿者： 　'
-      posted_user_name: '%{user_name}さん'
+      posted: '投稿者： 　'
+      post_user: '%{user_name}さん'
       posted_date: '投稿日：'
       confirm: '削除しますか？'
     post_comment:

@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "bootstrap";
+@import "colors";
+
 .posts-new{
  .input-form{
   padding: 0;
@@ -49,25 +55,32 @@
 
 .posts-show{
  .posts-show-box{
-  background-color: white;
-  border: 1px solid;
-  border-radius: 10px;
-  width: 50%;
-  height: 77vh;
+   background-color: $posts_show_box;
+   border-radius: 10px;
+ .post-show-heading{
+  font-family: "Koruri-Semibold";
+  height: 5vh;
+ }
+ .posts-detail-box{
+  background-color: $posts_detail;
+  border-bottom-left-radius: 10px;
+  // height: 70vh;
   .posts-show-heading{
-   width: 200px;
    border-bottom: 2px solid;
   }
   .impression-field{
-   height: 15%;
+   height: 20vh;
    .posts-body-box{
+    background-color: white;
     overflow: auto;
     border: 1px solid;
+    border-radius: 10px;
     width: 80%;
     height: 80%;
    }
   }
   .score-group{
+   background-color: white;
    width: 100%;
    border: 1px solid;
    border-radius: 10px;
@@ -81,9 +94,8 @@
   }
  }
  .comment-box{
-  border-radius: 10px;
-  background-color: white;
-  height: 77vh;
+  background-color: $posts_detail;
+  border-bottom-right-radius: 10px;
   .comment-form{
    position: absolute;
    bottom: 0;
@@ -92,6 +104,7 @@
    border-bottom: 1px;
   }
   .comment-field{
+   background-color: white;
    height: 85%;
    overflow: auto;
    .comment{
@@ -100,10 +113,12 @@
    }
   }
  }
+ }
 }
 
 // レスポンシブ
 @media screen and (max-width: 1024px) {
+ // 投稿一覧ページ
 .posts-index{
  .posts-list:nth-child(even){
   margin-left: 4%;
@@ -116,19 +131,85 @@
 }
 
 @media screen and (max-width: 768px) {
-.posts-index{
- .posts-list:nth-child(even){
-  margin-left: 3%;
- }
- .posts-list{
-   width: 47%;
-   margin-left: 0;
-   text-decoration: none;
- }
+ // 投稿一覧ページ
+ .posts-index{
+   .posts-list:nth-child(even){
+    margin-left: 3%;
+   }
+   .posts-list{
+    width: 47%;
+    margin-left: 0;
+    text-decoration: none;
+   }
+  }
+  // 投稿詳細ページ
+ .posts-show{
+  .posts-show-box{
+    border-radius: 10px;
+  .post-show-heading{
+   height: 5vh;
+   h2{
+    font-size: 20px;
+   }
+  }
+  .posts-detail-box{
+   border-bottom-left-radius: 0px;
+   .posts-show-heading{
+    border-bottom: 2px solid;
+   }
+   .impression-field{
+    height: 20vh;
+    .posts-body-box{
+     background-color: white;
+     overflow: auto;
+     border: 1px solid;
+     border-radius: 10px;
+     width: 80%;
+     height: 80%;
+    }
+   }
+   .score-group{
+    background-color: white;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 10px;
+    .score-label{
+     margin-left: 0;
+     padding-left: 0;
+    }
+    .score-list{
+     margin: 15px;
+    }
+   }
+   }
+   .comment-box{
+    background-color: $posts_detail;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 50vh;
+    .comment-field{
+     background-color: white;
+     height: 80%;
+     overflow: auto;
+     .comment{
+      border: 1px solid ;
+      border-radius: 10px;
+     }
+    }
+    .comment-form{
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 10%;
+     border-bottom: 1px;
+    }
+   }
+  }
  }
 }
 
 @media screen and (max-width: 425px) {
+ // 投稿一覧ページ
 .posts-index{
  .posts-list:nth-child(even){
   margin-left: 0;
@@ -136,6 +217,70 @@
  .posts-list{
    width: 100%;
    margin-left: 0;
+  }
+ }
+   // 投稿詳細ページ
+ .posts-show{
+  .posts-show-box{
+    border-radius: 10px;
+  .post-show-heading{
+   height: 5vh;
+   h2{
+    font-size: 20px;
+   }
+  }
+  .posts-detail-box{
+   border-bottom-left-radius: 0px;
+   .posts-show-heading{
+    border-bottom: 2px solid;
+   }
+   .impression-field{
+    height: 20vh;
+    .posts-body-box{
+     background-color: white;
+     overflow: auto;
+     border: 1px solid;
+     border-radius: 10px;
+     width: 80%;
+     height: 80%;
+    }
+   }
+   .score-group{
+    background-color: white;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 10px;
+    .score-label{
+     margin-left: 0;
+     padding-left: 0;
+    }
+    .score-list{
+     margin: 15px;
+    }
+   }
+   }
+   .comment-box{
+    background-color: $posts_detail;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 50vh;
+    .comment-field{
+     background-color: white;
+     height: 80%;
+     overflow: auto;
+     .comment{
+      border: 1px solid ;
+      border-radius: 10px;
+     }
+    }
+    .comment-form{
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 10%;
+     border-bottom: 1px;
+    }
+   }
   }
  }
 }
