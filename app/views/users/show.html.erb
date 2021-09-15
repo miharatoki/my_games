@@ -9,12 +9,10 @@
     </div>
   <% else %>
     <!--記録が一つ以上あったら-->
-    <div class='row my-5'>
-      <div class='col-12 my-2 d-flex justify-content-end align-items-end sort-serach'>
-        <%= render 'shared/sort_search', user: @user %>
-      </div>
+    <div class='row mt-2 mb-5'>
+      <%= render 'shared/sort_search', user: @user %>
     </div>
-    <div class='row mb-5'>
+    <div class='row mt-2 mb-5'>
       <%= render 'posts/index', posts: @posts %>
     </div>
   <% end %>

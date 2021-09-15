@@ -1,3 +1,142 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts-new{
+ .input-form{
+  padding: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  .readonly-field{
+    background-color: lightgray;
+   }
+  .form-heading{
+   border-bottom: 2px solid;
+  }
+  .rate-group{
+   width: 80%;
+   border: 1px solid;
+   border-radius: 10px;
+  }
+ }
+}
+
+.posts-index{
+ .posts-list:nth-child(3n+1){
+  margin-left: 0;
+ }
+ .posts-list{
+   width: 30%;
+   margin-left: 5%;
+   text-decoration: none;
+   color: black ;
+   background-color: white;
+   border: 1px solid;
+   border-radius: 10px;
+   .score-group{
+    width: 90%;
+    border: 1px solid;
+    border-radius: 10px;
+    .score-list{
+     margin-top: 5px;
+     width: 95%;
+    }
+   }
+ }
+}
+
+.posts-show{
+ .posts-show-box{
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 50%;
+  height: 77vh;
+  .posts-show-heading{
+   width: 200px;
+   border-bottom: 2px solid;
+  }
+  .impression-field{
+   height: 15%;
+   .posts-body-box{
+    overflow: auto;
+    border: 1px solid;
+    width: 80%;
+    height: 80%;
+   }
+  }
+  .score-group{
+   width: 100%;
+   border: 1px solid;
+   border-radius: 10px;
+   .score-label{
+    margin-left: 0;
+    padding-left: 0;
+   }
+   .score-list{
+    margin: 15px;
+   }
+  }
+ }
+ .comment-box{
+  border-radius: 10px;
+  background-color: white;
+  height: 77vh;
+  .comment-form{
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 10%;
+   border-bottom: 1px;
+  }
+  .comment-field{
+   height: 85%;
+   overflow: auto;
+   .comment{
+    border: 1px solid ;
+    border-radius: 10px;
+   }
+  }
+ }
+}
+
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+.posts-index{
+ .posts-list:nth-child(even){
+  margin-left: 4%;
+ }
+ .posts-list{
+   width: 46%;
+   margin-left: 0;
+ }
+ }
+}
+
+@media screen and (max-width: 768px) {
+.posts-index{
+ .posts-list:nth-child(even){
+  margin-left: 3%;
+ }
+ .posts-list{
+   width: 47%;
+   margin-left: 0;
+   text-decoration: none;
+ }
+ }
+}
+
+@media screen and (max-width: 425px) {
+.posts-index{
+ .posts-list:nth-child(even){
+  margin-left: 0;
+ }
+ .posts-list{
+   width: 100%;
+   margin-left: 0;
+  }
+ }
+}
