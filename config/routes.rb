@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'posts/genre_search' => 'posts#genre_search'
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
+    get '/favorites' => 'favorites#create'
+    delete '/favorites' => 'favorites#destroy'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -17,6 +17,8 @@
           <%= render 'posts/score_read_only', post: post %>
         </div>
       </div>
+      <!--いいね-->
+      <%= render 'favorites/favorite_btn', post: post %>
       <!--投稿者-->
       <div class='text-right mb-2'>
         <%= t '.posted_user' %>
@@ -41,4 +43,4 @@
           <% end %>
         </div>
       <% end %>
-    </div>
+</div>
