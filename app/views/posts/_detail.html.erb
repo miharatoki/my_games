@@ -1,19 +1,19 @@
  <div class='col-lg-6 col-12 d-flex align-items-cneter posts-detail-box'>
-   <div class='col-12 '>
+   <div class='col-12'>
        <!--ジャンル-->
-      <div class='mt-5 mb-2 form-inline'>
-        <p class='col-3 p-0 text-right'><%= t '.genre' %></p>
-        <p class='p-1 genre-name'><%= post.genre.name %></p>
+      <div class='form-inline mb-4 mt-5'>
+        <p class='col-5 col-sm-3 mb-1 genre-label'><%= t '.genre' %></p>
+        <strong class='col-7 col-sm-9 p-1 py-0 '><p class='mb-0 genre-name'><%= post.genre.name %></p></strong>
       </div>
       <!--感想-->
       <div class='form-inline d-flex align-items-start mb-4 impression-field'>
-        <p class='col-3 p-0 text-right'><%= t '.impression' %></p>
-        <p class='col-9 posts-body-box'><%= post.body %></p>
+        <p class='col-3 col-sm-3 mb-1 impression-label'><%= t '.impression' %></p>
+        <p class='col-12 col-sm-9 p-1 posts-body-box'><%= post.body %></p>
       </div>
       <!--評価-->
       <div class='form-inline d-flex align-items-start mb-4'>
-        <p class='col-3 p-0 text-right'><%= t '.score' %></p>
-        <div class='col-9 px-0'>
+        <p class='col-3 col-sm-3 mb-1 score-label'><%= t '.score' %></p>
+        <div class='col-12 col-sm-9 px-0'>
           <%= render 'posts/score_read_only', post: post %>
         </div>
       </div>

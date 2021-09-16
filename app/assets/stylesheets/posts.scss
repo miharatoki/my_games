@@ -64,16 +64,17 @@
  .posts-detail-box{
   background-color: $posts_detail;
   border-bottom-left-radius: 10px;
-  .genre-name{
-   background-color: white;
-   border: 1px solid;
-   border-radius: 10px;
-  }
-  .posts-show-heading{
-   border-bottom: 2px solid;
-  }
+  .genre-label{
+    text-align: right;
+   }
+   .score-label{
+    text-align: right;
+   }
   .impression-field{
    height: 20vh;
+   .impression-label{
+    text-align: right;
+   }
    .posts-body-box{
     background-color: white;
     overflow: auto;
@@ -100,6 +101,7 @@
  .comment-box{
   background-color: $posts_detail;
   border-bottom-right-radius: 10px;
+  height: 75vh;
   .comment-form{
    position: absolute;
    bottom: 0;
@@ -147,6 +149,9 @@
     width: 47%;
     margin-left: 0;
     text-decoration: none;
+    .score-label{
+     font-size: 12px;
+    }
    }
   }
   // 投稿詳細ページ
@@ -161,9 +166,6 @@
   }
   .posts-detail-box{
    border-bottom-left-radius: 0px;
-   .posts-show-heading{
-    border-bottom: 2px solid;
-   }
    .impression-field{
     height: 20vh;
     .posts-body-box{
@@ -193,7 +195,6 @@
     background-color: $posts_detail;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    height: 50vh;
     .comment-field{
      background-color: white;
      height: 80%;
@@ -231,15 +232,14 @@
   .posts-show-box{
     border-radius: 10px;
   .post-show-heading{
-   height: 5vh;
    h2{
-    font-size: 15px;
+    font-size: 20px;
    }
   }
   .posts-detail-box{
    border-bottom-left-radius: 0px;
-   .posts-show-heading{
-    border-bottom: 2px solid;
+   .genre-label{
+    text-align: left;
    }
    .impression-field{
     height: 20vh;
@@ -260,6 +260,7 @@
     .score-label{
      margin-left: 0;
      padding-left: 0;
+     font-size: 15px;
     }
     .score-list{
      margin: 15px;
@@ -270,7 +271,6 @@
     background-color: $posts_detail;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    height: 50vh;
     .comment-field{
      background-color: white;
      height: 80%;
