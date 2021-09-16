@@ -9,8 +9,13 @@
     </div>
   <% else %>
     <!--記録が一つ以上あったら-->
-    <div class='row mt-2 mb-5'>
-      <%= render 'shared/sort_search', user: @user %>
+    <div class='row mb-3'>
+      <div class='col-12 col-sm-9 mt-3  text-center '>
+        <h1 class='col-12 col-sm-7 offset-sm-4 page-heading'><%= t '.page_heading' %></h1>
+      </div>
+      <div class='col-7 offset-5 col-sm-3 offset-sm-0 my-2 sort-serach'>
+        <%= render 'shared/sort_search', user: @user %>
+      </div>
     </div>
     <div class='row mt-2 mb-5'>
       <%= render 'posts/index', posts: @posts %>

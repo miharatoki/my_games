@@ -16,7 +16,6 @@ class PostCommentsController < ApplicationController
   end
 
   def destroy
-
     render :index
   end
 

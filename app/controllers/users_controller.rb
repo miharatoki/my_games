@@ -4,8 +4,13 @@ class UsersController < ApplicationController
   before_action :ensure_user, only: [:edit, :update]
 
   def show
-    @posts = Post.where(user_id: params[:id]).order(params[:sort])
-    @posts = @posts.page(params[:page]).per(6)
+    if params[:sort].nil?
+      # ソートしていなかったら、降順でレコードを取得
+      @posts = Post.where(user_id: params[:id]).order('created_at DESC').page(params[:page]).per(6)
+    else
+      # ソートしていたら、ソート内容でレコードを所得
+      @posts = Post.where(user_id: params[:id]).order(params[:sort]).page(params[:page]).per(6)
+    end
   end
 
   def edit

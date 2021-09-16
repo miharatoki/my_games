@@ -5,6 +5,7 @@ ja:
       delete: '書いた内容を消す'
       post: '記録する'
     index:
+      page_heading: 'みんなの記録'
       title: 'ゲームタイトル'
       genre: 'ジャンル'
       posted: '投稿者： 　'
@@ -41,6 +42,7 @@ ja:
 
   users:
     show:
+      page_heading: '自分の記録'
       no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
     edit:
       profile: 'プロフィール'

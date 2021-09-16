@@ -30,6 +30,12 @@
 }
 
 .posts-index{
+ .page-heading{
+  font-family: "Koruri-Semibold";
+  color: black;
+  background-color: $page_heading;
+  border: 1px solid white;
+ }
  .posts-list:nth-child(3n+1){
   margin-left: 0;
  }

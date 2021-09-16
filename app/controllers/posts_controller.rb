@@ -8,7 +8,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order(params[:sort]).page(params[:page]).per(6)
+    if params[:sort].nil?
+      # ソートしていなかったら、降順でレコードを取得
+      @posts = Post.order('created_at DESC').page(params[:page]).per(6)
+    else
+      # ソートしていたら、ソート内容でレコードを所得
+      @posts = Post.order(params[:sort]).page(params[:page]).per(6)
+    end
   end
 
   def show

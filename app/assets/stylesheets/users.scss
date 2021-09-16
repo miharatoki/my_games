@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "bootstrap";
+@import "colors";
+
 .users-edit{
  .input-form{
   padding: 0;
@@ -24,6 +30,12 @@
 }
 
 .users-show{
+ .page-heading{
+  font-family: "Koruri-Semibold";
+  color: black;
+  background-color: $page_heading;
+  border: 1px solid white;
+ }
  .posts-list:nth-child(3n+1){
   margin-left: 0;
  }
