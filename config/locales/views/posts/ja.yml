@@ -29,9 +29,9 @@ ja:
       operability_score: '操作性'
       balance_score: 'ゲームバランス'
     detail:
-      genre: 'ジャンル：'
-      impression: '感想：'
-      score: '評価：'
+      genre: 'ジャンル　'
+      impression: '感想　'
+      score: '評価　'
       posted: '投稿者： 　'
       post_user: '%{user_name}さん'
       posted_date: '投稿日：'

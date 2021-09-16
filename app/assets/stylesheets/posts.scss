@@ -64,7 +64,11 @@
  .posts-detail-box{
   background-color: $posts_detail;
   border-bottom-left-radius: 10px;
-  // height: 70vh;
+  .genre-name{
+   background-color: white;
+   border: 1px solid;
+   border-radius: 10px;
+  }
   .posts-show-heading{
    border-bottom: 2px solid;
   }
@@ -107,6 +111,9 @@
    background-color: white;
    height: 85%;
    overflow: auto;
+   img{
+       border-radius: 30px;
+   }
    .comment{
     border: 1px solid ;
     border-radius: 10px;
@@ -226,7 +233,7 @@
   .post-show-heading{
    height: 5vh;
    h2{
-    font-size: 20px;
+    font-size: 15px;
    }
   }
   .posts-detail-box{
