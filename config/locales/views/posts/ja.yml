@@ -4,6 +4,8 @@ ja:
       title: '新しい記録'
       delete: '書いた内容を消す'
       post: '記録する'
+      score: '評価'
+      genre_select: 'ジャンルを選択してください'
     index:
       page_heading: 'みんなの記録'
       title: 'ゲームタイトル'

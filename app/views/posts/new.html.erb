@@ -1,35 +1,38 @@
 <div class='container posts-new'>
   <%= render 'shared/error', model: @post %>
   <%= form_with model: @post, local: true do |f| %>
-  <div class='row mt-5'>
-    <div class='col-xl-6 col-lg-8 col-xs-10 input-form'>
-      <div class='form-heading my-4 mx-auto w-50 text-center h3'><%= t '.title'%></div>
+  <div class='row my-5'>
+    <div class='col-11 col-md-8 col-lg-6 col-xl-5 input-form'>
+      <h3 class='my-4 mx-auto w-50 text-center form-heading'><%= t '.title'%></h3>
 
       <!--ゲームタイトル-->
-      <div class=' mx-5 mt-5 mb-4 form-group'>
+      <div class='col-9 mx-5 mt-5 mb-4 p-0'>
         <%= f.label :title %><br>
-        <%= f.text_field :title, size: 30 %>
+        <%= f.text_field :title, class: 'col-10 col-sm-8 col-xl-12 p-1' %>
       </div>
       <!--ジャンル-->
-      <div class='form-group mx-5 mb-4'>
+      <div class='mx-5 mb-4'>
         <%= f.label :genre %><br>
         <!--genre_arrayはヘルパーで定義-->
-        <%= f.select :genre_id, genre_array, { include_blank: 'ジャンルを選択してください' } %>
+        <%= f.select :genre_id, genre_array, { include_blank: ( t '.genre_select') } %>
       </div>
 
       <!--感想-->
-      <div class='form-group mx-5'>
-        <%= f.label :body%><br>
-        <%= f.text_area :body, cols: 30, rows: 5 %>
+      <div class='col-10 col-xl-12 mx-5 p-0 mb-4'>
+        <%= f.label :body %><br>
+        <%= f.text_area :body, class: 'col-10 col-xl-9 p-1 impressin-field' %>
       </div>
 
       <!--評価グループ-->
-      <%= render 'score_new', f: f %>
+      <div class='col-9 mx-5 mb-4 p-0'>
+        <p class='mb-2'><%= t '.score' %></p>
+        <%= render 'score_new', f: f %>
+      </div>
 
       <!--記録作成ボタン-->
-      <div class='form-group'>
-        <%= f.submit (t '.delete'), type: 'reset', class: 'offset-5 mr-3 btn btn-danger' %>
-        <%= f.submit (t '.post'), class: 'btn btn-success' %>
+      <div class='mb-4'>
+        <%= f.submit (t '.delete'), type: 'reset', class: 'col-auto  offset-1 offset-md-4 mr-3 btn btn-danger' %>
+        <%= f.submit (t '.post'), class: 'text-center btn btn-success' %>
       </div>
     </div>
   </div>
