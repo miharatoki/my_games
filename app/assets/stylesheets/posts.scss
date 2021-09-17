@@ -8,23 +8,21 @@
 @import "bootstrap";
 @import "colors";
 
-.posts-new{
+// 新規投稿と投稿編集ページ
+.posts-new,
+.posts-edit{
  .form-heading{
   font-family: "Koruri-Semibold";
   border-bottom: 2px solid;
+  width: 50%;
  }
  .input-form{
-  padding: 0;
   margin: 0 auto;
   background-color: white;
-  border: 1px solid;
   border-radius: 10px;
   .impressin-field{
-   height: 20vh;
+   height: 10vh;
   }
-  .readonly-field{
-    background-color: lightgray;
-   }
   .score-group{
    border: 1px solid;
    border-radius: 10px;

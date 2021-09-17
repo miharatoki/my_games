@@ -1,8 +1,8 @@
 ja:
   posts:
     new:
-      title: '新しい記録'
-      delete: '書いた内容を消す'
+      heading: '新しい記録'
+      delete: '内容を消す'
       post: '記録する'
       score: '評価'
       genre_select: 'ジャンルを選択してください'
@@ -14,8 +14,8 @@ ja:
       post_user: '%{user_name}さん'
       posted_date: '投稿日：'
     edit:
-      title: '記録を編集する'
-      delete: '書いた内容を消す'
+      heading: '記録の編集'
+      delete: '変更内容を削除'
       post: '記録する'
     score_new:
       total_score: '総合評価'
