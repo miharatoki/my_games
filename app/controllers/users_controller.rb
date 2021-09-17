@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # 新規登録画面でバリデーションエラーが起きた際、indeアクションのurlに自動的に遷移するため、ページは作成せずアクションのみ定義
+  # その状態でページリロードをすると新規登録画面へ遷移
+  def index
+  end
+
   def edit
   end
 
@@ -53,7 +58,7 @@ class UsersController < ApplicationController
   def ensure_sign_in
     # ログインしていないとログイン画面へ遷移
     unless user_signed_in?
-      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
+      redirect_to new_user_registration_path, alert: 'ログイン、または新規登録をしてください'
     end
   end
 

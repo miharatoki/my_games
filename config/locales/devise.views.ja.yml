@@ -28,7 +28,7 @@ ja:
           unlock_token: ロック解除用トークン
           updated_at: 更新日
     models:
-      user: ユーザー
+      user: 'ユーザー'
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -103,31 +103,34 @@ ja:
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:
-        new_register: 新規アカウント登録
-        sign_up: アカウント登録
-      signed_up: ようこそ、My Gamesへ！！
-      signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
-      signed_up_but_locked: アカウントがロックされているためログインできません。
-      signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
-      update_needs_confirmation: アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。
-      updated: アカウント情報を変更しました。
-      updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。
+        new_register: '新規登録'
+        sign_up: 'アカウント登録'
+        sign_in_link: 'アカウントをお持ちの方はこちら'
+      signed_up: 'ようこそ、My Gamesへ！！'
+      # signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
+      # signed_up_but_locked: アカウントがロックされているためログインできません。
+      # signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
+      # update_needs_confirmation: アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。
+      # updated: アカウント情報を変更しました。
+      # updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。
     sessions:
       already_signed_out: 既にログアウト済みです。
       new:
-        sign_in: ログイン
-      signed_in: ログインしました
-      signed_out: ログアウトしました
-    shared:
-      links:
-        back: 戻る
-        didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか？
-        didn_t_receive_unlock_instructions: アカウントのロック解除方法のメールを受け取っていませんか？
-        forgot_your_password: パスワードを忘れましたか？
-        sign_in: ログイン
-        sign_in_with_provider: "%{provider}でログイン"
-        sign_up: アカウント登録
-      minimum_password_length: "（%{count}字以上）"
+        sign_in: 'ログイン'
+        sign_up_link: '新規登録はこちら'
+        guest_sign_in_link: 'ゲストログイン'
+      signed_in: 'ログインしました'
+      signed_out: 'ログアウトしました'
+    # shared:
+    #   links:
+    #     back: 戻る
+    #     didn_t_receive_confirmation_instructions: アカウント確認のメールを受け取っていませんか？
+    #     didn_t_receive_unlock_instructions: アカウントのロック解除方法のメールを受け取っていませんか？
+    #     forgot_your_password: パスワードを忘れましたか？
+    #     sign_in: ログイン
+    #     sign_in_with_provider: "%{provider}でログイン"
+    #     sign_up: アカウント登録
+    #   minimum_password_length: "（%{count}字以上）"
     unlocks:
       new:
         resend_unlock_instructions: アカウントのロック解除方法を再送する

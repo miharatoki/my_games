@@ -81,11 +81,11 @@
 .nav-link{
  font-family: "Koruri-Semibold";
  text-decoration: none;
- .nav-link-word{
-  color: $nav_link;
- }
 }
 
+.nav-link-word{
+ color: $nav_link;
+}
 .nav-icon{
  color: orange;
 }
@@ -120,13 +120,16 @@
 }
 
 .sign-up-in-form{
+ margin: 0 auto;
  background-color: white;
  border: 1px solid;
  border-radius: 10px;
- width: 400px;
- .sign-up-in-heading{
+ .form-heading{
   width: 150px;
   border-bottom: 2px solid;
+ }
+ .sign-link{
+  margin-bottom: 10px;
  }
 }
 
