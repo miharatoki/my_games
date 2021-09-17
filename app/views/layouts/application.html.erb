@@ -13,7 +13,8 @@
 
   <body>
     <% if current_page?(root_path) %>
-      <div class='jfwrapper'>
+      <div class='wrapper'>
+        <%= render 'shared/flash' %>
           <%= yield %>
       </div>
     <% else %>

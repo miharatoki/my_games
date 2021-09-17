@@ -28,7 +28,6 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
       else
-        @user = User.find(params[:id])
         render :edit
       end
     end

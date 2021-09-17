@@ -7,59 +7,53 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class=' navbar-nav ml-auto'>
+        <ul class='navbar-nav ml-auto'>
           <!--ログインしていたら-->
           <% if user_signed_in? %>
             <!--ウェルカムメッセージ-->
             <div class='d-flex align-items-center mr-4 welcom'>
-              <i class="fas fa-handshake nav-icon"></i>
-              <%= current_user.name %>
+              <span class='pl-3 mb-0' ></span><%= t '.welcom', user_name: current_user.name %></span>
             </div>
             <!--マイページリンク-->
             <li class='nav-list mr-4'>
               <%= link_to edit_user_path(current_user.id), class: 'nav-link' do %>
-                <i class="fas fa-cog nav-icon"></i>
-                <span class='p-0 mb-0 nav-link-word'><%= t '.my_page'%></span>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.my_page'%></span>
               <% end %>
             </li>
             <!--自分の記録リンク-->
             <li class='nav-list mr-4'>
               <%= link_to user_path(current_user.id), class: 'nav-link' do %>
-                <i class="fas fa-user nav-icon"></i>
-                <span class='p-0 mb-0 nav-link-word'><%= t '.my_index' %></span>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.my_index' %></span>
               <% end %>
             </li>
             <!--記録一覧画面リンク-->
             <li class='nav-list mr-4'>
               <%= link_to posts_path, class: 'nav-link' do %>
-                <i class="fas fa-users nav-icon"></i>
-                <span class='p-0 mb-0 nav-link-word'><%= t '.all_index' %></span>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.all_index' %></span>
               <% end %>
             </li>
             <!--新しい記録リンク-->
             <li class='nav-list mr-4'>
               <%= link_to new_post_path, class: 'nav-link' do %>
-                <i class='far fa-clipboard nav-icon'></i>
-                <span class='p-0 mb-0 nav-link-word'><%= (t '.new_post') %></span>
+                <span class='pl-3 mb-0 nav-link-word'><%= (t '.new_post') %></span>
               <% end %>
             </li>
             <!--ログアウト-->
             <li class='nav-list mr-4'>
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
-                  <i class='fas fa-sign-out-alt nav-icon'></i>
-                  <span class='p-0 mb-0 nav-link-word'><%= t '.sign_out' %></span>
+                  <span class='pl-3 mb-0 nav-link-word'><%= t '.sign_out' %></span>
                 <% end %>
             </li>
           <% else %>
+            <!--新規登録-->
             <li class='nav-list mr-4'>
               <%= link_to new_user_registration_path class: 'nav-link' do %>
-                <i class="fas fa-user-plus nav-icon"></i>
                 <span class='p-0 mb-0 nav-link-word'><%= t '.sign_up' %></span>
               <% end %>
             </li>
+            <!--ログイン-->
             <li class='nav-list mr-4'>
               <%= link_to new_user_session_path class: 'nav-link' do %>
-                <i class='fas fa-sign-out-alt nav-icon'></i>
                 <span class='p-0 mb-0 nav-link-word'><%= t '.sign_in' %></span>
               <% end %>
             </li>
