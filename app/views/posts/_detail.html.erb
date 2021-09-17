@@ -2,17 +2,17 @@
    <div class='col-12'>
        <!--ジャンル-->
       <div class='form-inline mb-4 mt-5'>
-        <p class='col-5 col-sm-3 mb-1 genre-label'><%= t '.genre' %></p>
+        <p class='col-5 col-sm-3 mb-0 genre-label'><%= t '.genre' %></p>
         <strong class='col-7 col-sm-9 p-1 py-0 '><p class='mb-0 genre-name'><%= post.genre.name %></p></strong>
       </div>
       <!--感想-->
       <div class='form-inline d-flex align-items-start mb-4 impression-field'>
-        <p class='col-3 col-sm-3 mb-1 impression-label'><%= t '.impression' %></p>
+        <p class='col-4 col-sm-3 mb-1 impression-label'><%= t '.impression' %></p>
         <p class='col-12 col-sm-9 p-1 posts-body-box'><%= post.body %></p>
       </div>
       <!--評価-->
       <div class='form-inline d-flex align-items-start mb-4'>
-        <p class='col-3 col-sm-3 mb-1 score-label'><%= t '.score' %></p>
+        <p class='col-4 col-sm-3 mb-1 score-label'><%= t '.score' %></p>
         <div class='col-12 col-sm-9 px-0'>
           <%= render 'posts/score_read_only', post: post %>
         </div>
@@ -39,7 +39,7 @@
       <% if @post.user.id == current_user.id %>
         <div class=' mb-3 edit-destroy-btn'>
           <!--編集画面リンク-->
-          <%= link_to edit_post_path(post.id), class: 'col-2 col-md-1 offset-7 offset-md-9 btn btn-info' do %>
+          <%= link_to edit_post_path(post.id), class: 'col-2 col-md-1 offset-6 offset-md-9 btn btn-info' do %>
             <i class="far fa-edit"></i>
           <% end %>
           <!--削除リンク-->
