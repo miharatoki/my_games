@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_selfF
+ *= require_self
  */
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -118,10 +118,6 @@
   color: black;
  }
 }
-
- .form-group{
-  margin: 15px;
- }
 
 .sign-up-in-form{
  background-color: white;

@@ -1,43 +1,46 @@
-<div class='container users-edit w-100'>
+<div class='container users-edit'>
   <%= render 'shared/error', model: @user %>
   <%= form_with model: @user, local: true do |f| %>
-  <div class='row mt-5'>
-    <div class='input-form mx-auto'>
+  <div class='row my-5'>
+    <div class='col-11 col-md-6 col-lg-5 col-xl-4 p-0 input-form '>
       <div class='form-heading my-4 mx-auto w-75 text-center h3'><%= t '.profile' %></div>
-      <p class='text-center' style='color: red'><%= t '.caution' %></p>
+      <% if @user.name == 'ゲストユーザー' && @user.email == 'guest@example.com' %>
+        <p class='text-center' style='color: red'><%= t '.caution' %></p>
+      <% end %>
       <!--ユーザー名-->
-      <div class='form-group mx-4 mt-5 mb-4'>
-        <%= f.label :name %><br>
-        <%= f.text_field :name, class: 'readonly-field'%>
+      <div class='col-12 text-left mt-5 mb-4'>
+        <%= f.label :name, class: 'col-12 text-left' %><br>
+        <%= f.text_field :name, class: 'ml-3' %>
       </div>
       <!--プロフィール画像-->
-      <div class='form-group mx-4 mt-5 mb-4'>
-        <%= f.label :profile_image_id %><br>
+      <div class='col-12 text-left mt-5 mb-4'>
+        <%= f.label :profile_image_id, class: 'col-12 text-left' %><br>
         <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%><br>
-        <%= f.attachment_field :profile_image, class: 'image-field'%>
+        <%= f.attachment_field :profile_image, class: 'col-11 image-field'%>
       </div>
       <!--プロフィール文-->
-      <div class='form-group introduction mx-4 mt-5 mb-4'>
-        <%= f.label :introduction %><br>
-        <%= f.text_area :introduction, cols: 30, rows: 5 %>
+      <div class='col-12 text-center mt-5 mb-4'>
+        <%= f.label :introduction, class: 'col-12 text-left' %><br>
+        <%= f.text_area :introduction, class: 'col-11 introduction-field' %>
       </div>
 
       <!--記録作成ボタン-->
-      <div class='form-group d-flex justify-content-center'>
+      <div class='d-flex justify-content-center mb-2'>
         <%= f.submit '書いた内容を消す', type: 'reset', class: 'mr-3 btn btn-danger' %>
         <%= f.submit (t '.edit'), class: 'btn btn-success' %>
       </div>
     </div>
   </div>
-
   <% end %>
 </div>
 
 
 <script>
+// ゲストユーザーでログイン中はプロフィール編集機能を使えなくする
 $(function(){
-  var user = "<%= @user.name %>";
-  if (user == 'ゲストユーザー'){
+  var user_name = "<%= @user.name %>";
+  var user_email = "<%= @user.email %>";
+  if (user_name == 'ゲストユーザー' && user_email == 'guest@example.com'){
     $('input[type=text], textarea').attr('readonly', 'readonly');
     $('input[type=text], textarea').addClass('readonly-field');
   }

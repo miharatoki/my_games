@@ -15,16 +15,15 @@
   background-color: white;
   border: 1px solid;
   border-radius: 10px;
+  // readonly-fieldはゲストユーザーでログイン中のみ追加される
   .readonly-field{
     background-color: lightgray;
    }
   .form-heading{
    border-bottom: 2px solid;
   }
-  .rate-group{
-   width: 80%;
-   border: 1px solid;
-   border-radius: 10px;
+  .introduction-field{
+   height: 10vh;
   }
  }
 }
@@ -61,6 +60,7 @@
 
 // レスポンシブ
 @media screen and (max-width: 1024px) {
+ // ユーザー詳細ページ
 .users-show{
  .posts-list:nth-child(even){
   margin-left: 4%;
@@ -73,6 +73,16 @@
 }
 
 @media screen and (max-width: 768px) {
+ // ユーザー編集ページ
+ .users-edit{
+  .input-form{
+   .image-field{
+    font-size: 15px;
+   }
+  }
+ }
+
+ // ユーザー詳細ページ
 .users-show{
  .posts-list:nth-child(even){
   margin-left: 3%;
@@ -87,11 +97,19 @@
 
 // レスポンシブ
 @media screen and (max-width: 425px) {
-.users-show{
- .posts-list:nth-child(even){
-  margin-left: 0;
+ .users-edit{
+  .input-form{
+   .image-field{
+    font-size: 15px;
+   }
+  }
  }
- .posts-list{
+
+ .users-show{
+  .posts-list:nth-child(even){
+   margin-left: 0;
+  }
+  .posts-list{
    width: 100%;
    margin-left: 0;
   }

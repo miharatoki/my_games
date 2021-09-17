@@ -40,6 +40,7 @@
  }
 }
 
+// 投稿一覧ページ
 .posts-index{
  .page-heading{
   font-family: "Koruri-Semibold";
@@ -58,133 +59,41 @@
    background-color: white;
    border: 1px solid;
    border-radius: 10px;
-   .score-group{
-    width: 90%;
-    border: 1px solid;
-    border-radius: 10px;
-    .score-list{
-     margin-top: 5px;
-     width: 95%;
-    }
+  .score-group{
+   width: 90%;
+   border: 1px solid;
+   border-radius: 10px;
+   .score-list{
+    margin-top: 5px;
+    width: 95%;
    }
+  }
  }
 }
 
+// 投稿詳細ページ
 .posts-show{
  .posts-show-box{
    background-color: $posts_show_box;
    border-radius: 10px;
- .post-show-heading{
-  font-family: "Koruri-Semibold";
-  height: 5vh;
- }
- .posts-detail-box{
-  background-color: $posts_detail;
-  border-bottom-left-radius: 10px;
-  .genre-label{
-    text-align: right;
-   }
-   .score-label{
-    text-align: right;
-   }
-  .impression-field{
-   height: 20vh;
-   .impression-label{
-    text-align: right;
-   }
-   .posts-body-box{
-    background-color: white;
-    overflow: auto;
-    border: 1px solid;
-    border-radius: 10px;
-    width: 80%;
-    height: 80%;
-   }
-  }
-  .score-group{
-   background-color: white;
-   width: 100%;
-   border: 1px solid;
-   border-radius: 10px;
-   .score-label{
-    margin-left: 0;
-    padding-left: 0;
-   }
-   .score-list{
-    margin: 15px;
-   }
-  }
- }
- .comment-box{
-  background-color: $posts_detail;
-  border-bottom-right-radius: 10px;
-  height: 75vh;
-  .comment-form{
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 10%;
-   border-bottom: 1px;
-  }
-  .comment-field{
-   background-color: white;
-   height: 85%;
-   overflow: auto;
-   img{
-       border-radius: 30px;
-   }
-   .comment{
-    border: 1px solid ;
-    border-radius: 10px;
-   }
-  }
- }
- }
-}
-
-// レスポンシブ
-@media screen and (max-width: 1024px) {
- // 投稿一覧ページ
-.posts-index{
- .posts-list:nth-child(even){
-  margin-left: 4%;
- }
- .posts-list{
-   width: 46%;
-   margin-left: 0;
- }
- }
-}
-
-@media screen and (max-width: 768px) {
- // 投稿一覧ページ
- .posts-index{
-   .posts-list:nth-child(even){
-    margin-left: 3%;
-   }
-   .posts-list{
-    width: 47%;
-    margin-left: 0;
-    text-decoration: none;
-    .score-label{
-     font-size: 12px;
-    }
-   }
-  }
-  // 投稿詳細ページ
- .posts-show{
-  .posts-show-box{
-    border-radius: 10px;
   .post-show-heading{
+   font-family: "Koruri-Semibold";
    height: 5vh;
-   h2{
-    font-size: 20px;
-   }
   }
   .posts-detail-box{
-   border-bottom-left-radius: 0px;
+   background-color: $posts_detail;
+   border-bottom-left-radius: 10px;
+   .genre-label{
+    text-align: right;
+   }
+   .score-label{
+    text-align: right;
+   }
    .impression-field{
     height: 20vh;
+    .impression-label{
+     text-align: right;
+    }
     .posts-body-box{
      background-color: white;
      overflow: auto;
@@ -207,26 +116,79 @@
      margin: 15px;
     }
    }
+  }
+  .comment-box{
+   background-color: $posts_detail;
+   border-bottom-right-radius: 10px;
+   height: 75vh;
+   .comment-field{
+    background-color: white;
+    height: 85%;
+    overflow: auto;
+    img{
+        border-radius: 30px;
+    }
+    .comment{
+     border: 1px solid ;
+     border-radius: 10px;
+    }
+   }
+   .comment-form{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px;
+   }
+  }
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+ // 投稿一覧ページ
+ .posts-index{
+  .posts-list:nth-child(even){
+   margin-left: 4%;
+  }
+  .posts-list{
+    width: 46%;
+    margin-left: 0;
+  }
+ }
+}
+
+@media screen and (max-width: 768px) {
+ // 投稿一覧ページ
+ .posts-index{
+  .posts-list:nth-child(even){
+   margin-left: 3%;
+  }
+  .posts-list{
+   width: 47%;
+   margin-left: 0;
+   text-decoration: none;
+   .score-label{
+    font-size: 12px;
+   }
+  }
+ }
+  // 投稿詳細ページ
+ .posts-show{
+  .posts-show-box{
+   .post-show-heading{
+    h2{
+     font-size: 30px;
+    }
+   }
+   .posts-detail-box{
+    border-bottom-left-radius: 0px;
    }
    .comment-box{
-    background-color: $posts_detail;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     .comment-field{
-     background-color: white;
      height: 80%;
-     overflow: auto;
-     .comment{
-      border: 1px solid ;
-      border-radius: 10px;
-     }
-    }
-    .comment-form{
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     height: 10%;
-     border-bottom: 1px;
     }
    }
   }
@@ -235,11 +197,11 @@
 
 @media screen and (max-width: 425px) {
  // 投稿一覧ページ
-.posts-index{
- .posts-list:nth-child(even){
-  margin-left: 0;
- }
- .posts-list{
+ .posts-index{
+  .posts-list:nth-child(even){
+   margin-left: 0;
+  }
+  .posts-list{
    width: 100%;
    margin-left: 0;
   }
@@ -247,62 +209,27 @@
    // 投稿詳細ページ
  .posts-show{
   .posts-show-box{
-    border-radius: 10px;
-  .post-show-heading{
-   h2{
-    font-size: 20px;
-   }
-  }
-  .posts-detail-box{
-   border-bottom-left-radius: 0px;
-   .genre-label{
-    text-align: left;
-   }
-   .impression-field{
-    height: 20vh;
-    .posts-body-box{
-     background-color: white;
-     overflow: auto;
-     border: 1px solid;
-     border-radius: 10px;
-     width: 80%;
-     height: 80%;
+   .post-show-heading{
+    h2{
+     font-size: 18px;
     }
    }
-   .score-group{
-    background-color: white;
-    width: 100%;
-    border: 1px solid;
-    border-radius: 10px;
-    .score-label{
-     margin-left: 0;
-     padding-left: 0;
-     font-size: 15px;
+   .posts-detail-box{
+    border-bottom-left-radius: 0px;
+    .genre-label{
+     text-align: left;
     }
-    .score-list{
-     margin: 15px;
+    .score-group{
+     .score-label{
+      font-size: 15px;
+     }
     }
-   }
    }
    .comment-box{
-    background-color: $posts_detail;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     .comment-field{
-     background-color: white;
      height: 80%;
-     overflow: auto;
-     .comment{
-      border: 1px solid ;
-      border-radius: 10px;
-     }
-    }
-    .comment-form{
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     height: 10%;
-     border-bottom: 1px;
     }
    }
   }
