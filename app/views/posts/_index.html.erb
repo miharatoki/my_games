@@ -1,32 +1,37 @@
-<div class='col-12 d-flex flex-wrap'>
+<div class='d-flex flex-wrap justify-content-center col-12 '>
   <% posts.each do |post| %>
-      <div class='ml-3 mb-5 posts-list'>
-
+    <div class='mb-5 posts-list'>
       <!--ゲームタイトル-->
       <div class='form-inline d-flex align-items-center mt-3 text-truncate title-field'>
-        <%= link_to post_path(post.id), class: 'col-12 text-truncate' do %>
+        <%= link_to post_path(post.id), class: 'col-12 ' do %>
           <strong><%= post.title %></strong>
         <% end %>
       </div>
       <!--ジャンル-->
       <div class='form-inline d-flex align-items-center my-3 genre-field'>
-        <strong class='col-12'><%= post.genre.name %></strong>
+        <div class='col-12 genre-label'>
+          <%= t '.genre' %>：
+          <strong><%= post.genre.name %></strong>
+
+        </div>
       </div>
       <!--評価-->
       <%= render 'posts/score_read_only', post: post %>
-      <!--いいね-->
-      <div class='col-7 offset-5 mb-2'>
-        <%= render 'favorites/favorite_btn', post: post %>
-      </div>
       <!--投稿者名-->
-      <div class='col-7 offset-4 mb-2'>
-      　<%= t '.posted_user', user_name: post.user.name %>
-      </div>
+      <% if post.user == current_user %>
+      <% else %>
+        <div class='col-12 d-flex justify-content-end mt-2'>
+        　<%= t '.posted' %>
+          <%= link_to user_path(post.user.id) do %>
+            <%= t '.post_user', user_name: post.user.name %>
+          <% end %>
+        </div>
+      <% end %>
       <!--投稿日-->
-      <div class='col-8 offset-4 mb-3'>
+      <div class='col-12 d-flex justify-content-end mb-2'>
       　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
       </div>
-      </div>
+    </div>
   <% end %>
 </div>
 <div class='mx-auto pagenate-label'>

@@ -1,5 +1,4 @@
 <div class='container users-show'>
-
   <!--ログインユーザの記録が一つもなかったら-->
   <% if no_posts?(@user) %>
     <div class='row no-posts-row d-flex align-items-center justify-content-center'>
@@ -9,12 +8,15 @@
     </div>
   <% else %>
     <!--記録が一つ以上あったら-->
-    <div class='row my-5'>
-      <div class='col-12 my-2 d-flex justify-content-end align-items-end sort-serach'>
+    <div class='row mb-3'>
+      <div class='col-12 col-sm-9 mt-3  text-center '>
+        <h1 class='col-12 col-sm-7 offset-sm-4 page-heading'><%= t '.page_heading' %></h1>
+      </div>
+      <div class='col-7 offset-5 col-sm-3 offset-sm-0 my-2 sort-serach'>
         <%= render 'shared/sort_search', user: @user %>
       </div>
     </div>
-    <div class='row mb-5'>
+    <div class='row mt-3 mb-5'>
       <%= render 'posts/index', posts: @posts %>
     </div>
   <% end %>

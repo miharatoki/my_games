@@ -12,8 +12,9 @@
   </head>
 
   <body>
-    <% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
-      <div class='jfwrapper'>
+    <% if current_page?(root_path) %>
+      <div class='wrapper'>
+        <%= render 'shared/flash' %>
           <%= yield %>
       </div>
     <% else %>

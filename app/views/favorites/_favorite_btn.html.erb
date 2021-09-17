@@ -1,4 +1,4 @@
-  <div class='form-inline d-flex justify-content-end favorite-btn-group-<%= post.id %>'>
+ 
     <div class='favorite-btn'>
       <% if post.favorite_by?(current_user) %>
         <%= link_to '❤️', post_favorites_path(post), method: :delete, remote: true %>
@@ -9,4 +9,4 @@
     <div class='favorite-count'>
       <%= post.favorites.count %>
     </div>
-  </div>
+

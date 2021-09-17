@@ -1,32 +1,39 @@
-<p class='ml-5 mb-2'>評価</p>
-<div class='rate-group mx-auto'>
+<div class='col-12 p-0 score-group '>
+
     <!--総合評価-->
-    <div class='form-group d-flex align-items-center total-score'>
-      <label class='col-4 offset-1'><%= t '.total_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.total_score' %></label>
+      <div class='col-10 col-sm-6 score-star total-score'></div>
     </div>
     <!--ストーリー評価-->
-    <div class='form-group d-flex align-items-center story-score'>
-      <label class='col-4 offset-1'><%= t '.story_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.story_score' %></label>
+      <div class='col-10 col-sm-6 score-star story-score'></div>
     </div>
     <!--グラフィック評価-->
-    <div class='form-group d-flex align-items-center graphic-score'>
-      <label class='col-4 offset-1'><%= t '.graphic_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.graphic_score' %></label>
+      <div class='col-10 col-sm-6 score-star graphic-score'></div>
     </div>
     <!--サウンド評価-->
-    <div class='form-group d-flex align-items-center sound-score'>
-      <label class='col-4 offset-1'><%= t '.sound_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.sound_score' %></label>
+      <div class='col-10 col-sm-6 score-star sound-score'></div>
     </div>
     <!--操作性評価-->
-    <div class='form-group d-flex align-items-center operability-score'>
-      <label class='col-4 offset-1'><%= t '.operability_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.operability_score' %></label>
+      <div class='col-10 col-sm-6 score-star operability-score'></div>
     </div>
     <!--ゲームバランス評価-->
-    <div class='form-group d-flex align-items-center balance-score'>
-      <label class='col-4 offset-1'><%= t '.balance_score' %></label>
+    <div class='d-flex flex-wrap justify-content-end mb-2 score-list'>
+      <label class='col-10 col-sm-5 offset-sm-1'><%= t '.balance_score' %></label>
+      <div class='col-10 col-sm-6 score-star balance-score'></div>
     </div>
   </div>
 
   <script>
+    $('.score-star').empty();
     $('.total-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",

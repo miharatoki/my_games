@@ -4,8 +4,18 @@ class UsersController < ApplicationController
   before_action :ensure_user, only: [:edit, :update]
 
   def show
-    @posts = Post.where(user_id: params[:id]).order(params[:sort])
-    @posts = @posts.page(params[:page]).per(6)
+    if params[:sort].nil?
+      # ソートしていなかったら、降順でレコードを取得
+      @posts = Post.where(user_id: params[:id]).order('created_at DESC').page(params[:page]).per(6)
+    else
+      # ソートしていたら、ソート内容でレコードを所得
+      @posts = Post.where(user_id: params[:id]).order(params[:sort]).page(params[:page]).per(6)
+    end
+  end
+
+  # 新規登録画面でバリデーションエラーが起きた際、indeアクションのurlに自動的に遷移するため、ページは作成せずアクションのみ定義
+  # その状態でページリロードをすると新規登録画面へ遷移
+  def index
   end
 
   def edit
@@ -18,7 +28,6 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
       else
-        @user = User.find(params[:id])
         render :edit
       end
     end
@@ -48,7 +57,7 @@ class UsersController < ApplicationController
   def ensure_sign_in
     # ログインしていないとログイン画面へ遷移
     unless user_signed_in?
-      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
+      redirect_to new_user_registration_path, alert: 'ログイン、または新規登録をしてください'
     end
   end
 

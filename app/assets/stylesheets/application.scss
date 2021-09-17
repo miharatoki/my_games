@@ -48,12 +48,10 @@
    padding-bottom: 20px;
    .notice{
     width: 80%;
-    height: 30px;
     background-color: $notice;
    }
    .alert{
     width: 80%;
-    height: 30px;
     background-color: $alert;
    }
    .footer{
@@ -81,16 +79,14 @@
 .nav-link{
  font-family: "Koruri-Semibold";
  text-decoration: none;
- .nav-link-word{
-  color: $nav_link;
- }
 }
 
+.nav-link-word{
+ color: $nav_link;
+}
 .nav-icon{
  color: orange;
 }
-
-
 
 .top{
  height: 100%;
@@ -106,8 +102,8 @@
  }
 }
 
-
  #error-explanation{
+  margin-top: 15px;
  border-radius: 10px;
  background-color: $alert;
  h4{
@@ -122,120 +118,19 @@
  }
 }
 
- .form-group{
-  margin: 15px;
- }
-
 .sign-up-in-form{
+ margin: 0 auto;
  background-color: white;
  border: 1px solid;
  border-radius: 10px;
- width: 400px;
- .sign-up-in-heading{
+ .form-heading{
   width: 150px;
   border-bottom: 2px solid;
  }
-}
-
-.users-edit,
-.posts-new{
- .input-form{
-  padding: 0;
-  margin: 0 auto;
-  background-color: white;
-  border: 1px solid;
-  border-radius: 10px;
-  .readonly-field{
-    background-color: lightgray;
-   }
-  .form-heading{
-   border-bottom: 2px solid;
-  }
-  .rate-group{
-   width: 80%;
-   border: 1px solid;
-   border-radius: 10px;
-  }
+ .sign-link{
+  margin-bottom: 10px;
  }
 }
-
-.users-show,
-.posts-index{
- .posts-list{
-   width: 30%;
-   text-decoration: none;
-   color: black ;
-   background-color: white;
-   border: 1px solid;
-   border-radius: 10px;
-   .score-group{
-    width: 90%;
-    border: 1px solid;
-    border-radius: 10px;
-    .score-list{
-     margin-top: 5px;
-     width: 95%;
-    }
-   }
- }
-}
-
-.posts-show{
- .posts-show-box{
-  background-color: white;
-  border: 1px solid;
-  border-radius: 10px;
-  width: 50%;
-  height: 77vh;
-  .posts-show-heading{
-   width: 200px;
-   border-bottom: 2px solid;
-  }
-  .impression-field{
-   height: 15%;
-   .posts-body-box{
-    overflow: auto;
-    border: 1px solid;
-    width: 80%;
-    height: 80%;
-   }
-  }
-  .score-group{
-   width: 100%;
-   border: 1px solid;
-   border-radius: 10px;
-   .score-label{
-    margin-left: 0;
-    padding-left: 0;
-   }
-   .score-list{
-    margin: 15px;
-   }
-  }
- }
- .comment-box{
-  border-radius: 10px;
-  background-color: white;
-  height: 77vh;
-  .comment-form{
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 10%;
-   border-bottom: 1px;
-  }
-  .comment-field{
-   height: 85%;
-   overflow: auto;
-   .comment{
-    border: 1px solid ;
-    border-radius: 10px;
-   }
-  }
- }
-}
-
-
 
 .no-posts-row{
  height: 80vh;
@@ -247,5 +142,30 @@
 }
 
 .sort-serach{
- height: 5vh;
+ #sort{
+  margin-bottom: 4px;
+ }
+ #select{
+  margin-bottom: 4px;
+ }
+ .btn{
+  height: 28px;
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 425px) {
+ .top{
+  .top-push{
+   height: 20vh;
+  }
+ }
 }

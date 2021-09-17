@@ -1,51 +1,49 @@
-
-<div class='score-group mx-auto mb-1'>
+<div class='mx-auto score-group'>
     <!--総合評価-->
-
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.total_score' %></label>
-      <div id='total-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 mt-2 score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.total_score' %></label>
+      <div class='col-sm-6 col-8 text-center p-0 total-score-<%= post.id %>'></div>
     </div>
     <!--ストーリー評価-->
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.story_score' %></label>
-      <div  id='story-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 my-2 score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.story_score' %></label>
+      <div  class='col-sm-6 col-8 text-center p-0 story-score-<%= post.id %>'></div>
     </div>
     <!--グラフィック評価-->
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.graphic_score' %></label>
-      <div  id='graphic-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 my-2 score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.graphic_score' %></label>
+      <div  class='col-sm-6 col-8 text-center p-0 graphic-score-<%= post.id %>'></div>
     </div>
     <!--サウンド評価-->
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.sound_score' %></label>
-      <div id='sound-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 my-2 score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.sound_score' %></label>
+      <div class='col-sm-6 col-8 text-center p-0 sound-score-<%= post.id %>'></div>
     </div>
     <!--操作性評価-->
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.operability_score' %></label>
-      <div id='operability-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 my-2  score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.operability_score' %></label>
+      <div class='col-sm-6 col-8 text-center p-0 operability-score-<%= post.id %>'></div>
     </div>
     <!--ゲームバランス評価-->
-    <div class='d-flex align-items-center score-list'>
-      <label class='col-6 score-label'><%= t '.balance_score' %></label>
-      <div id='balance-score-<%= post.id %>'></div>
+    <div class='d-flex align-items-center m-0 my-2 score-list'>
+      <label class='col-sm-6 col-4 mb-0 p-0 text-center score-label'><%= t '.balance_score' %></label>
+      <div class='col-sm-6 col-8 text-center p-0 balance-score-<%= post.id %>'></div>
     </div>
   </div>
 
 
   <script>
-    $('#total-score-<%= post.id %>',).empty();
-    $('#total-score-<%= post.id %>').raty({
-      size: 15,
+    $('.total-score-<%= post.id %>').empty();
+    $('.total-score-<%= post.id %>').raty({
+      size: 10,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       readOnly: true,
       score: <%= post.total_score %>,
     });
 
-    $('#story-score-<%= post.id %>').empty();
-    $('#story-score-<%= post.id %>').raty({
+    $('.story-score-<%= post.id %>').empty();
+    $('.story-score-<%= post.id %>').raty({
       size: 15,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
@@ -53,8 +51,8 @@
       score: <%= post.story_score %>,
     });
 
-    $('#graphic-score-<%= post.id %>').empty();
-    $('#graphic-score-<%= post.id %>').raty({
+    $('.graphic-score-<%= post.id %>').empty();
+    $('.graphic-score-<%= post.id %>').raty({
       size: 15,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
@@ -62,8 +60,8 @@
       score: <%= post.graphic_score %>,
     });
 
-    $('#sound-score-<%= post.id %>').empty();
-    $('#sound-score-<%= post.id %>').raty({
+    $('.sound-score-<%= post.id %>').empty();
+    $('.sound-score-<%= post.id %>').raty({
       size: 15,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
@@ -71,8 +69,8 @@
       score: <%= post.sound_score %>,
     });
 
-    $('#operability-score-<%= post.id %>').empty();
-    $('#operability-score-<%= post.id %>').raty({
+    $('.operability-score-<%= post.id %>').empty();
+    $('.operability-score-<%= post.id %>').raty({
       size: 15,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
@@ -80,8 +78,8 @@
       score: <%= post.operability_score %>
     });
 
-    $('#balance-score-<%= post.id %>').empty();
-    $('#balance-score-<%= post.id %>').raty({
+    $('.balance-score-<%= post.id %>').empty();
+    $('.balance-score-<%= post.id %>').raty({
       size: 15,
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
