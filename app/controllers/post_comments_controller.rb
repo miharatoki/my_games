@@ -1,5 +1,4 @@
 class PostCommentsController < ApplicationController
-  before_action :ensure_sign_in
 
   def create
     @post_comment = PostComment.new(post_comment_params)
@@ -7,6 +6,7 @@ class PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     if @post_comment.save
       @post = Post.find(params[:post_id])
+      Notification.create(post_comment_id: @post_comment.id, sender_id: current_user.id, receiver_id: @post.user_id, action: 'post_comment')
       render :comment_field
     else
       @post = Post.find(params[:post_id])
@@ -22,12 +22,6 @@ class PostCommentsController < ApplicationController
   private
   def post_comment_params
     params.require(:post_comment,).permit(:post_id, :comment)
-  end
-
-  def ensure_sign_in
-    unless user_signed_in?
-      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
-    end
   end
 
 end

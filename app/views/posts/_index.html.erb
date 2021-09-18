@@ -1,9 +1,9 @@
-<div class='d-flex flex-wrap justify-content-center col-12 '>
+<div class='d-flex flex-wrap col-12 '>
   <% posts.each do |post| %>
     <div class='mb-5 posts-list'>
       <!--ゲームタイトル-->
-      <div class='form-inline d-flex align-items-center mt-3 text-truncate title-field'>
-        <%= link_to post_path(post.id), class: 'col-12 ' do %>
+      <div class='form-inline d-flex align-items-center mt-3 title-field'>
+        <%= link_to post_path(post.id), class: 'col-12 text-truncate' do %>
           <strong><%= post.title %></strong>
         <% end %>
       </div>
@@ -18,15 +18,12 @@
       <!--評価-->
       <%= render 'posts/score_read_only', post: post %>
       <!--投稿者名-->
-      <% if post.user == current_user %>
-      <% else %>
         <div class='col-12 d-flex justify-content-end mt-2'>
         　<%= t '.posted' %>
           <%= link_to user_path(post.user.id) do %>
             <%= t '.post_user', user_name: post.user.name %>
           <% end %>
         </div>
-      <% end %>
       <!--投稿日-->
       <div class='col-12 d-flex justify-content-end mb-2'>
       　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>

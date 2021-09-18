@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_comment_id: 1
+  favorite_id: 1
+  sender_id: 1
+  receiver_id: 1
+  type: 
+  check: false
+
+two:
+  post_comment_id: 1
+  favorite_id: 1
+  sender_id: 1
+  receiver_id: 1
+  type: 
+  check: false

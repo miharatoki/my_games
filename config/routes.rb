@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     get '/genre_search' => 'users#genre_search'
     get '/title_search' => 'users#title_search'
+    resources :notifications, only: [:index]
+    delete 'notifications' => 'notifications#destroy_all'
   end
 
   get 'posts/title_search' => 'posts#title_search'
@@ -14,5 +16,6 @@ Rails.application.routes.draw do
     get '/favorites' => 'favorites#create'
     delete '/favorites' => 'favorites#destroy'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+
 end

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :ensure_sign_in
   before_action :set_user, only: [:show, :edit, :update]
   before_action :ensure_user, only: [:edit, :update]
 
@@ -52,13 +51,6 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
-  end
-
-  def ensure_sign_in
-    # ログインしていないとログイン画面へ遷移
-    unless user_signed_in?
-      redirect_to new_user_registration_path, alert: 'ログイン、または新規登録をしてください'
-    end
   end
 
   def set_user

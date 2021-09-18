@@ -1,10 +1,11 @@
 class FavoritesController < ApplicationController
   before_action :ensure_sign_in
   before_action :set_post
-  
+
 
   def create
-    current_user.favorites.create(post_id: params[:post_id])
+    favorite = current_user.favorites.create(post_id: params[:post_id])
+    Notification.create(favorite_id: favorite.id, sender_id: current_user.id, receiver_id: @post.user_id, action: 'favorite')
   end
 
   def destroy
@@ -21,6 +22,7 @@ class FavoritesController < ApplicationController
     end
   end
   
+  # いいねボタンのif分岐に使用
   def set_post
     @post = Post.find(params[:post_id])
   end
