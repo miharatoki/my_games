@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
 
   private
   def ensure_user
-    unless current_user.id == params[:user_id]
+    unless current_user.id == params[:user_id].to_i
       redirect_to posts_path, alert: '自分宛以外の通知を見ることはできません'
     end
   end
