@@ -22,6 +22,7 @@
                       <%= t '.sender' %>
                       <%= link_to (t '.my_post'), post_path(Notification.favorited_post(notification.favorite_id)) %>
                       <%= t '.favorite' %>
+                      <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
                     </p>
                   </td>
                 <% elsif notification.action == 'post_comment'%>
@@ -30,6 +31,7 @@
                       <%= t '.sender' %>
                       <%= link_to (t '.my_post'), post_path(Notification.commented_post(notification.post_comment_id)) %>
                       <%= t '.post_comment' %>
+                      <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
                     </p>
                   </td>
                 <% end %>

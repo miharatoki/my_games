@@ -59,6 +59,7 @@ ja:
       sender: 'さんが'
       favorite: 'にいいねしました'
       post_comment: 'にコメントしました'
+      ago: '（%{ago}前）'
   homes:
     top:
       sign_up: '新規登録'
