@@ -20,6 +20,12 @@
                 <span class='pl-3 mb-0 nav-link-word'><%= t '.my_page'%></span>
               <% end %>
             </li>
+            <!--通知-->
+            <li class='nav-list mr-4'>
+              <%= link_to user_notifications_path(current_user.id), class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.notifications'%></span>
+              <% end %>
+            </li>
             <!--自分の記録リンク-->
             <li class='nav-list mr-4'>
               <%= link_to user_path(current_user.id), class: 'nav-link' do %>

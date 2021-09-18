@@ -50,6 +50,15 @@ ja:
       profile: 'プロフィール'
       edit: '変更する'
       caution: '※ゲストユーザーは編集ができません'
+  notifications:
+    index:
+      notification: '通知'
+      no_notification: '通知はありません'
+      destroy_all: '全て削除'
+      my_post: 'あなたの投稿'
+      sender: 'さんが'
+      favorite: 'にいいねしました'
+      post_comment: 'にコメントしました'
   homes:
     top:
       sign_up: '新規登録'

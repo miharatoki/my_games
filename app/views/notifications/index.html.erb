@@ -1,0 +1,43 @@
+<div class='container notifications-index'>
+  <div class='row my-5'>
+    <div class='col-11 notifications-field'>
+      <div class='text-center notifications-header'>
+        <h3 class='my-2 '><%= t '.notification' %></h3>
+      </div>
+      <% if @notifications.empty? %>
+        <p class='mt-3'><%= t '.no_notification' %></p>
+      <% else %>
+        <table class='table table-borderless'>
+          <tbody>
+            <tr>
+              <th>
+                <%= link_to (t '.destroy_all'), user_notifications_path, method: :delete %>
+              </th>
+            </tr>
+            <% @notifications.each do |notification| %>
+              <tr>
+                <% if notification.action == 'favorite' %>
+                  <td>
+                    <p class='mb-0'><%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
+                      <%= t '.sender' %>
+                      <%= link_to (t '.my_post'), post_path(Notification.favorited_post(notification.favorite_id)) %>
+                      <%= t '.favorite' %>
+                    </p>
+                  </td>
+                <% elsif notification.action == 'post_comment'%>
+                  <td>
+                    <p class='mb-0'><%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
+                      <%= t '.sender' %>
+                      <%= link_to (t '.my_post'), post_path(Notification.commented_post(notification.post_comment_id)) %>
+                      <%= t '.post_comment' %>
+                    </p>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

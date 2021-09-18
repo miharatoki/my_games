@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :ensure_sign_in
   before_action :set_post,  only: [:show, :edit, :update, :destroy]
   before_action :ensure_posted_user,  only: [:edit, :update, :destroy]
 
@@ -68,13 +67,6 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:genre_id, :title, :body, :total_score, :story_score, :graphic_score, :operability_score, :sound_score, :balance_score)
-  end
-
-  def ensure_sign_in
-    # ログインしていないとログイン画面へ遷移
-    unless user_signed_in?
-      redirect_to new_user_session_path, alert: 'ログイン、または新規登録をしてください'
-    end
   end
 
   def set_post
