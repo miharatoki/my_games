@@ -15,7 +15,7 @@
       <!--プロフィール画像-->
       <div class='col-12 text-left mt-5 mb-4'>
         <%= f.label :profile_image_id, class: 'col-12 text-left' %><br>
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%><br>
+        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: 'no_image.jpg'%><br>
         <%= f.attachment_field :profile_image, class: 'col-11 image-field'%>
       </div>
       <!--プロフィール文-->
