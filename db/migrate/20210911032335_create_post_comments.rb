@@ -3,11 +3,9 @@ class CreatePostComments < ActiveRecord::Migration[5.2]
     create_table :post_comments do |t|
       t.references :user
       t.references :post
-      t.text :comment,    null: false
+      t.text :comment, null: false
 
       t.timestamps
     end
-    add_foreign_key :posts, :users
-    add_foreign_key :posts, :posts
   end
 end
