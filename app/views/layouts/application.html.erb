@@ -4,12 +4,26 @@
     <title>MyGames</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/12d0bb0516.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if current_page?(root_path) %>
+      <div class='wrapper'>
+        <%= render 'shared/flash' %>
+          <%= yield %>
+      </div>
+    <% else %>
+      <div class='wrapper'>
+        <%= render 'shared/header' %>
+        <%= render 'shared/flash' %>
+        <%= yield %>
+        <%= render 'shared/footer' %>
+      </div>
+    <% end %>
   </body>
 </html>

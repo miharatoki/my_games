@@ -1,0 +1,52 @@
+ <div class='col-lg-6 col-12 d-flex align-items-cneter posts-detail-box'>
+   <div class='col-12'>
+       <!--ジャンル-->
+      <div class='form-inline mb-4 mt-5'>
+        <p class='col-5 col-sm-3 mb-0 genre-label'><%= t '.genre' %></p>
+        <strong class='col-7 col-sm-9 p-1 py-0 '><p class='mb-0 genre-name'><%= post.genre.name %></p></strong>
+      </div>
+      <!--感想-->
+      <div class='form-inline d-flex align-items-start mb-4 impression-field'>
+        <p class='col-4 col-sm-3 mb-1 impression-label'><%= t '.impression' %></p>
+        <p class='col-12 col-sm-9 p-1 posts-body-box'><%= post.body %></p>
+      </div>
+      <!--評価-->
+      <div class='form-inline d-flex align-items-start mb-4'>
+        <p class='col-4 col-sm-3 mb-1 score-label'><%= t '.score' %></p>
+        <div class='col-12 col-sm-9 px-0'>
+          <%= render 'posts/score_read_only', post: post %>
+        </div>
+      </div>
+      <!--いいね-->
+      <div class='col-12 d-flex justify-content-end form-inline favorite-btn-group-<%= post.id %>'>
+        <%= render 'favorites/favorite_btn', post: post %>
+      </div>
+      <!--投稿者-->
+      <% if post.user == current_user %>
+      <% else %>
+        <div class='text-right mb-2'>
+          <%= t '.posted' %>
+          <%= link_to user_path(post.user.id) do %>
+            <%= t '.post_user', user_name: post.user.name %>
+          <% end %>
+        </div>
+      <% end %>
+      <!--投稿日-->
+      <div class='col-12 text-right mb-2'>
+      　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>
+      </div>
+      <!--自分の投稿の場合表示-->
+      <% if @post.user.id == current_user.id %>
+        <div class=' mb-3 edit-destroy-btn'>
+          <!--編集画面リンク-->
+          <%= link_to edit_post_path(post.id), class: 'col-2 col-md-1 offset-6 offset-md-9 btn btn-info' do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+          <!--削除リンク-->
+          <%= link_to post_path(post.id), method: :delete, data: { confirm: (t '.confirm') }, class: 'col-2 col-md-1 btn btn-danger ml-3' do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+        </div>
+      <% end %>
+   </div>
+</div>

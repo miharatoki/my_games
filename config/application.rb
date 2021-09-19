@@ -10,6 +10,14 @@ module MyGames
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.time_zone = 'Tokyo'
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.autoload_paths += Dir["#{config.root}/lib"]
+    config.eager_load_paths += Dir["#{config.root}/lib/**/"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

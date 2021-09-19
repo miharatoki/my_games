@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      post: '記録'
+      post_comment: 'コメント'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        introduction: 'プロフィール文'
+        profile_image_id: 'プロフィール画像'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      post:
+        title: 'ゲームタイトル'
+        body: '感想'
+        genre: 'ジャンル'
+        total_score: '総合評価'
+        story_score: 'ストーリー'
+        graphic_score: 'グラフィック'
+        sound_score: '主題歌・BGM'
+        operability_score: '操作性'
+        balance_score: 'ゲームバランス'
+      post_comment:
+        comment: 'コメント'

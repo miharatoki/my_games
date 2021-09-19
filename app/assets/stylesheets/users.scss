@@ -1,0 +1,117 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "bootstrap";
+@import "colors";
+
+.users-edit{
+ .input-form{
+  padding: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  // readonly-fieldはゲストユーザーでログイン中のみ追加される
+  .readonly-field{
+    background-color: lightgray;
+   }
+  .form-heading{
+   border-bottom: 2px solid;
+  }
+  .introduction-field{
+   height: 10vh;
+  }
+ }
+}
+
+.users-show{
+ .page-heading{
+  font-family: "Koruri-Semibold";
+  color: black;
+  background-color: $page_heading;
+  border: 1px solid white;
+ }
+ .posts-list:nth-child(3n+1){
+  margin-left: 0;
+ }
+ .posts-list{
+   width: 32%;
+   margin-left: 2%;
+   text-decoration: none;
+   color: black ;
+   background-color: white;
+   border: 1px solid;
+   border-radius: 10px;
+   .score-group{
+    width: 90%;
+    border: 1px solid;
+    border-radius: 10px;
+    .score-list{
+     margin-top: 5px;
+     width: 95%;
+    }
+   }
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 1024px) {
+ // ユーザー詳細ページ
+.users-show{
+ .posts-list:nth-child(even){
+  margin-left: 4%;
+ }
+ .posts-list{
+   width: 46%;
+   margin-left: 0;
+ }
+ }
+}
+
+@media screen and (max-width: 768px) {
+ // ユーザー編集ページ
+ .users-edit{
+  .input-form{
+   .image-field{
+    font-size: 15px;
+   }
+  }
+ }
+
+ // ユーザー詳細ページ
+.users-show{
+ .posts-list:nth-child(even){
+  margin-left: 3%;
+ }
+ .posts-list{
+   width: 47%;
+   margin-left: 0;
+   text-decoration: none;
+ }
+ }
+}
+
+// レスポンシブ
+@media screen and (max-width: 425px) {
+ .users-edit{
+  .input-form{
+   .image-field{
+    font-size: 15px;
+   }
+  }
+ }
+
+ .users-show{
+  .posts-list:nth-child(even){
+   margin-left: 0;
+  }
+  .posts-list{
+   width: 100%;
+   margin-left: 0;
+  }
+ }
+}

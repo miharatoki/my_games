@@ -1,0 +1,15 @@
+<div class='container posts-show'>
+  <%= render 'shared/error', model: @post_comment %>
+  <div class='row my-5 mx-1 posts-show-box'>
+    <div class='col-12 d-flex align-items-center justify-content-center post-show-heading'>
+      <h2 class='mb-0 text-center'>
+        <%= @post.title %>
+      </h2>
+    </div>
+     <%= render 'posts/detail', post: @post %>
+     <%= render 'posts/post_comment', post: @post, post_comment: @post_comment %>
+  </div>
+</div>
+
+
+

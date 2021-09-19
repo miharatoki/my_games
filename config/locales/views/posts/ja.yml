@@ -1,0 +1,69 @@
+ja:
+  posts:
+    new:
+      heading: '新しい記録'
+      delete: '内容を消す'
+      post: '記録する'
+      score: '評価'
+      genre_select: 'ジャンルを選択してください'
+    index:
+      page_heading: 'みんなの記録'
+      title: 'ゲームタイトル'
+      genre: 'ジャンル'
+      posted: '投稿者： 　'
+      post_user: '%{user_name}さん'
+      posted_date: '投稿日：'
+    edit:
+      heading: '記録の編集'
+      delete: '変更内容を削除'
+      post: '記録する'
+    score_new:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    score_read_only:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    detail:
+      genre: 'ジャンル　'
+      impression: '感想　'
+      score: '評価　'
+      posted: '投稿者： 　'
+      post_user: '%{user_name}さん'
+      posted_date: '投稿日：'
+      confirm: '削除しますか？'
+    post_comment:
+      send: '送信'
+
+  users:
+    show:
+      page_heading: '自分の記録'
+      no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
+    edit:
+      profile: 'プロフィール'
+      edit: '変更する'
+      caution: '※ゲストユーザーは編集ができません'
+  notifications:
+    index:
+      notification: '通知'
+      no_notification: '通知はありません'
+      destroy_all: '全て削除'
+      my_post: 'あなたの投稿'
+      sender: 'さんが'
+      favorite: 'にいいねしました'
+      post_comment: 'にコメントしました'
+      ago: '（%{ago}前）'
+  homes:
+    top:
+      sign_up: '新規登録'
+      sign_in: 'アカウントをお持ちの方'
+      guest_sign_in: 'ゲストログイン'
+
+

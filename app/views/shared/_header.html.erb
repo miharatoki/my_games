@@ -1,0 +1,70 @@
+<div class='header'>
+  <nav class="navbar navbar-expand-xl navbar-light">
+      <!--サイトロゴ-->
+      <%= link_to (t '.logo'), root_path, class: 'h2 header-left', style: 'margin:20px' %>
+      <!--ハンバーガーメニュー-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class='navbar-nav ml-auto'>
+          <!--ログインしていたら-->
+          <% if user_signed_in? %>
+            <!--ウェルカムメッセージ-->
+            <div class='d-flex align-items-center mr-4 welcom'>
+              <span class='pl-3 mb-0' ></span><%= t '.welcom', user_name: current_user.name %></span>
+            </div>
+            <!--マイページリンク-->
+            <li class='nav-list mr-4'>
+              <%= link_to edit_user_path(current_user.id), class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.my_page'%></span>
+              <% end %>
+            </li>
+            <!--通知-->
+            <li class='nav-list mr-4'>
+              <%= link_to user_notifications_path(current_user.id), class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.notifications'%></span>
+              <% end %>
+            </li>
+            <!--自分の記録リンク-->
+            <li class='nav-list mr-4'>
+              <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.my_index' %></span>
+              <% end %>
+            </li>
+            <!--記録一覧画面リンク-->
+            <li class='nav-list mr-4'>
+              <%= link_to posts_path, class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= t '.all_index' %></span>
+              <% end %>
+            </li>
+            <!--新しい記録リンク-->
+            <li class='nav-list mr-4'>
+              <%= link_to new_post_path, class: 'nav-link' do %>
+                <span class='pl-3 mb-0 nav-link-word'><%= (t '.new_post') %></span>
+              <% end %>
+            </li>
+            <!--ログアウト-->
+            <li class='nav-list mr-4'>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                  <span class='pl-3 mb-0 nav-link-word'><%= t '.sign_out' %></span>
+                <% end %>
+            </li>
+          <% else %>
+            <!--新規登録-->
+            <li class='nav-list mr-4'>
+              <%= link_to new_user_registration_path class: 'nav-link' do %>
+                <span class='p-0 mb-0 nav-link-word'><%= t '.sign_up' %></span>
+              <% end %>
+            </li>
+            <!--ログイン-->
+            <li class='nav-list mr-4'>
+              <%= link_to new_user_session_path class: 'nav-link' do %>
+                <span class='p-0 mb-0 nav-link-word'><%= t '.sign_in' %></span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+  </nav>
+</div>

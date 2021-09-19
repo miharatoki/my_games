@@ -1,0 +1,35 @@
+<% post.post_comments.each do |comment| %>
+  <% if comment.user.id == current_user.id %>
+    <!--自分のコメントの場合-->
+    <div class='d-flex justify-content-end my-2 my-comment'>
+      <!--コメント-->
+      <div class='offset-1 text-break p-1 comment'>
+        <%= comment.comment %>
+      </div>
+      <!--アカウント画像-->
+      <div class='col-2 col-md-1 p-0 pl-1 account-image'>
+        <%= link_to user_path(comment.user.id) do %>
+          <%= attachment_image_tag comment.user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size: '40x40' %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <!--他ユーザのコメントの場合-->
+    <!--アカウント画像-->
+    <div class='pb-0 comment-user'>
+      <%= comment.user.name %>
+    </div>
+    <div class='d-flex justify-content-start mt-0 mb-2 others-comment'>
+      <!--アカウントの画像-->
+      <div class='col-2 col-sm-1 p-0 pr-lg-1 mr-0 mr-lg-2 account-image'>
+        <%= link_to user_path(comment.user.id) do %>
+          <%= attachment_image_tag comment.user, :profile_image, :fill, 100, 100, fallback: 'no_image.jpg', size: '40x40' %>
+        <% end %>
+      </div>
+      <!--コメント-->
+      <div class='text-break p-1 comment'>
+        <%= comment.comment %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
