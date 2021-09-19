@@ -1,10 +1,10 @@
 class CreateNotifications < ActiveRecord::Migration[5.2]
   def change
     create_table :notifications do |t|
-      t.integer :post_comment_id
-      t.integer :favorite_id
-      t.integer :sender_id
-      t.integer :receiver_id
+      t.references :post_comment
+      t.references :favorite
+      t.references :sender, foreign_key: { to_table: :users }
+      t.references :receiver, foreign_key: { to_table: :users }
       t.string :type, null: false
       t.boolean :check, default: false, null: false 
 
