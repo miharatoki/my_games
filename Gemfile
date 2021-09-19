@@ -88,4 +88,4 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 # バッチ処理
-# gem 'whenever', require: false
+gem 'whenever', require: false
