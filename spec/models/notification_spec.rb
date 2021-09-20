@@ -7,7 +7,15 @@ RSpec.describe 'Notificationモデルのテスト' do
   let!(:favorite_notification) {create(:notification, favorite_id: favorite.id, action: 'favorite')}
   let!(:post_comment_notification) {create(:notification, post_comment_id: post_comment.id, action: 'post_comment')}
   
-  
+  context '通知内容がアクションと同じか' do
+    it 'いいねした場合' do
+      expect(favorite_notification.action).to eq 'favorite'
+    end
+    
+    it 'コメントした場合' do
+      expect(post_comment_notification.action).to eq 'post_comment'
+    end
+  end
 
   context '親モデルのレコードが削除された時に紐づけられたnotificationのレコードも削除されるか' do
     it '全件取得' do 

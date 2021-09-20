@@ -4,6 +4,5 @@ FactoryBot.define do
     association :favorite
     association :sender, factory: :user
     association :receiver, factory: :user
-    check {false}
   end
 end
