@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Notificationモデルのテスト' do
-  let!(:post) {create(:post)}
-  let!(:favorite) {create(:favorite, post_id: post.id)}
-  let!(:post_comment) {create(:post_comment, post_id: post.id)}
-  let!(:favorite_notification) {create(:notification, favorite_id: favorite.id, action: 'favorite')}
-  let!(:post_comment_notification) {create(:notification, post_comment_id: post_comment.id, action: 'post_comment')}
+  let!(:sender) {create(:user)}
+  let!(:receiver) {create(:user)}
+  let!(:post) {create(:post, user_id: receiver.id)}
+  let!(:favorite) {create(:favorite, post_id: post.id, user_id: sender.id)}
+  let!(:post_comment) {create(:post_comment, post_id: post.id, user_id: sender.id)}
+  let!(:favorite_notification) {create(:notification, favorite_id: favorite.id, sender_id: sender.id, receiver_id: receiver.id, action: 'favorite')}
+  let!(:post_comment_notification) {create(:notification, post_comment_id: post_comment.id, sender_id: sender.id, receiver_id: receiver.id, action: 'post_comment')}
   
   context '通知内容がアクションと同じか' do
     it 'いいねした場合' do

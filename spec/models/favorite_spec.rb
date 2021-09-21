@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Favoriteモデルのテスト' do
-  let!(:post) {create(:post)}
-  let!(:favorite) {create(:favorite, post_id: post.id)}
+  let!(:user) {create(:user)}
+  let!(:post) {create(:post, user_id: user.id)}
+  let!(:favorite) {create(:favorite, post_id: post.id, user_id: user.id)}
   
   it 'postを削除すると、紐づいたfavoriteも削除されるか' do
     post.destroy

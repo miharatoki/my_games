@@ -1,9 +1,9 @@
 <div class='col-12 p-0 score-group '>
 
     <!--総合評価-->
-    <div class='d-flex flex-wrap justify-content-end score-list'>
+    <div class='d-flex flex-wrap justify-content-end score-list' id='total-score'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.total_score' %></label>
-      <div class='col-10 col-sm-6 score-star total-score'></div>
+      <div class='col-10 col-sm-6 score-star' ></div>
     </div>
     <!--ストーリー評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
@@ -33,8 +33,8 @@
   </div>
 
   <script>
-    $('.score-star').empty();
-    $('.total-score').raty({
+    $('#score-star').empty();
+    $('#total-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       scoreName: 'post[total_score]'

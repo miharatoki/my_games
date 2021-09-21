@@ -3,6 +3,6 @@ FactoryBot.define do
     association :post_comment
     association :favorite
     association :sender, factory: :user
-    association :receiver, factory: :user
+    association :receiver, factory: :sender
   end
 end
