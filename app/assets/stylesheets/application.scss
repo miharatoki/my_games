@@ -118,6 +118,22 @@
  }
 }
 
+#error-message{
+ background-color: white;
+ border-radius: 10px;
+ margin: 0 auto;
+ margin-top: 30px;
+ width: 80vh;
+ h3{
+  width: 20%;
+  margin: 0 auto;
+  }
+ p{
+  width: 50%;
+  margin: 0 auto;
+ }
+}
+
 .sign-up-in-form{
  margin: 0 auto;
  background-color: white;
