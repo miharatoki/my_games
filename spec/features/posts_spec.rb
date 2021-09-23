@@ -3,8 +3,8 @@ require 'rails_helper'
 feature '新規投稿ページ' do
   before do
     create(:genre)
-    user = create(:user, email: 'test@test.com')
-    log_in(user.email)
+    @user = create(:user, email: 'test@test.com')
+    log_in(@user.email)
     visit new_post_path
   end
 
@@ -73,12 +73,44 @@ feature '新規投稿ページ' do
       expect(page).to have_content body
     end
   end
+  
+  feature 'ヘッダーのリンク' do
+    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
+      click_link 'マイページ'
+      expect(current_path).to eq edit_user_path(@user.id)
+    end
+    
+    scenario '通知をクリックすると通知一覧ページへ遷移する' do
+      click_link '通知'
+      expect(current_path).to eq user_notifications_path(@user.id)
+    end
+    
+    scenario '自分の記録をクリックするとユーザー詳細ページへ遷移する' do
+      click_link '自分の記録'
+      expect(current_path).to eq user_path(@user.id)
+    end
+    
+    scenario 'みんなの記録をクリックすると投稿一覧ページへ遷移する' do
+      click_link 'みんなの記録'
+      expect(current_path).to eq posts_path
+    end
+    
+    scenario '新しく記録するをクリックすると新規投稿ページへ遷移する' do
+      click_link '新しく記録する'
+      expect(current_path).to eq new_post_path
+    end
+    
+    scenario 'ログアウトをクリックするとログアウトする' do
+      click_link 'ログアウト'
+      expect(current_path).to eq root_path
+    end
+  end
 end
 
 feature '投稿一覧ページ' do
   before do
-    create(:user, email: 'test@test.com')
-    log_in('test@test.com')
+    @user = create(:user, email: 'test@test.com')
+    log_in(@user.email)
   end
 
   scenario '全ての投稿が表示されているか', js: true do
@@ -177,6 +209,38 @@ feature '投稿一覧ページ' do
     expect(page).to have_content "#{test1_post.title}"
     expect(page).not_to have_content "#{test2_post.title}"
   end
+  
+  feature 'ヘッダーのリンク' do
+    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
+      click_link 'マイページ'
+      expect(current_path).to eq edit_user_path(@user.id)
+    end
+    
+    scenario '通知をクリックすると通知一覧ページへ遷移する' do
+      click_link '通知'
+      expect(current_path).to eq user_notifications_path(@user.id)
+    end
+    
+    scenario '自分の記録をクリックするとユーザー詳細ページへ遷移する' do
+      click_link '自分の記録'
+      expect(current_path).to eq user_path(@user.id)
+    end
+    
+    scenario 'みんなの記録をクリックすると投稿一覧ページへ遷移する' do
+      click_link 'みんなの記録'
+      expect(current_path).to eq posts_path
+    end
+    
+    scenario '新しく記録するをクリックすると新規投稿ページへ遷移する' do
+      click_link '新しく記録する'
+      expect(current_path).to eq new_post_path
+    end
+    
+    scenario 'ログアウトをクリックするとログアウトする' do
+      click_link 'ログアウト'
+      expect(current_path).to eq root_path
+    end
+  end
 end
 
 feature '投稿詳細ページ' do
@@ -254,6 +318,38 @@ feature '投稿詳細ページ' do
     click_button '送信'
     expect(page).to have_content 'test_comment'
   end
+  
+  feature 'ヘッダーのリンク' do
+    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
+      click_link 'マイページ'
+      expect(current_path).to eq edit_user_path(@user.id)
+    end
+    
+    scenario '通知をクリックすると通知一覧ページへ遷移する' do
+      click_link '通知'
+      expect(current_path).to eq user_notifications_path(@user.id)
+    end
+    
+    scenario '自分の記録をクリックするとユーザー詳細ページへ遷移する' do
+      click_link '自分の記録'
+      expect(current_path).to eq user_path(@user.id)
+    end
+    
+    scenario 'みんなの記録をクリックすると投稿一覧ページへ遷移する' do
+      click_link 'みんなの記録'
+      expect(current_path).to eq posts_path
+    end
+    
+    scenario '新しく記録するをクリックすると新規投稿ページへ遷移する' do
+      click_link '新しく記録する'
+      expect(current_path).to eq new_post_path
+    end
+    
+    scenario 'ログアウトをクリックするとログアウトする' do
+      click_link 'ログアウト'
+      expect(current_path).to eq root_path
+    end
+  end
 end
 
 feature '投稿編集ページ' do
@@ -291,4 +387,35 @@ feature '投稿編集ページ' do
     expect(find('#post_title')['value']).to eq "#{@post.title}"
   end
 
+  feature 'ヘッダーのリンク' do
+    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
+      click_link 'マイページ'
+      expect(current_path).to eq edit_user_path(@user.id)
+    end
+    
+    scenario '通知をクリックすると通知一覧ページへ遷移する' do
+      click_link '通知'
+      expect(current_path).to eq user_notifications_path(@user.id)
+    end
+    
+    scenario '自分の記録をクリックするとユーザー詳細ページへ遷移する' do
+      click_link '自分の記録'
+      expect(current_path).to eq user_path(@user.id)
+    end
+    
+    scenario 'みんなの記録をクリックすると投稿一覧ページへ遷移する' do
+      click_link 'みんなの記録'
+      expect(current_path).to eq posts_path
+    end
+    
+    scenario '新しく記録するをクリックすると新規投稿ページへ遷移する' do
+      click_link '新しく記録する'
+      expect(current_path).to eq new_post_path
+    end
+    
+    scenario 'ログアウトをクリックするとログアウトする' do
+      click_link 'ログアウト'
+      expect(current_path).to eq root_path
+    end
+  end
 end

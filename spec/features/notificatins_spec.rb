@@ -68,5 +68,41 @@ feature '通知一覧ページ' do
       expect(page).to have_content '通知はありません'
     end
   end
+  
+  feature 'ヘッダーのリンク' do
+    before do
+      visit user_notifications_path(@user.id)
+    end
 
+  
+    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
+      click_link 'マイページ'
+      expect(current_path).to eq edit_user_path(@user.id)
+    end
+    
+    scenario '通知をクリックすると通知一覧ページへ遷移する' do
+      click_link '通知'
+      expect(current_path).to eq user_notifications_path(@user.id)
+    end
+    
+    scenario '自分の記録をクリックするとユーザー詳細ページへ遷移する' do
+      click_link '自分の記録'
+      expect(current_path).to eq user_path(@user.id)
+    end
+    
+    scenario 'みんなの記録をクリックすると投稿一覧ページへ遷移する' do
+      click_link 'みんなの記録'
+      expect(current_path).to eq posts_path
+    end
+    
+    scenario '新しく記録するをクリックすると新規投稿ページへ遷移する' do
+      click_link '新しく記録する'
+      expect(current_path).to eq new_post_path
+    end
+    
+    scenario 'ログアウトをクリックするとログアウトする' do
+      click_link 'ログアウト'
+      expect(current_path).to eq root_path
+    end
+  end
 end
