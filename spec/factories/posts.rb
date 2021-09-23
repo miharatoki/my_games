@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :post do
     association :user
     association :genre
-    title {Faker::Lorem.characters(number: 10)}
+    sequence(:title) {|n| "title#{n}"}
     body {Faker::Lorem.characters(number: 30)}
     total_score {5}
     story_score {4}

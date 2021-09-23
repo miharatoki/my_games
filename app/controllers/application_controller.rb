@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:top, :guest_sign_in]
 
+  
+
+  include ErrorHandle
+
   def after_sign_in_path_for(resource)
     posts_path
   end

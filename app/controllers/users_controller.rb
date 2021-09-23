@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_path(@user.id), alert: 'ゲストユーザーはプロフィール編集ができません'
     else
       if @user.update(user_params)
-        redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました。'
+        redirect_to user_path(current_user.id), notice: 'アカウント情報を編集しました'
       else
         render :edit
       end
