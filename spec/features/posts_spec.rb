@@ -84,17 +84,19 @@ feature '投稿一覧ページ' do
   scenario '全ての投稿が表示されているか', js: true do
     user = create(:user)
     genre = create(:genre)
-    10.times { create(:post, user_id: user.id, genre_id: genre.id) }
+    for num in 1..10 do
+      create(:post, user_id: user.id, genre_id: genre.id, title: "test#{num}")
+    end
 
     visit posts_path
     expect(current_path).to eq posts_path
     # 1ページに6レコードずつ、デフォルトで降順でレコードを表示するため
     for num in 5..10 do
-      expect(page).to have_content "title#{num}"
+      expect(page).to have_content "test#{num}"
     end
     click_link 'Next'
     for num in 1..4 do
-      expect(page).to have_content "title#{num}"
+      expect(page).to have_content "test#{num}"
     end
   end
 
@@ -199,7 +201,7 @@ feature '投稿詳細ページ' do
     find('.btn-info').click
     expect(current_path).to eq edit_post_path(@post.id)
   end
-  
+
   scenario '削除ボタンを押すとダイアログが表示され、キャンセル、okが選択できるか' do
     find('.btn-danger').click
     expect {
@@ -207,7 +209,7 @@ feature '投稿詳細ページ' do
       expect(page).to have_content 'OK'
     }
   end
-  
+
   scenario '削除ボタンのokを押すと投稿が削除される' do
     find('.btn-danger').click
     expect {
@@ -216,7 +218,7 @@ feature '投稿詳細ページ' do
        post = Post.find_by(id: @post.id)
       expect(post).to eq nil
     }
-     
+
   end
 
   scenario '自分の投稿の場合は自分の名前が表示されない' do
@@ -236,6 +238,15 @@ feature '投稿詳細ページ' do
     expect(page).to have_content "#{post.user.name}"
     click_link "#{post.user.name}さん"
     expect(current_path).to eq user_path(post.user.id)
+  end
+
+  scenario 'いいねするとハートの色が変わるか', js: true do
+    click_link '💙'
+    expect(page).to have_content '❤️'
+    expect(page).to_not have_content '💙'
+    click_link '❤️'
+    expect(page).to have_content '💙'
+    expect(page).to_not have_content '❤️'
   end
 
   scenario 'コメントをするとコメント内容が表示されるか', js: true do
