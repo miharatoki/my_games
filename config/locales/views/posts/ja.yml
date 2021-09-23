@@ -44,7 +44,8 @@ ja:
 
   users:
     show:
-      page_heading: '自分の記録'
+      my_heading: '自分の記録'
+      page_heading: '%{user_name}さんの記録'
       no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
     edit:
       profile: 'プロフィール'
