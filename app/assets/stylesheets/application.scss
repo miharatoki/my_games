@@ -123,14 +123,16 @@
  border-radius: 10px;
  margin: 0 auto;
  margin-top: 30px;
- width: 80vh;
+ width: 50%;
  h3{
   width: 20%;
   margin: 0 auto;
+  text-align: center
   }
  p{
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
+  text-align: center
  }
 }
 
@@ -184,4 +186,20 @@
    height: 20vh;
   }
  }
+
+ #error-message{
+ background-color: white;
+ border-radius: 10px;
+ margin: 0 auto;
+ margin-top: 30px;
+ width: 80%;
+ h3{
+  width: 20%;
+  margin: 0 auto;
+  }
+ p{
+  width: 80%;
+  margin: 0 auto;
+ }
+}
 }

@@ -25,7 +25,7 @@ feature '新規投稿ページ' do
     expect(page).to have_content '記録を作成しました'
     expect(page).to have_content 'test_post'
   end
-  
+
   feature 'バリデーションエラーが発生するか', js: true do
     scenario '空白で保存しようとした時' do
       click_button '記録する'
@@ -193,6 +193,30 @@ feature '投稿詳細ページ' do
     destroy = find('.btn-danger')
     expect(edit[:href]).to eq edit_post_path(@post.id)
     expect(destroy[:href]).to eq post_path(@post.id)
+  end
+
+  scenario '編集ボタンを押すと投稿編集ページに遷移するか' do
+    find('.btn-info').click
+    expect(current_path).to eq edit_post_path(@post.id)
+  end
+  
+  scenario '削除ボタンを押すとダイアログが表示され、キャンセル、okが選択できるか' do
+    find('.btn-danger').click
+    expect {
+      expect(page).to have_content 'キャンセル'
+      expect(page).to have_content 'OK'
+    }
+  end
+  
+  scenario '削除ボタンのokを押すと投稿が削除される' do
+    find('.btn-danger').click
+    expect {
+      page.accept_confirm("本当に削除しますか？")
+      expect(page).to have_content '記録を削除しました'
+       post = Post.find_by(id: @post.id)
+      expect(post).to eq nil
+    }
+     
   end
 
   scenario '自分の投稿の場合は自分の名前が表示されない' do
