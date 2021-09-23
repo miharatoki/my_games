@@ -33,3 +33,14 @@
     </div>
   <% end %>
 <% end %>
+
+<script>
+  $(document).on ("turbolinks:load", function(){
+   $(".comment-field").scrollTop($(".comment-field").get(0).scrollHeight);
+  });
+</script>
+
+<!--scrollTopメソッドで要素の一番上からのスクロール量を設定する-->
+<!--get(0)でページ内の最初のcomment-fieldクラスを指定-->
+<!--scrollHeightメソッドは、スクロールできる要素全体の高さを取得するメソッド-->
+<!--$(".comment-field").scrollTop($(".comment-field").get(0).scrollHeight);で、comment-fieldクラス全体の高さ分、スクロールするという意味、多分-->
