@@ -19,12 +19,7 @@
 @import "bootstrap";
 @import "colors";
 
-@font-face {
-  font-family: "Koruri-Semibold";
-  src: font-url('/assets/Koruri-Semibold.ttf') format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import "fonts";
 
  *{
   margin: 0;
