@@ -15,10 +15,6 @@ class PostCommentsController < ApplicationController
     end
   end
 
-  def destroy
-    render :index
-  end
-
   private
   def post_comment_params
     params.require(:post_comment,).permit(:post_id, :comment)
