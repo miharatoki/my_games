@@ -9,7 +9,7 @@
       <!--アカウント画像-->
       <div class='col-2 col-md-1 p-0 pl-1 account-image'>
         <%= link_to user_path(comment.user.id) do %>
-          <%= attachment_image_tag comment.user, :profile_image, fallback: 'no_image.jpg', size: '40x40' %>
+          <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '40x40' %>
         <% end %>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <!--アカウントの画像-->
       <div class='col-2 col-sm-1 p-0 pr-lg-1 mr-0 mr-lg-2 account-image'>
         <%= link_to user_path(comment.user.id) do %>
-          <%= attachment_image_tag comment.user, :profile_image, fallback: 'no_image.jpg', size: '40x40' %>
+          <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '40x40' %>
         <% end %>
       </div>
       <!--コメント-->
