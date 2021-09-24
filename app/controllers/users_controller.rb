@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # 新規登録画面でバリデーションエラーが起きた際、indeアクションのurlに自動的に遷移するため、ページは作成せずアクションのみ定義
+  # 新規登録画面でバリデーションエラーが起きた際、indexアクションのurlに自動的に遷移するため、ページは作成せずアクションのみ定義
   # その状態でページリロードをすると新規登録画面へ遷移
   def index
   end
@@ -33,18 +33,23 @@ class UsersController < ApplicationController
   end
 
   def genre_search
-    # パラメーターのジャンルIDでPostモデルから検索
-    searched_posts = Post.where(genre_id: (params[:genre]))
-    @posts = searched_posts.page(params[:page]).per(6)
-    @user = User.find(params[:user_id])
-    render :show
+    # 全て表示を選択した場合はshowアクションへリダイレクト
+    if params[:genre] == '9'
+      redirect_to user_path(params[:user_id])
+    else
+      # パラメーターのジャンルIDでPostモデルから検索
+      searched_posts = Post.where(genre_id: params[:genre])
+      @user = User.find(params[:user_id])
+      @posts = searched_posts.where(user_id: @user.id).page(params[:page]).per(6)
+      render :show
+    end
   end
 
   def title_search
     # shomページの検索フォームの値でPostモデルから検索
     searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
-    @posts = searched_posts.page(params[:page]).per(6)
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
+    @posts = searched_posts.where(user_id: @user.id).page(params[:page]).per(6)
     render :show
   end
 

@@ -1,27 +1,39 @@
 <div class='container users-show'>
-  <!--ログインユーザの記録が一つもなかったら-->
+  <div class='row mb-3'>
+    <div class='col-12 col-sm-9 mt-3  text-center '>
+      <% if current_user == @user %>
+        <h1 class='col-12 col-sm-7 offset-sm-4 page-heading'><%= t '.my_heading' %></h1>
+      <% else %>
+        <h1 class='col-12 col-sm-8 offset-sm-3 page-heading'><%= t '.page_heading', user_name: @user.name %></h1>
+      <% end %>
+    </div>
+    <div class='col-7 offset-5 col-sm-3 offset-sm-0 my-2 sort-serach'>
+      <%= render 'shared/sort_search', user: @user %>
+    </div>
+  </div>
+  <!--ユーザの記録が一つもなかったら-->
   <% if no_posts?(@user) %>
     <div class='row no-posts-row d-flex align-items-center justify-content-center'>
-      <div class='col-lg-12 col-md-12 col-12  my-3 h3 no-posts'>
-        <%= t '.no_posts' %>
+      <div class='col-lg-12 col-md-12 col-12 text-center my-3 h3 no-posts'>
+        <% if current_user == @user %>
+          <%= t '.my_no_posts' %>
+        <% else %>
+          <%= t '.othger_user_no_posts' %>
+        <% end %>
       </div>
     </div>
   <% else %>
-    <!--記録が一つ以上あったら-->
-    <div class='row mb-3'>
-      <div class='col-12 col-sm-9 mt-3  text-center '>
-        <% if current_user == @user %>
-          <h1 class='col-12 col-sm-7 offset-sm-4 page-heading'><%= t '.my_heading' %></h1>
-        <% else %>
-          <h1 class='col-12 col-sm-8 offset-sm-3 page-heading'><%= t '.page_heading', user_name: @user.name %></h1>
-        <% end %>
+    <!--パラメーターのacitonがshowだった場合-->
+    <% if params[:action] == 'show' %>
+      <div class='row mt-3 mb-5'>
+        <%= render 'posts/index', posts: @posts %>
       </div>
-      <div class='col-7 offset-5 col-sm-3 offset-sm-0 my-2 sort-serach'>
-        <%= render 'shared/sort_search', user: @user %>
-      </div>
-    </div>
-    <div class='row mt-3 mb-5'>
-      <%= render 'posts/index', posts: @posts %>
-    </div>
+    <!--パラメータのacitonがgenre_searchだった場合-->
+    <% elsif params[:action] == 'genre_search' %>
+      <%= render 'shared/genre_search', user: @user, posts: @posts %>
+    <!--パラメーターのactionがtitle_searchだった場合-->
+    <% elsif params[:action] == 'title_search' %>
+      <%= render 'shared/title_search' , user: @user, posts: @posts %>
+    <% end %>
   <% end %>
 </div>

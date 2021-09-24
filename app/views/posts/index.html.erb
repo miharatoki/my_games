@@ -8,7 +8,13 @@
     </div>
   </div>
 
-  <div class='row mt-3 mb-5'>
-    <%= render 'posts/index', posts: @posts %>
-  </div>
+  <% if params[:action] == 'index' %>
+    <div class='row mt-3 mb-5'>
+      <%= render 'posts/index', posts: @posts %>
+    </div>
+  <% elsif params[:action] == 'genre_search' %>
+   <%= render 'shared/genre_search', posts: @posts %>
+  <% elsif params[:action] == 'title_search' %>
+   <%= render 'shared/title_search', posts: @posts %>
+  <% end %>
 </div>

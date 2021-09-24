@@ -47,19 +47,23 @@ class PostsController < ApplicationController
   end
 
   def genre_search
-    # パラメーターのジャンルIDでPostモデルから検索
-    searched_posts = Post.where(genre_id: (params[:genre]))
-    @posts = searched_posts.page(params[:page]).per(6)
-    # shared/searchの条件分岐の際、userのidが必要なため記述
-    @user = User.find(current_user.id)
-    render :index
+    if params[:genre] == '9'
+      redirect_to posts_path
+    else
+      # パラメーターのジャンルIDでPostモデルから検索
+      searched_posts = Post.where(genre_id: (params[:genre]))
+      @posts = searched_posts.page(params[:page]).per(6)
+      # shared/searchの条件分岐の際、userのidが必要なため記述
+      @user = User.find(current_user.id)
+      render :index
+    end
   end
 
   def title_search
     # indexページの検索フォームの値でPostモデルから検索
     searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
     @posts = searched_posts.page(params[:page]).per(6)
-    # shared/searchの条件分岐の際、userのidが必要なため記述
+    # @userは、shared/searchの条件分岐の際、userのidが必要なため記述
     @user = User.find(current_user.id)
     render :index
   end
