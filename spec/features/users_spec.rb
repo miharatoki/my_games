@@ -1,6 +1,42 @@
 require 'rails_helper'
 
 feature 'ログイン前' do
+
+  feature 'アクセス制限' do
+    before do
+      @user = create(:user)
+      genre = create(:genre)
+      @post = create(:post, user_id: @user.id, genre_id: genre.id)
+      visit root_path
+    end
+    
+    scenario '投稿一覧ページや新規投稿ページなどにアクセスできないこと' do
+      visit new_post_path
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+      
+      visit posts_path
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+      
+      visit post_path(@post.id)
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+      
+      visit edit_user_path(@post.id)
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+      
+      visit user_path(@user.id)
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+      
+      visit edit_user_path(@user.id)
+      expect(page).to have_content 'ログインもしくはアカウント登録してください。'
+      expect(current_path).to eq new_user_session_path
+    end
+  end
+  
   feature '新規登録ページ' do
     before do
       visit new_user_registration_path
@@ -130,6 +166,19 @@ feature 'アカウント情報の編集' do
     click_link 'マイページ'
   end
   
+  scenario '無効なurlをリクエストした場合404エラーが発生するか' do
+      visit "/users/#{@user.id}/edit/error"
+      expect(page).to have_content '404'
+      
+      visit "/users/#{@user.id}/editerror"
+      expect(page).to have_content '404'
+    end
+  
+  scenario '未発行のIDをリクエストした場合、404エラーページが表示されるか' do
+      visit "/users/#{@user.id+100}/edit"
+      expect(page).to have_content '404'
+    end
+  
   scenario '編集内容が保存されるか' do
     expect(current_path).to eq edit_user_path(1)
     fill_in 'user_name', with: 'user'
@@ -142,7 +191,6 @@ feature 'アカウント情報の編集' do
     user = User.order(:id).last
     expect(user.name).to eq 'user'
     expect(user.introduction).to eq 'introduction'
-    # expect(user.profile_image_id).to eq 'tatami02.jpeg'
   end
   
   feature '無効な値ははバリデーションエラーになるか' do
