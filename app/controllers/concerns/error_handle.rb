@@ -7,10 +7,6 @@ module ErrorHandle
 
     # サーバー側のエラー、メンテナンス、コードのミスなど
     rescue_from Exception, with: :rescue500
-    # ユーザーが権限のないページにアクセスしようとした場合
-    rescue_from ApplicationController::Forbidden, with: :rescure403
-    # ユーザーのIPアドレスからはアクセスできない場合
-    rescue_from IpAddressRejected, with: :rescue403
     # 詳細ページのurlで未発行、削除済のidを入力した時
     rescue_from ActiveRecord::RecordNotFound, with: :rescue404
     # 無効なurlを入力した時
@@ -19,11 +15,6 @@ module ErrorHandle
     def rescue500(e)
         @exception = e
         render 'errors/500'
-    end
-
-    def rescue403(e)
-        @exception = e
-        render 'errors/403'
     end
 
     def rescue404(e)
