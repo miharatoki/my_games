@@ -12,14 +12,12 @@
         <div class='col-12 genre-label'>
           <%= t '.genre' %>：
           <strong><%= post.genre.name %></strong>
-
         </div>
       </div>
       <!--評価-->
       <%= render 'posts/score_read_only', post: post %>
       <!--投稿者名-->
         <div class='col-12 d-flex justify-content-end mt-2'>
-        　<%= t '.posted' %>
           <%= link_to user_path(post.user.id) do %>
             <%= t '.post_user', user_name: post.user.name %>
           <% end %>

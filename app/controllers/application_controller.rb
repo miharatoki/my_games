@@ -1,14 +1,16 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:top, :guest_sign_in]
-  
-  include ErrorHandle
-  
+
+  unless Rails.env.development?
+    include ErrorHandle
+  end
+
    # 意図的にルーティングエラーを発生させる
   def routing_error
     raise ActionController::RoutingError, params[:path]
   end
-  
+
   def after_sign_in_path_for(resource)
     posts_path
   end

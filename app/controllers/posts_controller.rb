@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:sort].nil?
-      # ソートしていなかったら、降順でレコードを取得
+      # ソートしていなかったら、投稿日を降順でレコードを取得
       @posts = Post.order('created_at DESC').page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
@@ -41,25 +41,27 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
+    Post.find(params[:id]).destroy
     redirect_to user_path(current_user.id), notice: '記録を削除しました'
   end
 
   def genre_search
-    # パラメーターのジャンルIDでPostモデルから検索
-    searched_posts = Post.where(genre_id: (params[:genre]))
-    @posts = searched_posts.page(params[:page]).per(6)
-    # shared/searchの条件分岐の際、userのidが必要なため記述
-    @user = User.find(current_user.id)
-    render :index
+    # セレクトボックスで「全て表示」を選択した場合はindexアクションへリダイレクト
+    if params[:genre] == '9'
+      redirect_to posts_path
+    else
+      # パラメーターのジャンルIDでPostモデルから検索
+      @posts = Post.where(genre_id: (params[:genre])).page(params[:page]).per(6)
+      # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
+      @user = User.find(current_user.id)
+      render :index
+    end
   end
 
   def title_search
     # indexページの検索フォームの値でPostモデルから検索
-    searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
-    @posts = searched_posts.page(params[:page]).per(6)
-    # shared/searchの条件分岐の際、userのidが必要なため記述
+    @posts = Post.where('title LIKE ?',"%#{params[:keyword]}%").page(params[:page]).per(6)
+    # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
     @user = User.find(current_user.id)
     render :index
   end
