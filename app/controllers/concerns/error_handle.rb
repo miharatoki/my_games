@@ -1,5 +1,5 @@
 module ErrorHandle
-  
+
   extend ActiveSupport::Concern
 
   included do
@@ -7,8 +7,6 @@ module ErrorHandle
     rescue_from Exception, with: :rescue500
     # 詳細ページのurlで未発行、削除済のidを入力した時
     rescue_from ActiveRecord::RecordNotFound, with: :rescue404
-    # 無効なurlを入力した時
-    rescue_from ActionController::RoutingError, with: :rescue404
 
     def rescue500(e)
         render 'errors/500'
