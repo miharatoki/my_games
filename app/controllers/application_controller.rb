@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
    # 意図的にルーティングエラーを発生させる
   def routing_error
-    raise ActionController::RoutingError, params[:path]
+    raise ActionController::RoutingError.new(params[:path])
   end
 
   def after_sign_in_path_for(resource)

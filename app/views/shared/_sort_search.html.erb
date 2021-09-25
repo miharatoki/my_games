@@ -5,6 +5,11 @@
       <%= form_with url: posts_path, method: :get, id: 'sort-form', local: true do |f| %>
         <%= f.select :sort, sort_array, { include_blank: (t '.sort') }, id: 'sort' %>
       <% end %>
+    <% elsif current_page?(posts_genre_search_path) %>
+      <!--投稿一覧のジャンル検索ページだったら-->
+      <%= form_with url: posts_path, method: :get, id: 'sort-form', class: 'mr-3', local: true do |f| %>
+        <%= f.select :sort, sort_array, { include_blank: (t '.sort') }, id: 'sort' %>
+      <% end %>
     <% else %>
     <!--ユーザ詳細ページだったら-->
       <%= form_with url: user_path(user.id), method: :get, id: 'sort-form', class: 'mr-3', local: true do |f| %>
@@ -14,9 +19,14 @@
     <% end %>
 
   <!--ジャンル検索-->
-    <% if current_page?(posts_path) || current_page?(posts_genre_search_path) %>
+    <% if current_page?(posts_path) %>
     　<!--投稿一覧ページだったら-->
       <%= form_with url: posts_genre_search_path, method: :get, id: 'genre-search-form', local: true do |f| %>
+        <%= f.select :genre, genre_search_array, { include_blank: (t '.genre_search') }, id: 'select' %>
+      <% end %>
+    <% elsif current_page?(posts_genre_search_path) %>
+    <!--投稿一覧のジャンル検索ページだったら-->
+      <%= form_with url: posts_genre_search_path, method: :get, id: 'genre-search-form', class: 'mr-3', local: true do |f| %>
         <%= f.select :genre, genre_search_array, { include_blank: (t '.genre_search') }, id: 'select' %>
       <% end %>
     <% else %>

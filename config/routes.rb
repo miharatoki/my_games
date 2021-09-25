@@ -17,10 +17,4 @@ Rails.application.routes.draw do
     delete '/favorites' => 'favorites#destroy'
   end
 
-  # ルーティングエラーはApplicationControllerの外で発生するので、例外的なurlがリクエストされた場合はApplicationControllerのアクションへルーティングするように指定する
-  # 設定したルーティング以外のurlの場合routing_errorアクションを行う
-  get '*not_found' => 'application#routing_error'
-  post '*not_found' => 'application#routing_error'
-  patch '*not_found' => 'application#routing_error'
-  delete '*not_found' => 'application#routing_error'
 end
