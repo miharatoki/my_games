@@ -8,6 +8,17 @@ feature '通知一覧ページ' do
     log_in(@user.email)
   end
 
+  feature 'エラーページ' do
+    before do
+    visit user_notifications_path(@user.id)
+    end
+
+    scenario '無効なurlをリクエストした場合404エラーが発生するか' do
+      visit "/users/#{@user.id}/notification/error"
+      expect(page).to have_content '404'
+    end
+  end
+
   feature 'コメントへの通知' do
     before do
       post_comment = create(:post_comment, user_id: @user.id, post_id: @post.id)
