@@ -6,15 +6,15 @@ class NotificationsController < ApplicationController
   end
 
   def destroy_all
-    notifications =Notification.where(receiver_id: params[:user_id], check: false)
-    notifications.update(check: true)
+    Notification.where(receiver_id: params[:user_id], check: false).update(check: true)
     redirect_to user_notifications_path(params[:user_id])
   end
 
   private
   def ensure_user
+    # urlで他ユーザー宛の通知を閲覧、操作しようとすると自ユーザー詳細ページへリダイレクト
     unless current_user.id == params[:user_id].to_i
-      redirect_to posts_path, alert: '自分宛以外の通知を見ることはできません'
+      redirect_to user_path(current_user.id), alert: '自分宛以外の通知の閲覧、編集はできません'
     end
   end
 end
