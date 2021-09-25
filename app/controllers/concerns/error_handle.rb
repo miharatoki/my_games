@@ -9,11 +9,14 @@ module ErrorHandle
     rescue_from ActiveRecord::RecordNotFound, with: :rescue404
 
     def rescue500(e)
-        render 'errors/500'
+      logger.error(e)
+      render 'errors/500'
     end
 
     def rescue404(e)
-        render 'errors/404'
+      logger.error(e)
+      render 'errors/404'
     end
   end
+  
 end
