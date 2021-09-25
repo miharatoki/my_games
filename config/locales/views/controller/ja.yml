@@ -10,7 +10,6 @@ ja:
       page_heading: 'みんなの記録'
       title: 'ゲームタイトル'
       genre: 'ジャンル'
-      posted: '投稿者： 　'
       post_user: '%{user_name}さん'
       posted_date: '投稿日：'
     edit:
@@ -46,7 +45,8 @@ ja:
     show:
       my_heading: '自分の記録'
       page_heading: '%{user_name}さんの記録'
-      no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
+      my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
+      othger_user_no_posts: '記録がありません'
     edit:
       profile: 'プロフィール'
       edit: '変更する'

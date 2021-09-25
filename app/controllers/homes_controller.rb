@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  before_action :ensure_sign_in
+  before_action :ensure_sign_in, only: [:top]
 
   def top
   end
