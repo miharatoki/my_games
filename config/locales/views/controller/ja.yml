@@ -73,6 +73,3 @@ ja:
       sign_up: '新規登録'
       sign_in: 'アカウントをお持ちの方'
       guest_sign_in: 'ゲストログイン'
-
-  kaminari:
-    
