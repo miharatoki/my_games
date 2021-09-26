@@ -79,6 +79,7 @@
 .nav-link-word{
  color: $nav_link;
 }
+
 .nav-icon{
  color: orange;
 }
@@ -97,8 +98,9 @@
  }
 }
 
- #error-explanation{
-  margin-top: 15px;
+// バリデーションエラー
+#error-explanation{
+ margin-top: 15px;
  border-radius: 10px;
  background-color: $alert;
  h4{
@@ -113,6 +115,7 @@
  }
 }
 
+// ステータスコードのエラー
 #error-message{
  background-color: white;
  border-radius: 10px;
@@ -167,14 +170,6 @@
 }
 
 // レスポンシブ
-@media screen and (max-width: 1024px) {
-
-}
-
-@media screen and (max-width: 768px) {
-
-}
-
 @media screen and (max-width: 425px) {
  .top{
   .top-push{

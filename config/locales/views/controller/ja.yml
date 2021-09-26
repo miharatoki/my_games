@@ -16,7 +16,15 @@ ja:
       heading: '記録の編集'
       delete: '変更内容を削除'
       post: '記録する'
+      score: '評価'
     score_new:
+      total_score: '総合評価'
+      story_score: 'ストーリー'
+      graphic_score: 'グラフィック'
+      sound_score: '主題歌・BGM'
+      operability_score: '操作性'
+      balance_score: 'ゲームバランス'
+    score_edit:
       total_score: '総合評価'
       story_score: 'ストーリー'
       graphic_score: 'グラフィック'
@@ -43,8 +51,7 @@ ja:
 
   users:
     show:
-      my_heading: '自分の記録'
-      page_heading: '%{user_name}さんの記録'
+      profile_title: 'プロフィール'
       my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
       othger_user_no_posts: '記録がありません'
     edit:
@@ -67,4 +74,5 @@ ja:
       sign_in: 'アカウントをお持ちの方'
       guest_sign_in: 'ゲストログイン'
 
-
+  kaminari:
+    
