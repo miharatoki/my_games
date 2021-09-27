@@ -126,7 +126,7 @@ feature '投稿一覧ページ' do
     for num in 5..10 do
       expect(page).to have_content "test#{num}"
     end
-    click_link 'Next'
+    click_link '次へ'
     for num in 1..4 do
       expect(page).to have_content "test#{num}"
     end
