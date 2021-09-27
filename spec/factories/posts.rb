@@ -4,11 +4,11 @@ FactoryBot.define do
     association :genre
     sequence(:title) {|n| "title#{n}"}
     body {Faker::Lorem.characters(number: 30)}
-    total_score {5}
-    story_score {4}
+    total_score {1}
+    story_score {2}
     operability_score {3}
-    sound_score {2}
-    balance_score {1}
-    graphic_score {2}
+    sound_score {4}
+    balance_score {5}
+    graphic_score {1}
   end
 end
