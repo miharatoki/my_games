@@ -118,7 +118,7 @@ ja:
       new:
         sign_in: 'ログイン'
         sign_up_link: '新規登録はこちら'
-        guest_sign_in_link: 'ゲストログイン'
+        guest_sign_in_link: 'ゲストログインはこちら'
       signed_in: 'ログインしました'
       signed_out: 'ログアウトしました'
     # shared:
