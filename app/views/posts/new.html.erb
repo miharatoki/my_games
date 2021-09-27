@@ -13,7 +13,6 @@
         <!--ジャンル-->
         <div class='mx-5 mb-4'>
           <%= f.label :genre %><br>
-          <!--genre_arrayはヘルパーで定義-->
           <%= f.select :genre_id, genre_array, { include_blank: ( t '.genre_select') } %>
         </div>
 
@@ -26,7 +25,7 @@
         <!--評価-->
         <div class='col-9 mx-5 mb-4 p-0'>
           <p class='mb-2'><%= t '.score' %></p>
-          <%= render 'score_new', f: f %>
+          <%= render 'posts/score_new'%>
         </div>
 
         <!--ボタン-->

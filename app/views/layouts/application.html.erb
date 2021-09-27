@@ -13,9 +13,10 @@
 
   <body>
     <% if current_page?(root_path) %>
+      <!--ルートパスだったらヘッダーを表示しない-->
       <div class='wrapper'>
         <%= render 'shared/flash' %>
-          <%= yield %>
+        <%= yield %>
       </div>
     <% else %>
       <div class='wrapper'>

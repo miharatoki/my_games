@@ -1,13 +1,26 @@
 <div class='container users-show'>
   <div class='row mb-3'>
-    <div class='col-12 col-sm-9 mt-3  text-center '>
-      <% if current_user == @user %>
-        <h1 class='col-12 col-sm-7 offset-sm-4 page-heading'><%= t '.my_heading' %></h1>
-      <% else %>
-        <h1 class='col-12 col-sm-8 offset-sm-3 page-heading'><%= t '.page_heading', user_name: @user.name %></h1>
-      <% end %>
+    <div class='col-12 col-sm-8 mt-3 '>
+      <div class='col-12 d-flex flex-wrap profile'>
+        <div class='col-12 profile-title'>
+         <h5 class='mb-0'>
+           <strong><%= t '.profile_title' %></strong>
+          </h5>
+        </div>
+        <div class='col-12 col-sm-4 my-2 text-center user-image-name'>
+          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '70x70' %>
+          <div class='user-name'>
+            <%= @user.name %>
+          </div>
+        </div>
+        <div class='col-12 col-sm-8 my-2 px-0 user-introduction-field'>
+          <div class='p-2 text-break introduction'>
+            <%= @user.introduction %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class='col-7 offset-5 col-sm-3 offset-sm-0 my-2 sort-serach'>
+    <div class='col-7 offset-5 col-sm-3 offset-sm-1 my-2 sort-serach'>
       <%= render 'shared/sort_search', user: @user %>
     </div>
   </div>

@@ -8,6 +8,7 @@
 @import "bootstrap";
 @import "colors";
 
+// ユーザー編集画面
 .users-edit{
  .input-form{
   padding: 0;
@@ -28,12 +29,25 @@
  }
 }
 
+// ユーザー詳細画面
 .users-show{
- .page-heading{
-  font-family: "Koruri-Semibold";
-  color: black;
+ .profile{
   background-color: $page_heading;
   border: 1px solid white;
+  border-radius: 15px;
+  height: 100%;
+  .profile-title{
+   border-bottom: 1px solid;
+  }
+  .user-image-name{
+   img{
+    border-radius: 50px;
+   }
+  }
+  .user-introduction-field{
+   border: 1px solid;
+   border-radius: 15px;
+  }
  }
  .posts-list:nth-child(3n+1){
   margin-left: 0;

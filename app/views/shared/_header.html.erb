@@ -53,16 +53,21 @@
           <% else %>
             <!--新規登録-->
             <li class='nav-list mr-4'>
-              <%= link_to new_user_registration_path class: 'nav-link' do %>
+              <%= link_to new_user_registration_path, class: 'nav-link' do %>
                 <span class='p-0 mb-0 nav-link-word'><%= t '.sign_up' %></span>
               <% end %>
             </li>
             <!--ログイン-->
             <li class='nav-list mr-4'>
-              <%= link_to new_user_session_path class: 'nav-link' do %>
+              <%= link_to new_user_session_path, class: 'nav-link' do %>
                 <span class='p-0 mb-0 nav-link-word'><%= t '.sign_in' %></span>
               <% end %>
             </li>
+            <!--ゲストログイン-->
+            <li class='nav-list mr-4'>
+              <%= link_to homes_guest_sign_in_path, class: 'nav-link' do %>
+                <span class='p-0 mb-0 nav-link-word'><%= t '.guest_sign_in' %></span>
+              <% end %>
           <% end %>
         </ul>
       </div>
