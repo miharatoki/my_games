@@ -166,18 +166,6 @@ feature 'アカウント情報の編集' do
     click_link 'マイページ'
   end
   
-  scenario '無効なurlをリクエストした場合404エラーが発生するか' do
-      visit "/users/#{@user.id}/edit/error"
-      expect(page).to have_content '404'
-      
-      visit "/users/#{@user.id}/editerror"
-      expect(page).to have_content '404'
-    end
-  
-  scenario '未発行のIDをリクエストした場合、404エラーページが表示されるか' do
-      visit "/users/#{@user.id+100}/edit"
-      expect(page).to have_content '404'
-    end
   
   scenario '編集内容が保存されるか' do
     expect(current_path).to eq edit_user_path(1)

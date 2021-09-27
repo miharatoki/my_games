@@ -2,71 +2,81 @@
     <!--総合評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.total_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='total-score'></div>
+      <div class='col-10 col-sm-6' id='total-score-<%= post.id %>'></div>
     </div>
     <!--ストーリー評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.story_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='story-score'></div>
+      <div class='col-10 col-sm-6' id='story-score-<%= post.id %>'></div>
     </div>
     <!--グラフィック評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.graphic_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='graphic-score'></div>
+      <div class='col-10 col-sm-6' id='graphic-score-<%= post.id %>'></div>
     </div>
     <!--サウンド評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.sound_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='sound-score'></div>
+      <div class='col-10 col-sm-6' id='sound-score-<%= post.id %>'></div>
     </div>
     <!--操作性評価-->
     <div class='d-flex flex-wrap justify-content-end score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.operability_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='operability-score'></div>
+      <div class='col-10 col-sm-6' id='operability-score-<%= post.id %>'></div>
     </div>
     <!--ゲームバランス評価-->
     <div class='d-flex flex-wrap justify-content-end mb-2 score-list'>
       <label class='col-10 col-sm-5 offset-sm-1'><%= t '.balance_score' %></label>
-      <div class='col-10 col-sm-6 score-star' id='balance-score'></div>
+      <div class='col-10 col-sm-6' id='balance-score-<%= post.id %>'></div>
     </div>
   </div>
 
   <script>
-    $('.score-star').empty();
-    $('#total-score').raty({
+    $('#total-score-<%= post.id %>').empty();
+    $('#total-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[total_score]'
+      score: <%= post.total_score %>,
+      scoreName: 'post[total_score]',
     });
 
-
-    $('#story-score').raty({
+    $('#story-score-<%= post.id %>').empty();
+    $('#story-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[story_score]'
+      score: <%= post.story_score %>,
+      scoreName: 'post[story_score]',
     });
 
-    $('#graphic-score').raty({
+    $('#graphic-score-<%= post.id %>').empty();
+    $('#graphic-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[graphic_score]'
+      score: <%= post.story_score %>,
+      scoreName: 'post[graphic_score]',
     });
 
-    $('#sound-score').raty({
+    $('#sound-score-<%= post.id %>').empty();
+    $('#sound-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[sound_score]'
+      score: <%= post.sound_score %>,
+      scoreName: 'post[sound_score]',
     });
 
-    $('#operability-score').raty({
+    $('#operability-score-<%= post.id %>').empty();
+    $('#operability-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[operability_score]'
+      score: <%= post.operability_score %>,
+      scoreName: 'post[operability_score]',
     });
 
-    $('#balance-score').raty({
+    $('#balance-score-<%= post.id %>').empty();
+    $('#balance-score-<%= post.id %>').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
-      scoreName: 'post[balance_score]'
+      score: <%= post.balance_score %>,
+      scoreName: 'post[balance_score]',
     });
   </script>

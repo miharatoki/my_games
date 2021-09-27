@@ -8,13 +8,6 @@ feature '新規投稿ページ' do
     visit new_post_path
   end
 
-  scenario '無効なurlをリクエストしたときにエラーページが表示されるか' do
-    visit '/posts/new/error'
-    expect(page).to have_content '404'
-    visit '/posts/newerror'
-    expect(page).to have_content '404'
-  end
-
   scenario '有効な内容なら保存できる', js: true do
     expect(current_path).to eq new_post_path
     fill_in 'post_title', with: 'test_post'
@@ -118,13 +111,6 @@ feature '投稿一覧ページ' do
   before do
     @user = create(:user, email: 'test@test.com')
     log_in(@user.email)
-  end
-
-  scenario '無効なurlをリクエストしたときにエラーページが表示されるか' do
-    visit '/postserror'
-    expect(page).to have_content '404'
-    visit '/posts/error'
-    expect(page).to have_content '404'
   end
 
   scenario '全ての投稿が表示されているか', js: true do
@@ -268,16 +254,6 @@ feature '投稿詳細ページ' do
     expect(current_path).to eq post_path(@post.id)
   end
 
-  scenario '無効なurlをリクエストしたときにエラーページが表示されるか' do
-    visit "/posts/#{@user.id}/error"
-    expect(page).to have_content '404'
-  end
-
-  scenario '未発行のIDをリクエストしたときにエラーページが表示されるか' do
-    visit "/posts/#{@user.id+100}"
-    expect(page).to have_content '404'
-  end
-
   scenario '自分の投稿の場合は編集ボタンと削除ボタンが表示されている' do
     edit = find('.btn-info')
     destroy = find('.btn-danger')
@@ -387,26 +363,17 @@ feature '投稿編集ページ' do
     expect(current_path).to eq edit_post_path(@post.id)
   end
 
-  scenario '無効なurlをリクエストしたときにエラーページが表示されるか' do
-    visit "/posts/#{@user.id}/editerror"
-    expect(page).to have_content '404'
-  end
-
-  scenario '未発行のIDをリクエストしたときにエラーページが表示されるか' do
-    visit "/posts/#{@user.id+100}/edit"
-    expect(page).to have_content '404'
-  end
 
   scenario '投稿内容の編集ができるか', js: true do
     fill_in 'post_title', with: 'edit_title'
     fill_in 'post_body', with: 'edit_body'
     select 'シューティング', from: 'post_genre_id'
-    find('#total-score').find("img[alt='1']").click
-    find('#story-score').find("img[alt='1']").click
-    find('#graphic-score').find("img[alt='1']").click
-    find('#sound-score').find("img[alt='1']").click
-    find('#operability-score').find("img[alt='1']").click
-    find('#balance-score').find("img[alt='1']").click
+    find("#total-score-#{@post.id}").find("img[alt='1']").click
+    find("#story-score-#{@post.id}").find("img[alt='1']").click
+    find("#graphic-score-#{@post.id}").find("img[alt='1']").click
+    find("#sound-score-#{@post.id}").find("img[alt='1']").click
+    find("#operability-score-#{@post.id}").find("img[alt='1']").click
+    find("#balance-score-#{@post.id}").find("img[alt='1']").click
     click_button '記録する'
     expect(current_path).to eq post_path(@post.id)
     expect(page).to have_content '記録を更新しました'
