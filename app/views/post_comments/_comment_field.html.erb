@@ -1,4 +1,4 @@
-<% post.post_comments.each do |comment| %>
+<% post_comments.each do |comment| %>
   <% if comment.user.id == current_user.id %>
     <!--自分のコメントの場合-->
     <div class='d-flex justify-content-end my-2 my-comment'>
