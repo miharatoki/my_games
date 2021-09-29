@@ -6,6 +6,7 @@ class PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     if @post_comment.save
       @post = Post.find(params[:post_id])
+      @post_comments = PostComment.where(post_id: params[:post_id]).includes(:user)
       Notification.create(post_comment_id: @post_comment.id, sender_id: current_user.id, receiver_id: @post.user_id, action: 'post_comment')
       render :comment_field
     else
