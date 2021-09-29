@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   def show
     if params[:sort].nil?
       # ソートしていなかったら、投稿日を降順でレコードを取得
-      @posts = Post.where(user_id: params[:id]).order('created_at DESC').page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).order('created_at DESC').includes(:user, :genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.where(user_id: params[:id]).order(params[:sort]).page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).order(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
     end
   end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     else
       # パラメーターのジャンルIDでPostモデルから検索
       @user = User.find(params[:user_id])
-      @posts = Post.where(user_id: @user.id, genre_id: params[:genre]).page(params[:page]).per(6) 
+      @posts = Post.where(user_id: @user.id, genre_id: params[:genre]).includes(:user, :genre).page(params[:page]).per(6)
       render :show
     end
   end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     # shomページの検索フォームの値でPostモデルから検索
     @user = User.find(params[:user_id])
     searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
-    @posts = searched_posts.where(user_id: @user.id).page(params[:page]).per(6)
+    @posts = searched_posts.where(user_id: @user.id).includes(:user, :genre).page(params[:page]).per(6)
     render :show
   end
 

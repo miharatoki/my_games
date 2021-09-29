@@ -9,15 +9,16 @@ class PostsController < ApplicationController
   def index
     if params[:sort].nil?
       # ソートしていなかったら、投稿日を降順でレコードを取得
-      @posts = Post.order('created_at DESC').page(params[:page]).per(6)
+      @posts = Post.order('created_at DESC').includes(:user, :genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.order(params[:sort]).page(params[:page]).per(6)
+      @posts = Post.order(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
     end
   end
 
   def show
     @post_comment = PostComment.new
+    @post_comments = PostComment.where(post_id: params[:id]).includes(:user)
   end
 
   def edit
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       # パラメーターのジャンルIDでPostモデルから検索
-      @posts = Post.where(genre_id: (params[:genre])).page(params[:page]).per(6)
+      @posts = Post.where(genre_id: (params[:genre])).includes(:user, :genre).page(params[:page]).per(6)
       # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
       @user = User.find(current_user.id)
       render :index
@@ -60,7 +61,7 @@ class PostsController < ApplicationController
 
   def title_search
     # indexページの検索フォームの値でPostモデルから検索
-    @posts = Post.where('title LIKE ?',"%#{params[:keyword]}%").page(params[:page]).per(6)
+    @posts = Post.where('title LIKE ?',"%#{params[:keyword]}%").includes(:user, :genre).page(params[:page]).per(6)
     # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
     @user = User.find(current_user.id)
     render :index

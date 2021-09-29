@@ -1,7 +1,7 @@
 <div class='col-lg-6 col-12 comment-box'>
   <!--コメント表示エリア-->
   <div class='col-lg-12 mt-3 comment-field'>
-    <%= render 'post_comments/comment_field', post: post %>
+    <%= render 'post_comments/comment_field', post_comments: post_comments %>
   </div>
   <!--コメント入力フォーム-->
   <%= form_with model:[post, post_comment] do |f| %>
