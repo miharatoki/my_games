@@ -69,19 +69,30 @@
  .welcom{
   color: $nav_link;
  }
+ .nav-link{
+  font-family: "Koruri-Semibold";
+  text-decoration: none;
+  .nav-link-word{
+   color: $nav_link;
+   &:hover{
+    color: orange;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+   }
+   &:active{
+    text-shadow: none;
+   }
+  }
+ }
 }
 
-.nav-link{
- font-family: "Koruri-Semibold";
- text-decoration: none;
-}
-
-.nav-link-word{
- color: $nav_link;
-}
-
-.nav-icon{
- color: orange;
+.btn-danger,
+.btn-success{
+ border-bottom: 3px solid gray;
+ transition: all 1s linear 0;
+ &:active{
+  border-bottom-color: transparent;
+  transform: translateY(3px);
+ }
 }
 
 .top{
@@ -168,6 +179,22 @@
   height: 28px;
  }
 }
+
+
+.pagenate-label,
+.pagenate-prev
+.page,
+.next,
+.last{
+ border: 1px solid;
+}
+
+.pagination{
+ background-color: white;
+
+}
+
+
 
 // レスポンシブ
 @media screen and (max-width: 425px) {

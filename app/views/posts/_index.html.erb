@@ -1,6 +1,6 @@
-<div class='d-flex flex-wrap col-12 '>
+<div class='d-flex flex-wrap col-12'>
   <% posts.each do |post| %>
-    <div class='mb-5 posts-list'>
+    <div class='mb-3 posts-list'>
       <!--ゲームタイトル-->
       <div class='form-inline d-flex align-items-center mt-3 title-field'>
         <%= link_to post_path(post.id), class: 'col-12 text-truncate' do %>
