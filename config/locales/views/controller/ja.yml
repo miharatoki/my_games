@@ -2,7 +2,7 @@ ja:
   posts:
     new:
       heading: '新しい記録'
-      delete: '内容を消す'
+      cancel: 'キャンセル'
       post: '記録する'
       score: '評価'
       genre_select: 'ジャンルを選択してください'
@@ -14,8 +14,8 @@ ja:
       posted_date: '投稿日：'
     edit:
       heading: '記録の編集'
-      delete: '変更内容を削除'
-      post: '記録する'
+      cancel: 'キャンセル'
+      edit: '更新する'
       score: '評価'
     score_new:
       total_score: '総合評価'
@@ -52,11 +52,13 @@ ja:
   users:
     show:
       profile_title: 'プロフィール'
+      edit: '編集'
       my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
       othger_user_no_posts: '記録がありません'
     edit:
       profile: 'プロフィール'
-      edit: '変更する'
+      cancel: 'キャンセル'
+      edit: '更新する'
       caution: '※ゲストユーザーは編集ができません'
   notifications:
     index:

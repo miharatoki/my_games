@@ -8,7 +8,7 @@
       <!--感想-->
       <div class='form-inline d-flex align-items-start mb-4 impression-field'>
         <p class='col-4 col-sm-3 mb-1 impression-label'><%= t '.impression' %></p>
-        <p class='col-12 col-sm-9 p-1 posts-body-box'><%= post.body %></p>
+        <p class='col-12 col-sm-9 p-1 posts-body-box'><%= safe_join(post.body.split("\n"), tag(:br)) %></p>
       </div>
       <!--評価-->
       <div class='form-inline d-flex align-items-start mb-4'>
