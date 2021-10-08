@@ -4,7 +4,7 @@
     <div class='d-flex justify-content-end my-2 my-comment'>
       <!--コメント-->
       <div class='offset-1 text-break p-1 comment'>
-        <%= comment.comment %>
+        <%= safe_join(comment.comment.split("\n"), tag(:br)) %>
       </div>
       <!--アカウント画像-->
       <div class='col-2 col-md-1 p-0 pl-1 account-image'>
@@ -28,7 +28,7 @@
       </div>
       <!--コメント-->
       <div class='text-break p-1 comment'>
-        <%= comment.comment %>
+        <%= safe_join(comment.comment.split("\n"), tag(:br)) %>
       </div>
     </div>
   <% end %>

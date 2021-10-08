@@ -30,7 +30,9 @@
 
         <!--ボタン-->
         <div class='d-flex justify-content-center mb-4'>
-          <%= f.submit (t '.delete'), type: 'reset', class: 'offset-1 offset-sm-2 mr-3 btn btn-danger' %>
+          <%= link_to :back, class: 'col-3 mr-3 btn btn-light' do %>
+            <div><%= t ('.cancel') %></div>
+          <% end %>
           <%= f.submit (t '.post'), class: 'text-center btn btn-success' %>
         </div>
       </div>
