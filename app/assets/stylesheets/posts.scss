@@ -59,6 +59,9 @@
    background-color: white;
    border: 1px solid;
    border-radius: 10px;
+   a{
+    text-decoration: none;
+   }
   .score-group{
    width: 90%;
    border: 1px solid;
@@ -99,7 +102,7 @@
     text-align: right;
    }
    .impression-field{
-    height: 20vh;
+    height: 23vh;
     .impression-label{
      text-align: right;
     }

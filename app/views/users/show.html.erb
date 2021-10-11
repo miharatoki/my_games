@@ -24,7 +24,12 @@
         <!--イントロダクション-->
         <div class='col-12 col-sm-8 my-2 px-0 user-introduction-field'>
           <div class='p-2 text-break introduction'>
-            <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
+            <!--プロフィール文を設定していなかったら何も表示しない-->
+            <% begin %>
+              <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
+            <% rescue %>
+              <span><%= t '.none_introduction' %></span>
+            <% end %>
           </div>
         </div>
       </div>

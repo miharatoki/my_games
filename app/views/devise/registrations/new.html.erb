@@ -9,7 +9,7 @@
           <!--ユーザ名-->
           <div class='form-group text-center mt-4'>
             <%= f.label :name %><br>
-            <%= f.text_field :name, autofocus: true %>
+            <%= f.text_field :name, placeholder: '2文字以上、10文字以内', autofocus: true %>
           </div>
           <!--メールアドレス-->
           <div class='form-group text-center'>
@@ -20,12 +20,12 @@
           <div class='form-group text-center'>
             <%= f.label :password %>
             <br />
-            <%= f.password_field :password, autofocus: true, autocomplete: 'new-password' %>
+            <%= f.password_field :password, placeholder: '6文字以上', autofocus: true, autocomplete: 'new-password' %>
           </div>
           <!--パスワード（確認用）-->
           <div class='form-group text-center'>
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autofocus: true %>
+            <%= f.password_field :password_confirmation, placeholder: '6文字以上', autofocus: true %>
           </div>
           <!--登録ボタン-->
           <div class='text-center mt-4'>

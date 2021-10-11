@@ -6,6 +6,8 @@ ja:
       post: '記録する'
       score: '評価'
       genre_select: 'ジャンルを選択してください'
+      title_word_count: '30字以内'
+      body_word_count: '400字以内'
     index:
       page_heading: 'みんなの記録'
       title: 'ゲームタイトル'
@@ -17,6 +19,8 @@ ja:
       cancel: 'キャンセル'
       edit: '更新する'
       score: '評価'
+      title_word_count: '30字以内'
+      body_word_count: '400字以内'
     score_new:
       total_score: '総合評価'
       story_score: 'ストーリー'
@@ -53,12 +57,15 @@ ja:
     show:
       profile_title: 'プロフィール'
       edit: '編集'
+      none_introduction: '※プロフィール文が設定されていません。'
       my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
       othger_user_no_posts: '記録がありません'
     edit:
       profile: 'プロフィール'
       cancel: 'キャンセル'
       edit: '更新する'
+      name_word_count: '10字以内'
+      introduction_word_count: '140字以内'
       caution: '※ゲストユーザーは編集ができません'
   notifications:
     index:

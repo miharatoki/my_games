@@ -8,7 +8,7 @@
         <!--ゲームタイトル-->
         <div class='col-9 mx-5 mt-5 mb-4 p-0'>
           <%= f.label :title %><br>
-          <%= f.text_field :title, class: 'col-10 col-sm-8 col-xl-12 p-1' %>
+          <%= f.text_field :title, placeholder: (t '.title_word_count'), class: 'col-10 col-sm-8 col-xl-12 p-1' %>
         </div>
         <!--ジャンル-->
         <div class='mx-5 mb-4'>
@@ -19,7 +19,7 @@
         <!--感想-->
         <div class='col-10 col-xl-12 mx-5 p-0 mb-4'>
           <%= f.label :body %><br>
-          <%= f.text_area :body, class: 'col-10 col-xl-9 p-1 impressin-field' %>
+          <%= f.text_area :body, placeholder: (t '.body_word_count'), class: 'col-10 col-xl-9 p-1 impressin-field' %>
         </div>
 
         <!--評価-->
