@@ -41,6 +41,9 @@
   }
   .edit-link{
    border-bottom: 1px solid;
+   a{
+    text-decoration: none;
+   }
   }
   .user-image-name{
    img{
@@ -50,6 +53,9 @@
   .user-introduction-field{
    border: 1px solid;
    border-radius: 15px;
+   span{
+    opacity: 0.5;
+   }
   }
  }
  .posts-list:nth-child(3n+1){
@@ -63,6 +69,9 @@
    background-color: white;
    border: 1px solid;
    border-radius: 10px;
+   a{
+    text-decoration: none;
+   }
    .score-group{
     width: 90%;
     border: 1px solid;

@@ -10,7 +10,7 @@
       <!--ユーザー名-->
       <div class='col-12 text-left mt-5 mb-4'>
         <%= f.label :name, class: 'col-12 text-left' %><br>
-        <%= f.text_field :name, class: 'ml-3' %>
+        <%= f.text_field :name, placeholder: (t '.name_word_count'), class: 'ml-3' %>
       </div>
       <!--プロフィール画像-->
       <div class='col-12 text-left mt-5 mb-4'>
@@ -21,7 +21,7 @@
       <!--プロフィール文-->
       <div class='col-12 text-center mt-5 mb-4'>
         <%= f.label :introduction, class: 'col-12 text-left' %><br>
-        <%= f.text_area :introduction, class: 'col-11 introduction-field' %>
+        <%= f.text_area :introduction, placeholder: (t '.introduction_word_count'), class: 'col-11 introduction-field' %>
       </div>
 
       <!--記録作成ボタン-->
