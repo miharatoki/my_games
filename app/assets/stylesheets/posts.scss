@@ -59,6 +59,9 @@
    background-color: white;
    border: 1px solid;
    border-radius: 10px;
+   a{
+    text-decoration: none;
+   }
   .score-group{
    width: 90%;
    border: 1px solid;
@@ -73,6 +76,14 @@
 
 // 投稿詳細ページ
 .posts-show{
+ .back{
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  &:hover{
+   color: red;
+  }
+ }
  .posts-show-box{
    background-color: $posts_show_box;
    border-radius: 10px;
@@ -91,7 +102,7 @@
     text-align: right;
    }
    .impression-field{
-    height: 20vh;
+    height: 23vh;
     .impression-label{
      text-align: right;
     }
@@ -116,6 +127,9 @@
     .score-list{
      margin: 15px;
     }
+   }
+   .heart{
+    text-decoration: none;
    }
    .btn-info,.btn-danger{
     transition: all 1s ease 0;

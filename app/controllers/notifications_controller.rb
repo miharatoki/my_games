@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   before_action :ensure_user
 
   def index
-    @notifications = Notification.where(receiver_id: params[:user_id], check: false)
+    @notifications = Notification.where(receiver_id: params[:user_id], check: false).includes(:sender)
   end
 
   def destroy_all
