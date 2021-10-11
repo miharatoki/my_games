@@ -6,7 +6,7 @@
   <!--コメント入力フォーム-->
   <%= form_with model:[post, post_comment] do |f| %>
     <div class='col-11 form-inline my-3 p-0 comment-form'>
-      <%= f.text_area :comment, placeholder: 'コメントを入力', class: 'col-9' %>
+      <%= f.text_area :comment, placeholder: (t '.comment_word_count'), class: 'col-9' %>
       <%= f.submit (t '.send'), class: 'col-2 offset-1 text-center btn btn-success' %>
     </div>
   <% end %>

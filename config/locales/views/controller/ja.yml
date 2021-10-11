@@ -52,6 +52,11 @@ ja:
       confirm: '削除しますか？'
     post_comment:
       send: '送信'
+      
+  post_comments:
+    post_comment: 
+      send: '送信'
+      comment_word_count: '140字以内でコメントを入力'
 
   users:
     show:
