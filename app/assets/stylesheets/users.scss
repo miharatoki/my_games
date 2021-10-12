@@ -8,6 +8,64 @@
 @import "bootstrap";
 @import "colors";
 
+.user-name{
+ color: white;
+}
+
+.follow-list{
+ height: 60vh;
+ border-radius: 15px;
+ background-color: white;
+ li{
+  list-style: none;
+ }
+ .tab{
+  height: 40px;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+ }
+ .tab:nth-child(1){
+  border-top-left-radius:  15px;
+ }
+ .tab:nth-child(2){
+  border-top-right-radius:  15px;
+ }
+ .tab-active{
+  background-color: #89c3eb;
+ }
+ .tabbox{
+  display: none;
+ }
+ .tabbox-active{
+  display: block;
+ }
+ .introduction-field{
+  height: 10vh;
+  overflow: auto;
+ }
+ td{
+  a{
+   text-decoration: none;
+  }
+  img{
+   border-radius: 35px;
+  }
+  .follow-btn{
+   a{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    &:hover{
+     color: #b94047;
+     background-color: white;
+    }
+   }
+  }
+ }
+}
+
 // ユーザー編集画面
 .users-edit{
  .input-form{

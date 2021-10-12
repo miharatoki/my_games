@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def follow_page
+    @user = User.find(params[:user_id])
+  end
+
   def update
     if @user.name == 'ゲストユーザー'
       # ゲストユーザーでログインしている時はupdateできない

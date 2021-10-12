@@ -1,0 +1,80 @@
+<div class='col-12 text-center user-name'>
+  <%= user.name %>
+</div>
+<div class='col-11 px-0 mx-auto tab-container follow-list'>
+  <ul class='col-12 mb-0 px-0 form-inline tab-list'>
+    <li class='col-6 d-flex align-items-center justify-content-center px-0 tab tab-active'><%= t '.following' %></li>
+    <li class='col-6 d-flex align-items-center justify-content-center px-0 tab'><%= t '.follower' %></li>
+  </ul>
+  <div class='tabbox-contents'>
+    <table class='col-12 table tabbox tabbox-active'>
+      <tbody>
+        <% user.followings.each do |following_user| %>
+          <tr>
+            <td class='col-2 text-center'>
+              <%= attachment_image_tag following_user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '50x50' %>
+            </td>
+            <td class='col-5 col-md-7 py-0'>
+              <div class='text-left'>
+                <%= link_to following_user.name, user_path(following_user.id) %>
+              </div>
+              <div class='col-12 my-2 introduction-field'>
+                <%= following_user.introduction %>
+              </div>
+            </td>
+            <td class='col-5 col-md-3 text-center align-middle'>
+              <div class='follow-btn'>
+                <% if current_user.following?(following_user) %>
+                  <%= link_to (t '.following'), user_unfollow_path(following_user.id), data: { confirm: (t '.unfollow?') } %>
+                <% else %>
+                  <%= link_to (t '.follow'), user_follow_path(following_user.id) %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <table class='col-12 table tabbox'>
+      <tbody class='col-12'>
+        <% user.followers.each do |follower_user| %>
+         <tr>
+            <td class='col-3 text-center'>
+              <%= attachment_image_tag follower_user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '50x50' %><br>
+              <%= link_to follower_user.name, user_path(follower_user.id) %>
+            </td>
+            <td class='col-3 text-center align-middle'>
+              <%= t '.follows' %>
+              <%= follower_user.followings.count %>
+            </td>
+            <td class='col-3 text-center align-middle'>
+              <%= t '.follower' %>
+              <%= follower_user.followers.count %>
+            </td>
+            <td class='col-3 text-center align-middle'>
+              <div class='follow-btn'>
+                <% if current_user.following?(follower_user) %>
+                  <%= link_to (t '.following'), user_unfollow_path(follower_user.id), data: { confirm: (t '.unfollow?') } %>
+                <% else %>
+                  <%= link_to (t '.follow'), user_follow_path(follower_user.id) %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+   $(document).on ("turbolinks:load", function(){
+     $('.tab').click(function(){
+        $('.tab-active').removeClass('tab-active');
+        $(this).addClass('tab-active');
+        $('.tabbox-active').removeClass('tabbox-active');
+        const index = $(this).index();
+        $('.tabbox').eq(index).addClass('tabbox-active');
+    });
+  });
+</script>
