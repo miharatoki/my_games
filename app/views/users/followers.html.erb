@@ -1,0 +1,63 @@
+<div class='container followers'>
+  <%= render 'shared/error', model: @user %>
+  <div class='row mt-5'>
+    <div class='col-12 text-center user-name'>
+      <h2><%= @user.name %></h3>
+    </div>
+    <div class='col-11 col-md-8 px-0 mx-auto tab-container follow-list'>
+      <ul class='col-12 mb-0 px-0 form-inline'>
+        <%= link_to  user_following_path(@user.id), class: 'col-6 px-0' do %>
+          <li class='d-flex align-items-center justify-content-center px-0 tab'>
+            <%= t '.following' %>
+          </li>
+        <% end %>
+          <li class='col-6 d-flex align-items-center justify-content-center px-0 tab tab-followers'>
+            <%= t '.follower' %>
+          </li>
+      </ul>
+      <div class='tabbox-contents'>
+        <table class='table tabbox'>
+          <tbody>
+
+            <% @user.followers.each do |follower_user| %>
+             <tr>
+                <td class='col-2 text-center'>
+                  <%= attachment_image_tag follower_user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '50x50' %>
+                </td>
+                <td class='col-5 col-md-6 py-0'>
+                  <div class='text-left'>
+                    <%= link_to follower_user.name, user_path(follower_user.id) %>
+                  </div>
+                  <div class='my-2 introduction-field'>
+                     <% if follower_user.introduction.nil? || follower_user.introduction.empty? %>
+                       <span class='nil'><%= t '.nil' %></span>
+                    <% else %>
+                      <%= follower_user.introduction %>
+                    <% end %>
+                  </div>
+                </td>
+                <td class='col-5 col-md-4 text-center align-middle'>
+                  <div class='follow-btn'>
+                    <% unless current_user == follower_user %>
+                      <% if current_user.following?(follower_user) %>
+                        <%= link_to unfollow_path(user_id: follower_user.id) do %>
+                          <span class='nomal'><%= t '.following' %></span>
+                          <span class='hover'><%= t '.unfollow' %></span>
+                        <% end %>
+                      <% else %>
+                        <%= link_to follow_path(user_id: follower_user.id) do %>
+                          <span class='follow'><%= t '.follow' %></span>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

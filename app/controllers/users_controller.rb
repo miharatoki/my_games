@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def follow_page
+  def followers
+    @user = User.find(params[:user_id])
+  end
+
+  def following
     @user = User.find(params[:user_id])
   end
 

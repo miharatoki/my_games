@@ -61,8 +61,6 @@ ja:
   users:
     show:
       profile_title: 'プロフィール'
-      follows: ' フォロー'
-      followers: ' フォロワー'
       edit: '編集'
       none_introduction: '※プロフィール文が設定されていません。'
       my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
@@ -74,16 +72,27 @@ ja:
       name_word_count: '10字以内'
       introduction_word_count: '140字以内'
       caution: '※ゲストユーザーは編集ができません'
-    follower_table:
+    followers:
       unfollow: 'フォロー解除'
       follow: 'フォローする'
       following: 'フォロー中'
       follower: 'フォロワー'
       nil: '※プロフィール文が設定されていません'
+    following:
+      unfollow: 'フォロー解除'
+      follow: 'フォローする'
+      following: 'フォロー中'
+      follower: 'フォロワー'
+      nil: '※プロフィール文が設定されていません'
+
   relationships:
     relationships_btn:
       follow: 'フォローする'
       unfollow: 'フォロー解除'
+    follow_count:
+      follows: ' フォロー'
+      followers: ' フォロワー'
+
   notifications:
     index:
       notification: '通知'
@@ -94,6 +103,7 @@ ja:
       favorite: 'にいいねしました'
       post_comment: 'にコメントしました'
       ago: '（%{ago}前）'
+
   homes:
     top:
       sign_up: '新規登録'

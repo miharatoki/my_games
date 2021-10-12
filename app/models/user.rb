@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
+    notifications.create()
   end
 
   def unfollow(followed_user)
