@@ -17,11 +17,13 @@
       <!--評価-->
       <%= render 'posts/score_read_only', post: post %>
       <!--投稿者名-->
+      <% if current_page?(posts_path) %>
         <div class='col-12 d-flex justify-content-end mt-2 post-user'>
           <%= link_to user_path(post.user.id) do %>
             <%= t '.post_user', user_name: post.user.name %>
           <% end %>
         </div>
+      <% end %>
       <!--投稿日-->
       <div class='col-12 d-flex justify-content-end mb-2'>
       　<%= t '.posted_date' %><%= post.created_at.strftime('%Y-%m-%d') %>

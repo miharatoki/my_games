@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     get '/followers' => 'users#followers'
     get '/genre_search' => 'users#genre_search'
     get '/title_search' => 'users#title_search'
-    resources :notifications, only: [:index]
-    delete 'notifications' => 'notifications#destroy_all'
+    resources :notifications, only: [:index, :destroy]
+    delete '/notifications' => 'notifications#destroy_all'
   end
 
   get 'posts/title_search' => 'posts#title_search'

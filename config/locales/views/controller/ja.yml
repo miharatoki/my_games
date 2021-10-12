@@ -98,10 +98,12 @@ ja:
       notification: '通知'
       no_notification: '通知はありません'
       destroy_all: '全て削除'
+      destroy: '削除'
       my_post: 'あなたの投稿'
       sender: 'さんが'
       favorite: 'にいいねしました'
       post_comment: 'にコメントしました'
+      follow: 'あなたをフォローしました。'
       ago: '（%{ago}前）'
 
   homes:

@@ -30,10 +30,10 @@
         <div class='col-12 col-md-7 col-sm-8 my-2 px-0 user-introduction-field'>
           <div class='p-2 text-break introduction'>
             <!--プロフィール文を設定していなかったら何も表示しない-->
-            <% begin %>
-              <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
-            <% rescue %>
+            <% if @user.introduction.nil? || @user.introduction.empty? %>
               <span><%= t '.none_introduction' %></span>
+            <% else %>
+              <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
             <% end %>
           </div>
         </div>
