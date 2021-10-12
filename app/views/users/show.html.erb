@@ -3,15 +3,20 @@
     <div class='col-12 col-sm-8 mt-3 '>
       <!--プロフィール-->
       <div class='col-12 d-flex flex-wrap profile'>
-        <div class='col-9 profile-title'>
+        <div class='col-7 profile-title'>
          <h5 class='mb-0'>
            <strong><%= t '.profile_title' %></strong>
           </h5>
         </div>
         <!--プロフィール編集へのリンク-->
-        <div class='col-3 text-right edit-link'>
+        <div class='col-5 text-right edit-link'>
           <% if @user == current_user %>
             <%= link_to (t '.edit'), edit_user_path(current_user.id) %>
+            user_follow_page_path
+          <% else %>
+            <div id='relationships-btn'>
+              <%= render 'relationships/relationships_btn', user: @user %>
+            </div>
           <% end %>
         </div>
         <!--プロフィール画像とユーザー名-->

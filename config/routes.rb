@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/guest_sign_in' => 'homes#guest_sign_in'
   resources :users, only: [:index, :show, :edit, :update] do
+    get '/follow_page' => 'users#follow_page'
+    get '/show_follow' => 'relationships#show_follow'
+    get '/show_unfollow' => 'relationships#show_unfollow'
+    get '/follow' => 'relationships#follow'
+    get '/unfollow' => 'relationships#unfollow'
     get '/genre_search' => 'users#genre_search'
     get '/title_search' => 'users#title_search'
     resources :notifications, only: [:index]
