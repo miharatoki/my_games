@@ -10,14 +10,14 @@ class RelationshipsController < ApplicationController
     current_user.unfollow(@user.id)
     render :relationships_btn
   end
-  
+
   def follow
-    current_user.follow(@user)
+    current_user.follow(@user.id)
     redirect_to request.referer
   end
-  
+
   def unfollow
-    current_user.unfollow(@user)
+    current_user.unfollow(@user.id)
     redirect_to request.referer
   end
 

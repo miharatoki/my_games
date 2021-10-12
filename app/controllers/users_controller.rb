@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   def show
     if params[:sort].nil?
       # ソートしていなかったら、投稿日を降順でレコードを取得
-      @posts = Post.where(user_id: params[:id]).order('created_at DESC').includes(:user, :genre).page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).order('created_at DESC').includes(:genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.where(user_id: params[:id]).order(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).order(params[:sort]).includes(:genre).page(params[:page]).per(6)
     end
   end
 
@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def follow_page
+  def followers
+    @user = User.find(params[:user_id])
+  end
+
+  def following
     @user = User.find(params[:user_id])
   end
 

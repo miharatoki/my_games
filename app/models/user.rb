@@ -24,7 +24,8 @@ class User < ApplicationRecord
   attachment :profile_image
 
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+    relationship = relationships.create(followed_id: user_id)
+    Notification.create(relationship_id: relationship.id, sender_id: relationship.follower_id, receiver_id: relationship.followed_id, action: 'relationship')
   end
 
   def unfollow(followed_user)

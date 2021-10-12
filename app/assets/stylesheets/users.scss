@@ -8,42 +8,43 @@
 @import "bootstrap";
 @import "colors";
 
-.follow-page{
+.following,
+.followers{
  .user-name{
   color: white;
  }
  .follow-list{
-  height: 60vh;
-  border-radius: 15px;
+  height: 70vh;
   background-color: white;
-  li{
-   list-style: none;
+  border-radius: 15px;
+  a{
+   text-decoration: none;
   }
   .tab{
    height: 40px;
    border-bottom: 1px solid gray;
-   cursor: pointer;
+   color: black;
   }
-  .tab:nth-child(1){
-   border-top-left-radius:  15px;
+  .tab-following{
+   border-top-left-radius: 15px;
+   background-color: $follow-tab;
   }
-  .tab:nth-child(2){
-   border-top-right-radius:  15px;
+  .tab-followers{
+   border-top-right-radius: 15px;
+   background-color: $follow-tab;
   }
-  .tab-active{
-   background-color: #89c3eb;
-  }
-  .tabbox-hidden{
-   display: none;
-  }
-  .introduction-field{
-   height: 10vh;
+  .tabbox-contents{
+   height: 65vh;
    overflow: auto;
-   .nil{
-    opacity: 0.5;
-   }
   }
   td{
+   .introduction-field{
+    height: 7vh;
+    overflow: auto;
+    .nil{
+     opacity: 0.5;
+    }
+   }
    a{
     text-decoration: none;
    }
@@ -66,7 +67,6 @@
        padding: 10px;
        border: 1px solid black;
        border-radius: 10px;
-       background-color: white;
        color: black;
      }
      &:hover{
@@ -82,7 +82,9 @@
        color: red;
       }
       .follow{
-       color: blue;
+       border-color: $follow-tab;
+       background-color: $follow-tab;
+       color: white;
       }
      }
     }

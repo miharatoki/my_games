@@ -9,30 +9,33 @@
 @import "colors";
 
 .notifications-index{
-  .notifications-field{
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 10px;
-    .notifications-header{
-        border-bottom: 1px solid;
-      h3{
-        font-family: "Koruri-Semibold";
-      }
-    }
-    .table{
-      th{
-        a{
-          text-decoration: none;
-          &:hover{
-            color: red;
-          }
-        }
-      }
-      td{
-        a{
-          text-decoration: none;
-        }
-      }
-    }
+ .notifications-field{
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  .notifications-header{
+   border-bottom: 1px solid;
+   h3{
+    font-family: "Koruri-Semibold";
+   }
   }
+  table{
+   th{
+    a{
+     text-decoration: none;
+     &:hover{
+       color: red;
+     }
+    }
+   }
+   td{
+    a{
+     text-decoration: none;
+    }
+   }
+  }
+  .pagenate-label{
+
+  }
+ }
 }
