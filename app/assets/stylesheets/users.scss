@@ -8,58 +8,83 @@
 @import "bootstrap";
 @import "colors";
 
-.user-name{
- color: white;
-}
-
-.follow-list{
- height: 60vh;
- border-radius: 15px;
- background-color: white;
- li{
-  list-style: none;
+.follow-page{
+ .user-name{
+  color: white;
  }
- .tab{
-  height: 40px;
-  border-bottom: 1px solid gray;
-  cursor: pointer;
- }
- .tab:nth-child(1){
-  border-top-left-radius:  15px;
- }
- .tab:nth-child(2){
-  border-top-right-radius:  15px;
- }
- .tab-active{
-  background-color: #89c3eb;
- }
- .tabbox{
-  display: none;
- }
- .tabbox-active{
-  display: block;
- }
- .introduction-field{
-  height: 10vh;
-  overflow: auto;
- }
- td{
-  a{
-   text-decoration: none;
+ .follow-list{
+  height: 60vh;
+  border-radius: 15px;
+  background-color: white;
+  li{
+   list-style: none;
   }
-  img{
-   border-radius: 35px;
+  .tab{
+   height: 40px;
+   border-bottom: 1px solid gray;
+   cursor: pointer;
   }
-  .follow-btn{
+  .tab:nth-child(1){
+   border-top-left-radius:  15px;
+  }
+  .tab:nth-child(2){
+   border-top-right-radius:  15px;
+  }
+  .tab-active{
+   background-color: #89c3eb;
+  }
+  .tabbox-hidden{
+   display: none;
+  }
+  .introduction-field{
+   height: 10vh;
+   overflow: auto;
+   .nil{
+    opacity: 0.5;
+   }
+  }
+  td{
    a{
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: gray;
-    color: white;
-    &:hover{
-     color: #b94047;
-     background-color: white;
+    text-decoration: none;
+   }
+   img{
+    border-radius: 35px;
+   }
+   .follow-btn{
+    a{
+     .nomal{
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: gray;
+      color: white;
+     }
+     .hover{
+      display: none;
+     }
+     .follow{
+       padding: 10px;
+       border: 1px solid black;
+       border-radius: 10px;
+       background-color: white;
+       color: black;
+     }
+     &:hover{
+      .nomal{
+       display: none;
+      }
+      .hover{
+       display: inline;
+       padding: 10px;
+       border: 1px solid black;
+       border-radius: 10px;
+       background-color: white;
+       color: red;
+      }
+      .follow{
+       color: blue;
+      }
+     }
     }
    }
   }
@@ -106,6 +131,9 @@
   .user-image-name{
    img{
     border-radius: 50px;
+   }
+   a{
+    text-decoration: none;
    }
   }
   .user-introduction-field{
