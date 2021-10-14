@@ -2,73 +2,93 @@ require 'rails_helper'
 
 feature '通知一覧ページ' do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:genre) { create(:genre) }
   let!(:post) { create(:post, user_id: user.id, genre_id: genre.id) }
-  
+
   before do
     log_in(user.email)
     visit post_path(post.id)
   end
 
-
   feature 'コメントへの通知' do
-    
     before do
       fill_in 'post_comment_comment', with: 'test_comment'
       click_button '送信'
-      visit user_notifications_path(user.id)
+      wait_for_ajax(5) do
+        visit user_notifications_path(user.id)
+      end
     end
 
-    scenario 'コメントされた通知が表示されているか' do
-      expect(current_path).to eq user_notifications_path(user.id)
-      expect(page).to have_content 'コメントしました'
-    end
-
-    scenario 'コメントしたユーザー名をクリックするとユーザー詳細ページに遷移するか' do
+    scenario 'コメントしたユーザー名をクリックするとユーザー詳細ページに遷移するか', js: true do
       click_link "#{user.name}"
       expect(current_path).to eq user_path(user.id)
     end
 
-    scenario '「あなたの投稿」をクリックするとコメントされた投稿の詳細ページに遷移するか' do
+    scenario '「あなたの投稿」をクリックするとコメントされた投稿の詳細ページに遷移するか', js: true do
       click_link 'あなたの投稿'
       expect(current_path).to eq post_path(post.id)
      end
+
+     scenario '通知を削除できるか', js: true do
+      click_link '削除'
+      expect(page).to have_content '通知はありません'
+    end
   end
 
   feature 'いいねへの通知' do
-    
     before do
       click_link '💙'
-      visit user_notifications_path(user.id)
+      wait_for_ajax do
+        visit user_notifications_path(user.id)
+      end
     end
 
-    scenario 'いいねされた通知が表示されているか' do
-      expect(current_path).to eq user_notifications_path(user.id)
-      expect(page).to have_content 'いいね'
-    end
-
-    scenario 'いいねしたユーザー名をクリックするとユーザー詳細ページに遷移するか' do
+    scenario 'いいねしたユーザー名をクリックするとユーザー詳細ページに遷移するか', js: true do
       click_link "#{user.name}"
       expect(current_path).to eq user_path(user.id)
     end
 
-    scenario '「あなたの投稿」をクリックするといいねされた投稿の詳細ページに遷移するか' do
+    scenario '「あなたの投稿」をクリックするといいねされた投稿の詳細ページに遷移するか', js: true do
       click_link 'あなたの投稿'
       expect(current_path).to eq post_path(post.id)
     end
 
+    scenario '通知を削除できるか', js: true do
+      click_link '削除'
+      expect(page).to have_content '通知はありません'
+    end
   end
 
-  feature '通知の削除', js: true do
+  feature 'フォローの通知' do
     before do
-      visit post_path(post.id)
-      click_link '💙'
-      fill_in 'post_comment_comment', with: 'test_comment'
-      click_button '送信'
-      visit user_notifications_path(user.id)
+      visit user_path(other_user.id)
+      click_link 'フォローする'
+      find('.navbar-toggler-icon').click
+      click_link 'ログアウト'
+      log_in(other_user.email)
+      visit user_notifications_path(other_user.id)
     end
 
+    scenario 'フォローしたユーザー名をクリックするとそのユーザーの詳細ページに遷移するか', js: true do
+      click_link "#{user.name}"
+      expect(current_path).to eq user_path(user.id)
+    end
+
+    scenario '削除をクリックするとその通知を削除できるか', js: true do
+      click_link '削除'
+      expect(page).to have_content '通知はありません'
+    end
+  end
+
+  feature '通知の全削除', js: true do
     scenario '全て削除をクリックすると通知が全て削除されるか' do
+      fill_in 'post_comment_comment', with: 'test_comment'
+      click_button '送信'
+      click_link '💙'
+      wait_for_ajax do
+        visit user_notifications_path(user.id)
+      end
       expect(page).to have_content 'コメントしました'
       expect(page).to have_content 'いいね'
       click_link '全て削除'
@@ -79,12 +99,6 @@ feature '通知一覧ページ' do
   feature 'ヘッダーのリンク' do
     before do
       visit user_notifications_path(user.id)
-    end
-
-
-    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
-      click_link 'マイページ'
-      expect(current_path).to eq edit_user_path(user.id)
     end
 
     scenario '通知をクリックすると通知一覧ページへ遷移する' do

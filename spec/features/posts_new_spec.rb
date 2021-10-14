@@ -24,7 +24,7 @@ feature '新規投稿ページ' do
     expect(current_path).to eq post_path(post.id)
     expect(page).to have_content '記録を作成しました'
     expect(page).to have_content 'test_post'
-    
+
     visit posts_path
     expect(page).to have_content 'test_post'
     visit user_path(@user.id)
@@ -80,11 +80,6 @@ feature '新規投稿ページ' do
   end
 
   feature 'ヘッダーのリンク' do
-    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
-      click_link 'マイページ'
-      expect(current_path).to eq edit_user_path(@user.id)
-    end
-
     scenario '通知をクリックすると通知一覧ページへ遷移する' do
       click_link '通知'
       expect(current_path).to eq user_notifications_path(@user.id)
