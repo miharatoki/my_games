@@ -2,12 +2,17 @@ class NotificationsController < ApplicationController
   before_action :ensure_user
 
   def index
-    @notifications = Notification.where(receiver_id: params[:user_id], check: false).includes(:sender)
+    @notifications = Notification.where(receiver_id: params[:user_id], check: false).includes(:sender).page(params[:page]).per(10)
+  end
+
+  def destroy
+    Notification.find(params[:id]).destroy
+    redirect_to user_notifications_path
   end
 
   def destroy_all
     Notification.where(receiver_id: params[:user_id], check: false).update(check: true)
-    redirect_to user_notifications_path(params[:user_id])
+    redirect_to user_notifications_path
   end
 
   private

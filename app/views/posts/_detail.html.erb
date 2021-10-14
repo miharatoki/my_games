@@ -24,7 +24,7 @@
       <!--投稿者-->
       <% if post.user == current_user %>
       <% else %>
-        <div class='text-right mb-2'>
+        <div class='text-right mb-2 post-user'>
           <%= link_to user_path(post.user.id) do %>
             <%= t '.post_user', user_name: post.user.name %>
           <% end %>

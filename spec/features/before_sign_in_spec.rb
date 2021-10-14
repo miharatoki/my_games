@@ -73,7 +73,6 @@ feature 'ログイン前' do
         click_button 'アカウント登録'
         expect(page).to have_content 'ようこそ、My Gamesへ！！'
         expect(page).to have_content 'ようこそ、テストユーザーさん！'
-        expect(page).to have_content 'マイページ'
         expect(page).to have_content '通知'
         expect(page).to have_content '自分の記録'
         expect(page).to have_content 'みんなの記録'
@@ -101,7 +100,7 @@ feature 'ログイン前' do
 
     feature 'ログイン' do
       let!(:user) { create(:user) }
-      
+
       before do
         click_link 'アカウントをお持ちの方'
       end
@@ -115,7 +114,6 @@ feature 'ログイン前' do
         fill_in 'user_password', with: 'password'
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました'
-        expect(page).to have_content 'マイページ'
         expect(page).to have_content '通知'
         expect(page).to have_content '自分の記録'
         expect(page).to have_content 'みんなの記録'

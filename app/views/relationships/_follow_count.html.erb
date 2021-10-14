@@ -1,0 +1,10 @@
+<div class='col-12'>
+  <%= link_to user_following_path(user.id) do %>
+    <strong><%= user.followings.count %></strong><%= t '.follows' %>
+  <% end %>
+</div>
+<div class='col-12'>
+  <%= link_to user_followers_path(user.id) do %>
+    <strong><%= user.followers.count %></strong><%= t '.followers' %>
+  <% end %>
+</div>

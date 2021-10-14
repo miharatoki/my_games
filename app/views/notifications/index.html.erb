@@ -17,6 +17,7 @@
             <% @notifications.each do |notification| %>
               <tr>
                 <% if notification.action == 'favorite' %>
+                <!--投稿にいいねされた時の通知-->
                   <td>
                     <p class='mb-0'><%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
                       <%= t '.sender' %>
@@ -25,7 +26,11 @@
                       <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
                     </p>
                   </td>
+                  <td>
+                    <%= link_to (t '.destroy'), user_notification_path(id: notification.id), method: :delete, class: 'btn btn-danger' %>
+                  </td>
                 <% elsif notification.action == 'post_comment'%>
+                <!--投稿にコメントされた時の通知-->
                   <td>
                     <p class='mb-0'><%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
                       <%= t '.sender' %>
@@ -34,11 +39,30 @@
                       <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
                     </p>
                   </td>
+                  <td>
+                    <%= link_to (t '.destroy'), user_notification_path(id: notification.id), method: :delete, class: 'btn btn-danger' %>
+                  </td>
+                <% elsif notification.action == 'relationship' %>
+                <!--フォローされた時の通知-->
+                  <td>
+                    <p class='mb-0'>
+                      <%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
+                      <%= t '.sender' %>
+                      <%= t '.follow' %>
+                      <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
+                    </p>
+                  </td>
+                  <td>
+                    <%= link_to (t '.destroy'), user_notification_path(id: notification.id), method: :delete, class: 'btn btn-danger' %>
+                  </td>
                 <% end %>
               </tr>
             <% end %>
           </tbody>
         </table>
+        <div class='col-12 mb-3 d-flex justify-content-center'>
+          <%= paginate @notifications %>
+        </div>
       <% end %>
     </div>
   </div>

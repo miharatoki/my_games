@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_18_032816) do
+ActiveRecord::Schema.define(version: 2021_10_12_214432) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -36,9 +36,11 @@ ActiveRecord::Schema.define(version: 2021_09_18_032816) do
     t.boolean "check", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "relationship_id"
     t.index ["favorite_id"], name: "index_notifications_on_favorite_id"
     t.index ["post_comment_id"], name: "index_notifications_on_post_comment_id"
     t.index ["receiver_id"], name: "index_notifications_on_receiver_id"
+    t.index ["relationship_id"], name: "index_notifications_on_relationship_id"
     t.index ["sender_id"], name: "index_notifications_on_sender_id"
   end
 
@@ -67,6 +69,15 @@ ActiveRecord::Schema.define(version: 2021_09_18_032816) do
     t.integer "graphic_score"
     t.index ["genre_id"], name: "index_posts_on_genre_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|

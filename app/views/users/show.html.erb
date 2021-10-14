@@ -3,32 +3,37 @@
     <div class='col-12 col-sm-8 mt-3 '>
       <!--プロフィール-->
       <div class='col-12 d-flex flex-wrap profile'>
-        <div class='col-9 profile-title'>
+        <!--ユーザー名-->
+        <div class='col-8 profile-title'>
          <h5 class='mb-0'>
-           <strong><%= t '.profile_title' %></strong>
+           <strong><%= @user.name %></strong>
           </h5>
         </div>
         <!--プロフィール編集へのリンク-->
-        <div class='col-3 text-right edit-link'>
+        <div class='col-4 text-right edit-link'>
           <% if @user == current_user %>
             <%= link_to (t '.edit'), edit_user_path(current_user.id) %>
+          <% else %>
+            <div id='relationships-btn'>
+              <%= render 'relationships/relationships_btn', user: @user %>
+            </div>
           <% end %>
         </div>
-        <!--プロフィール画像とユーザー名-->
-        <div class='col-12 col-sm-4 my-2 text-center user-image-name'>
-          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '70x70' %>
-          <div class='user-name'>
-            <%= @user.name %>
+        <!--プロフィール画像とフォロー数-->
+        <div class='col-12 col-md-5 col-sm-4 my-2 text-center user-image-name'>
+          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '70x70' %><br>
+          <div id='follow-count'>
+            <%= render 'relationships/follow_count', user: @user %>
           </div>
         </div>
         <!--イントロダクション-->
-        <div class='col-12 col-sm-8 my-2 px-0 user-introduction-field'>
+        <div class='col-12 col-md-7 col-sm-8 my-2 px-0 user-introduction-field'>
           <div class='p-2 text-break introduction'>
             <!--プロフィール文を設定していなかったら何も表示しない-->
-            <% begin %>
-              <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
-            <% rescue %>
+            <% if @user.introduction.nil? || @user.introduction.empty? %>
               <span><%= t '.none_introduction' %></span>
+            <% else %>
+              <%= safe_join(@user.introduction.split("\n"), tag(:br)) %>
             <% end %>
           </div>
         </div>

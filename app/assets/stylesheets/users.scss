@@ -8,6 +8,91 @@
 @import "bootstrap";
 @import "colors";
 
+.following,
+.followers{
+ .user-name{
+  color: white;
+ }
+ .follow-list{
+  height: 70vh;
+  background-color: white;
+  border-radius: 15px;
+  a{
+   text-decoration: none;
+  }
+  .tab{
+   height: 40px;
+   border-bottom: 1px solid gray;
+   color: black;
+  }
+  .tab-following{
+   border-top-left-radius: 15px;
+   background-color: $follow-tab;
+  }
+  .tab-followers{
+   border-top-right-radius: 15px;
+   background-color: $follow-tab;
+  }
+  .tabbox-contents{
+   height: 65vh;
+   overflow: auto;
+  }
+  td{
+   .introduction-field{
+    height: 7vh;
+    overflow: auto;
+    .nil{
+     opacity: 0.5;
+    }
+   }
+   a{
+    text-decoration: none;
+   }
+   img{
+    border-radius: 35px;
+   }
+   .follow-btn{
+    a{
+     .nomal{
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: gray;
+      color: white;
+     }
+     .hover{
+      display: none;
+     }
+     .follow{
+       padding: 10px;
+       border: 1px solid black;
+       border-radius: 10px;
+       color: black;
+     }
+     &:hover{
+      .nomal{
+       display: none;
+      }
+      .hover{
+       display: inline;
+       padding: 10px;
+       border: 1px solid black;
+       border-radius: 10px;
+       background-color: white;
+       color: red;
+      }
+      .follow{
+       border-color: $follow-tab;
+       background-color: $follow-tab;
+       color: white;
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
 // ユーザー編集画面
 .users-edit{
  .input-form{
@@ -48,6 +133,9 @@
   .user-image-name{
    img{
     border-radius: 50px;
+   }
+   a{
+    text-decoration: none;
    }
   }
   .user-introduction-field{

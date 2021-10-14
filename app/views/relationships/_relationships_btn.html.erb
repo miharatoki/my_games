@@ -1,0 +1,5 @@
+<% if current_user.following?(user) %>
+  <%= link_to (t '.unfollow'), show_unfollow_path(user_id: user.id), remote: true %>
+<% else %>
+  <%= link_to (t '.follow'), show_follow_path(user_id: user.id), remote: true %>
+<% end %>
