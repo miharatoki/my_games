@@ -5,10 +5,12 @@ class UsersController < ApplicationController
   def show
     if params[:sort].nil?
       # ソートしていなかったら、投稿日を降順でレコードを取得
-      @posts = Post.where(user_id: params[:id]).order('created_at DESC').includes(:genre).page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).
+        order('created_at DESC').includes(:genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.where(user_id: params[:id]).order(params[:sort]).includes(:genre).page(params[:page]).per(6)
+      @posts = Post.where(user_id: params[:id]).
+        order(params[:sort]).includes(:genre).page(params[:page]).per(6)
     end
   end
 
@@ -48,7 +50,8 @@ class UsersController < ApplicationController
     else
       # パラメーターのジャンルIDでPostモデルから検索
       @user = User.find(params[:user_id])
-      @posts = Post.where(user_id: @user.id, genre_id: params[:genre]).includes(:user, :genre).page(params[:page]).per(6)
+      @posts = Post.where(user_id: @user.id,
+                          genre_id: params[:genre]).includes(:genre).page(params[:page]).per(6)
       render :show
     end
   end
@@ -56,12 +59,13 @@ class UsersController < ApplicationController
   def title_search
     # shomページの検索フォームの値でPostモデルから検索
     @user = User.find(params[:user_id])
-    searched_posts = Post.where('title LIKE ?',"%#{params[:keyword]}%")
-    @posts = searched_posts.where(user_id: @user.id).includes(:user, :genre).page(params[:page]).per(6)
+    searched_posts = Post.where('title LIKE ?', "%#{params[:keyword]}%")
+    @posts = searched_posts.where(user_id: @user.id).includes(:genre).page(params[:page]).per(6)
     render :show
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
@@ -76,5 +80,4 @@ class UsersController < ApplicationController
       redirect_to posts_path, alert: '自分以外のアカウント情報は編集できません'
     end
   end
-
 end

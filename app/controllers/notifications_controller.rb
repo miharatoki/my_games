@@ -2,7 +2,8 @@ class NotificationsController < ApplicationController
   before_action :ensure_user
 
   def index
-    @notifications = Notification.where(receiver_id: params[:user_id], check: false).includes(:sender).page(params[:page]).per(10)
+    @notifications = Notification.where(receiver_id: params[:user_id],
+                                        check: false).includes(:sender).page(params[:page]).per(10)
   end
 
   def destroy
@@ -16,6 +17,7 @@ class NotificationsController < ApplicationController
   end
 
   private
+
   def ensure_user
     # urlで他ユーザー宛の通知を閲覧、操作しようとすると自ユーザー詳細ページへリダイレクト
     unless current_user.id == params[:user_id].to_i

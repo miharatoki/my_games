@@ -3,16 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Userモデルのテスト' do
   # userのバリデーションが通ったらtrue,通らなかったらfalse
   # is_expectedでsubjectの内容を評価
-  subject {user.valid?}
-  let!(:other_user) {create(:user)}
-  let!(:user) {build(:user)}
+  subject { user.valid? }
+
+  let!(:other_user) { create(:user) }
+  let!(:user) { build(:user) }
 
   context 'nameカラムのバリデーション' do
-    it '一意であること' do
-      user.name = other_user.name
-      is_expected.to eq false
-    end
-
     it '空白で保存できないこと' do
       user.name = ''
       is_expected.to eq false
@@ -21,7 +17,7 @@ RSpec.describe 'Userモデルのテスト' do
 
     it '1文字では保存できないこと' do
       user.name = Faker::Lorem.characters(number: 1)
-     is_expected.to eq false
+      is_expected.to eq false
       expect(user.errors[:name]).to include('は2文字以上で入力してください')
     end
 
@@ -44,13 +40,13 @@ RSpec.describe 'Userモデルのテスト' do
 
   context 'introductionカラムのバリデーション' do
     it '141文字以上だと保存できないこと' do
-      user.introduction = Faker::Lorem.characters(number:141)
+      user.introduction = Faker::Lorem.characters(number: 141)
       is_expected.to eq false
       expect(user.errors[:introduction]).to include('は140文字以内で入力してください')
     end
 
     it '140文字ちょうどだと保存できること' do
-      user.introduction = Faker::Lorem.characters(number:140)
+      user.introduction = Faker::Lorem.characters(number: 140)
       is_expected.to eq true
     end
   end
@@ -64,5 +60,4 @@ RSpec.describe 'Userモデルのテスト' do
       expect(User.reflect_on_association(:post_comments).macro).to eq :has_many
     end
   end
-
 end

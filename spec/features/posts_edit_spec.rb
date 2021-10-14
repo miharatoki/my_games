@@ -11,7 +11,6 @@ feature '投稿編集ページ' do
     visit edit_post_path(post.id)
   end
 
-
   scenario '投稿内容の編集ができるか', js: true do
     expect(current_path).to eq edit_post_path(post.id)
     fill_in 'post_title', with: 'edit_title'
@@ -37,7 +36,6 @@ feature '投稿編集ページ' do
   end
 
   feature 'ヘッダーのリンク' do
-
     scenario '通知をクリックすると通知一覧ページへ遷移する' do
       click_link '通知'
       expect(current_path).to eq user_notifications_path(user.id)

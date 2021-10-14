@@ -11,15 +11,14 @@ feature '投稿詳細ページ' do
   before do
     log_in(user.email)
     visit post_path(post.id)
-    expect(current_path).to eq post_path(post.id)
   end
 
   scenario '自分の投稿の場合は編集ボタンと削除ボタンが表示されていること' do
+    expect(current_path).to eq post_path(post.id)
     edit = find('.btn-info')
     destroy = find('.btn-danger')
     expect(edit[:href]).to eq edit_post_path(post.id)
     expect(destroy[:href]).to eq post_path(post.id)
-
   end
 
   scenario '自分以外の投稿の場合は編集ボタンと削除ボタンが表示されていないこと' do
@@ -36,20 +35,20 @@ feature '投稿詳細ページ' do
 
   scenario '削除ボタンを押すとダイアログが表示されること' do
     find('.btn-danger').click
-    expect {
+    expect do
       expect(page).to have_content 'キャンセル'
       expect(page).to have_content 'OK'
-    }
+    end
   end
 
   scenario '削除ボタンのokを押すと投稿が削除されること' do
     find('.btn-danger').click
-    expect {
+    expect do
       page.accept_confirm("本当に削除しますか？")
       expect(page).to have_content '記録を削除しました'
-       post = Post.find_by(id: post.id)
+      post = Post.find_by(id: post.id)
       expect(post).to eq nil
-    }
+    end
   end
 
   scenario '自分以外の投稿の場合は投稿者名が表示されていて、押下するとユーザ詳細ページへ遷移する' do
@@ -61,16 +60,16 @@ feature '投稿詳細ページ' do
 
   scenario '自分の投稿の場合は自分の名前が表示されないこと' do
     visit post_path(post.id)
-    expect(page).to_not have_content '投稿者'
+    expect(page).not_to have_content '投稿者'
   end
 
   scenario 'いいねするとハートの色が変わるか', js: true do
     click_link '💙'
     expect(page).to have_content '❤️'
-    expect(page).to_not have_content '💙'
+    expect(page).not_to have_content '💙'
     click_link '❤️'
     expect(page).to have_content '💙'
-    expect(page).to_not have_content '❤️'
+    expect(page).not_to have_content '❤️'
   end
 
   scenario 'コメントをするとコメント内容が表示されるか', js: true do
