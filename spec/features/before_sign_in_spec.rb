@@ -6,7 +6,6 @@ feature 'ログイン前' do
   let!(:post) { create(:post, user_id: user.id, genre_id: genre.id) }
 
   feature 'アクセス制限' do
-
     # 未ログイン時にアクセスしようとするとログインページに遷移する
     scenario '新規投稿ページにアクセスできないこと' do
       visit new_post_path

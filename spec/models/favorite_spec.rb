@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Favoriteモデルのテスト' do
-  let!(:user) {create(:user)}
-  let!(:post) {create(:post, user_id: user.id)}
-  let!(:favorite) {create(:favorite, post_id: post.id, user_id: user.id)}
-  
+  let!(:user) { create(:user) }
+  let!(:post) { create(:post, user_id: user.id) }
+  let!(:favorite) { create(:favorite, post_id: post.id, user_id: user.id) }
+
   it 'postを削除すると、紐づいたfavoriteも削除されるか' do
     post.destroy
     expect(Favorite.find_by(post_id: favorite.id)).to eq nil
   end
-  
+
   context 'アソシエーション' do
     it 'Userモデルと多対1の関係であるか' do
       expect(Favorite.reflect_on_association(:user).macro).to eq :belongs_to
@@ -21,5 +21,4 @@ RSpec.describe 'Favoriteモデルのテスト' do
       expect(Favorite.reflect_on_association(:notifications).macro).to eq :has_many
     end
   end
-
 end

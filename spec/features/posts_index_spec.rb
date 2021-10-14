@@ -5,6 +5,7 @@ feature '投稿一覧ページ' do
   let!(:user) { create(:user, email: 'test@test.com') }
   let!(:post) { create(:post, genre_id: genre.id, user_id: user.id) }
   let(:another_user) { create(:user) }
+
   before do
     log_in(user.email)
   end
