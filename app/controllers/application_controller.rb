@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:top, :guest_sign_in]
 
   unless Rails.env.development?
-    # include ErrorHandle
+    include ErrorHandle
   end
 
   def after_sign_in_path_for(resource)
