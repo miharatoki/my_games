@@ -23,7 +23,7 @@ feature '投稿編集ページ' do
     find("#sound-score-#{post.id}").find("img[alt='1']").click
     find("#operability-score-#{post.id}").find("img[alt='1']").click
     find("#balance-score-#{post.id}").find("img[alt='1']").click
-    click_button '記録する'
+    click_on '更新する'
     expect(current_path).to eq post_path(post.id)
     expect(page).to have_content '記録を更新しました'
     expect(page).to have_content 'edit_title'
@@ -31,18 +31,12 @@ feature '投稿編集ページ' do
     expect(find('#post_title')['value']).to eq 'edit_title'
   end
 
-  scenario '変更内容を削除ボタンを押すと書き換えた箇所が削除されるか', js: true do
-    fill_in 'post_title', with: 'edit_title'
-    expect(find('#post_title')['value']).to eq "edit_title"
-    click_button '変更内容を削除'
-    expect(find('#post_title')['value']).to eq "#{post.title}"
+  scenario 'キャンセルボタンをクリックすると投稿詳細ページに遷移するか' do
+    click_link 'キャンセル'
+    expect(current_path).to eq post_path(post.id)
   end
 
   feature 'ヘッダーのリンク' do
-    scenario 'マイページをクリックするとユーザー編集ページへ遷移する' do
-      click_link 'マイページ'
-      expect(current_path).to eq edit_user_path(user.id)
-    end
 
     scenario '通知をクリックすると通知一覧ページへ遷移する' do
       click_link '通知'
