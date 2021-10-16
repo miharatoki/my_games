@@ -55,6 +55,19 @@
                   <td>
                     <%= link_to (t '.destroy'), user_notification_path(id: notification.id), method: :delete, class: 'btn btn-danger' %>
                   </td>
+                <% elsif notification.action == 'post' %>
+                <!--フォローしているユーザーが投稿した時-->
+                  <td>
+                    <p class='mb-0'>
+                      <%= link_to "#{notification.sender.name}", user_path(notification.sender_id) %>
+                      <%= t '.sender' %>
+                      <%= link_to (t '.new_post'), post_path(notification.post_id) %>
+                      <%= t '.ago', ago: time_ago_in_words(notification.created_at) %>
+                    </p>
+                  </td>
+                  <td>
+                    <%= link_to (t '.destroy'), user_notification_path(id: notification.id), method: :delete, class: 'btn btn-danger' %>
+                  </td>
                 <% end %>
               </tr>
             <% end %>
