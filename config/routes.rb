@@ -23,5 +23,4 @@ Rails.application.routes.draw do
     get '/favorites' => 'favorites#create'
     delete '/favorites' => 'favorites#destroy'
   end
-
 end

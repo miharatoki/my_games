@@ -28,9 +28,9 @@ feature '通知一覧ページ' do
     scenario '「あなたの投稿」をクリックするとコメントされた投稿の詳細ページに遷移するか', js: true do
       click_link 'あなたの投稿'
       expect(current_path).to eq post_path(post.id)
-     end
+    end
 
-     scenario '通知を削除できるか', js: true do
+    scenario '通知を削除できるか', js: true do
       click_link '削除'
       expect(page).to have_content '通知はありません'
     end

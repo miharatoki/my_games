@@ -1,5 +1,4 @@
 module ErrorHandle
-
   extend ActiveSupport::Concern
 
   included do
@@ -18,5 +17,4 @@ module ErrorHandle
       render 'errors/404'
     end
   end
-  
 end

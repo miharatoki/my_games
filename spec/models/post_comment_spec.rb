@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'PostCommentモデルのテスト' do
   subject { post_comment.valid? }
-  let!(:post) {create(:post)}
-  let!(:post_comment) {build(:post_comment)}
-  
+
+  let!(:post) { create(:post) }
+  let!(:post_comment) { build(:post_comment) }
+
   context '親モデルのレコードを削除すると紐づいたPostCommentのレコードが削除されるか' do
-    let(:post_comment) {create(:post_comment, post_id: post.id)}
-  
+    let(:post_comment) { create(:post_comment, post_id: post.id) }
+
     it 'Postのレコードを削除した時' do
       post.destroy
       expect(PostComment.find_by(post_id: post.id)).to eq nil
@@ -50,7 +51,4 @@ RSpec.describe 'PostCommentモデルのテスト' do
       expect(PostComment.reflect_on_association(:notifications).macro).to eq :has_many
     end
   end
-
-
-
 end

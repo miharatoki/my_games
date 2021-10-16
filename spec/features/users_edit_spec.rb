@@ -65,18 +65,19 @@ feature 'ユーザー情報編集ページ' do
       expect(current_path).to eq root_path
     end
   end
-end
 
-feature 'ゲストユーザーの場合' do
-  before do
-    guest_log_in
-    click_link '自分の記録'
-    click_link '編集'
-  end
+  feature 'ゲストユーザーの場合' do
+    before do
+      click_link 'ログアウト'
+      guest_log_in
+      click_link '自分の記録'
+      click_link '編集'
+    end
 
-  scenario '保存ボタンを押してもエラーメッセージ時が表示され保存できないか' do
-    expect(page).to have_content '※ゲストユーザーは編集ができません'
-    click_button '更新する'
-    expect(page).to have_content 'ゲストユーザーはプロフィール編集ができません'
+    scenario '保存ボタンを押してもエラーメッセージが表示され保存できないか' do
+      expect(page).to have_content '※ゲストユーザーは編集ができません'
+      click_button '更新する'
+      expect(page).to have_content 'ゲストユーザーはプロフィール編集ができません'
+    end
   end
 end

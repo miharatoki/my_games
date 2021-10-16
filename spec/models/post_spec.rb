@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
-  subject {post.valid?}
-  let!(:post) {build(:post)}
+  subject { post.valid? }
 
-  context '空白で保存した時のバリデーション'do
+  let!(:post) { build(:post) }
+
+  context '空白で保存した時のバリデーション' do
     it 'titleを空白で保存できないこと' do
       post.title = ''
       is_expected.to eq false
@@ -25,7 +26,7 @@ RSpec.describe 'Postモデルのテスト', type: :model do
 
     it 'story_scoreを空白で保存できないこと' do
       post.story_score = ''
-     is_expected.to eq false
+      is_expected.to eq false
       expect(post.errors[:story_score]).to include('が入力されていません。')
     end
 
@@ -49,32 +50,31 @@ RSpec.describe 'Postモデルのテスト', type: :model do
 
     it 'balance_scoreを空白で保存できないこと' do
       post.balance_score = ''
-     is_expected.to eq false
+      is_expected.to eq false
       expect(post.errors[:balance_score]).to include('が入力されていません。')
     end
   end
 
   context 'titleとbodyの文字制限のバリデーション' do
-
     it 'titleを30文字以上で保存しようとした時はエラー' do
-      post = Post.new(title: Faker::Lorem.characters(number:31))
+      post = Post.new(title: Faker::Lorem.characters(number: 31))
       expect(post).to be_invalid
       expect(post.errors[:title]).to include('は30文字以内で入力してください')
     end
 
     it 'bodyを400文字以上で保存しようとした時はエラー' do
-      post = Post.new(body: Faker::Lorem.characters(number:401))
+      post = Post.new(body: Faker::Lorem.characters(number: 401))
       expect(post).to be_invalid
       expect(post.errors[:body]).to include('は400文字以内で入力してください')
     end
 
     it 'titleを30文字ちょうどで保存しようとした時は保存できること' do
-      post.title = Faker::Lorem.characters(number:30)
+      post.title = Faker::Lorem.characters(number: 30)
       expect(post).to be_valid
     end
 
     it 'bodyを400文字ちょうどで保存しようとした時は保存できること' do
-      post.body = Faker::Lorem.characters(number:400)
+      post.body = Faker::Lorem.characters(number: 400)
       expect(post).to be_valid
     end
   end

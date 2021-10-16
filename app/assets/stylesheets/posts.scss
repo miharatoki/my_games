@@ -76,14 +76,6 @@
 
 // 投稿詳細ページ
 .posts-show{
- .back{
-  color: white;
-  font-size: 30px;
-  text-decoration: none;
-  &:hover{
-   color: red;
-  }
- }
  .posts-show-box{
    background-color: $posts_show_box;
    border-radius: 10px;
