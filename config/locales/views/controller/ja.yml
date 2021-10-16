@@ -104,6 +104,7 @@ ja:
       favorite: 'にいいねしました'
       post_comment: 'にコメントしました'
       follow: 'あなたをフォローしました。'
+      new_post: '新しく投稿しました。'
       ago: '（%{ago}前）'
 
   homes:

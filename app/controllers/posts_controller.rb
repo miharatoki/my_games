@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to post_path(@post.id), notice: '記録を作成しました'
+      current_user.notication_create(@post, current_user)
     else
       render :new
     end

@@ -40,4 +40,11 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+  def notication_create(post, sender)
+    sender.followers.each do |follower|
+      Notification.create(post_id: post.id, sender_id: sender.id,
+                          receiver_id: follower.id, action: 'post')
+    end
+  end
 end
