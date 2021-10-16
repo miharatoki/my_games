@@ -7,7 +7,7 @@ class NotificationsController < ApplicationController
   end
 
   def destroy
-    Notification.where(receiver_id: params[:user_id], check: false).update(check: true)
+    Notification.find(params[:id]).update(check: true)
     redirect_to user_notifications_path
   end
 
