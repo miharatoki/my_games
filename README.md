@@ -25,15 +25,12 @@
 ## 設計書
 - ER図  
 ![my_games　ER図](https://user-images.githubusercontent.com/85423314/137721781-44271312-01cd-4260-87c7-9356b3e5feb9.jpg)　　
+- AWS構成図　　
+![AWS構成図](https://user-images.githubusercontent.com/85423314/137723114-70f06e65-f5d3-409e-8368-32797161b773.jpg)  
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1PKA1ZDZwMBYfhaSflPzGktN9bA388LPkpkrXSQzVn4M/edit#gid=1243617316)
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1NsZ2RdBAanomw7SJKPELiA_RqKIG36-KAfLfJFaEHoo/edit#gid=2133469642)
 - [AWSインフラ設計書](https://docs.google.com/spreadsheets/d/1WDbiiF85skWmPnDxdjuGv_KRIS3-ZkZZukRRz71EhTA/edit#gid=0)
-- AWS構成図　　
-
-
-
-## チャレンジ要素一覧  
-https://docs.google.com/spreadsheets/d/1qj9xzJYOmUnFeagCwen3HmotJWwbycG7ffr26M2Fq7s/edit#gid=0
+- [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1qj9xzJYOmUnFeagCwen3HmotJWwbycG7ffr26M2Fq7s/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(CentOS)
