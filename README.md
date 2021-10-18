@@ -24,7 +24,7 @@
 
 ## 設計書
 - ER図  
- https://app.diagrams.net/#G10wXq8V2MMZW4GnrCWL5O2QK1tfGF0jh6
+![my_games　ER図](https://user-images.githubusercontent.com/85423314/137721781-44271312-01cd-4260-87c7-9356b3e5feb9.jpg)　　
 - テーブル定義書  
 https://docs.google.com/spreadsheets/d/1PKA1ZDZwMBYfhaSflPzGktN9bA388LPkpkrXSQzVn4M/edit#gid=1243617316
 - アプリケーション詳細設計書  
