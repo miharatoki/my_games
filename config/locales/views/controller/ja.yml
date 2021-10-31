@@ -60,11 +60,12 @@ ja:
 
   users:
     show:
+      my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
+      othger_user_no_posts: '記録がありません'
+    profile:
       profile_title: 'プロフィール'
       edit: '編集'
       none_introduction: '※プロフィール文が設定されていません。'
-      my_no_posts: '画面上部の「新しく記録する」からあなたがプレイしたゲームを記録しましょう！！'
-      othger_user_no_posts: '記録がありません'
     edit:
       profile: 'プロフィール'
       cancel: 'キャンセル'

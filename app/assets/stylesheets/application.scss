@@ -159,8 +159,14 @@
  }
 }
 
+.search-name{
+ font-family: "Koruri-Semibold";
+ color: white;
+ font-size: 30px;
+}
+
 .no-posts-row{
- height: 80vh;
+ height: 60vh;
  .no-posts{
   font-family: "Koruri-Semibold";
   color: white;
@@ -179,7 +185,6 @@
   height: 28px;
  }
 }
-
 
 .pagenate-label,
 .pagenate-prev
@@ -229,4 +234,9 @@
   margin: 0 auto;
  }
 }
+
+.search-name{
+ font-size: 15px;
+}
+
 }
