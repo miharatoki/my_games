@@ -10,6 +10,7 @@ ja:
       body_word_count: '400字以内'
     index:
       page_heading: 'みんなの記録'
+      sort_word: '「%{sort_word}」で並び替え中'
       title: 'ゲームタイトル'
       genre: 'ジャンル'
       post_user: '%{user_name}さん'

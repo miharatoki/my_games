@@ -16,9 +16,7 @@
   <% else %>
     <!--パラメーターのacitonがshowだった場合-->
     <% if params[:action] == 'show' %>
-      <div class='row mt-3 mb-5'>
         <%= render 'posts/index', posts: @posts %>
-      </div>
     <!--パラメータのacitonがgenre_searchだった場合-->
     <% elsif params[:action] == 'genre_search' %>
       <%= render 'shared/genre_search', user: @user, posts: @posts %>

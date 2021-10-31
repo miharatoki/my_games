@@ -13,7 +13,8 @@ class PostsController < ApplicationController
         Post.order('created_at DESC').includes(:user, :genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.order(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
+      # @posts = Post.order(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
+      @posts = Post.post_sort(params[:sort]).includes(:user, :genre).page(params[:page]).per(6)
     end
   end
 
