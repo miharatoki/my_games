@@ -10,11 +10,14 @@
 
   <% if params[:action] == 'index' %>
     <div class='row mt-3 mb-5'>
+      <!--パラメーターのacitonがindexだった場合-->
       <%= render 'posts/index', posts: @posts %>
     </div>
   <% elsif params[:action] == 'genre_search' %>
+    <!--パラメータのacitonがgenre_searchだった場合-->
    <%= render 'shared/genre_search', posts: @posts %>
   <% elsif params[:action] == 'title_search' %>
+    <!--パラメーターのactionがtitle_searchだった場合-->
    <%= render 'shared/title_search', posts: @posts %>
   <% end %>
 </div>

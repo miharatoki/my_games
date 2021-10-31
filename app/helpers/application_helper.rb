@@ -7,12 +7,8 @@ module ApplicationHelper
   end
 
   def sort_array
-    sort_array = [
-      ['新着順', 'created_at DESC'], ['投稿順', 'created_at ASC'], ['総合評価', 'total_score DESC'],
-      ['ストーリー', 'story_score DESC'], ['グラフィック', 'graphic_score DESC'],
-      ['主題歌・BGM', 'sound_score DESC'], ['操作性', 'operability_score DESC'],
-      ['ゲームバランス', 'balance_score DESC'],
-    ]
+    sort_array = ['新着順', '投稿順', '総合評価', 'ストーリー', 'グラフィック', '主題歌・BGM', '操作性', 'ゲームバランス']
     sort_array
   end
+
 end
