@@ -22,5 +22,7 @@ ja:
       mistake: 'つ不備があります'
     genre_search:
       search_no_posts: '検索結果がありません'
+      genre_name: '検索ジャンル「%{genre_name}」'
     title_search:
       search_no_posts: '検索結果がありません'
+      title_name: '検索タイトル「%{title_name}」'

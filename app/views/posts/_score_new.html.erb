@@ -36,6 +36,7 @@
     $('#total-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.total_score.to_f %>,
       scoreName: 'post[total_score]'
     });
 
@@ -43,30 +44,35 @@
     $('#story-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.story_score.to_f %>,
       scoreName: 'post[story_score]'
     });
 
     $('#graphic-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.graphic_score.to_f %>,
       scoreName: 'post[graphic_score]'
     });
 
     $('#sound-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.sound_score.to_f %>,
       scoreName: 'post[sound_score]'
     });
 
     $('#operability-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.operability_score.to_f %>,
       scoreName: 'post[operability_score]'
     });
 
     $('#balance-score').raty({
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
+      score: <%= post.balance_score.to_f %>,
       scoreName: 'post[balance_score]'
     });
   </script>

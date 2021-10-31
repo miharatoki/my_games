@@ -57,6 +57,7 @@ class PostsController < ApplicationController
       @posts = Post.where(genre_id: params[:genre]).includes(:genre).page(params[:page]).per(6)
       # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
       @user = User.find(current_user.id)
+      @genre = Genre.find(params[:genre])
       render :index
     end
   end
@@ -67,6 +68,7 @@ class PostsController < ApplicationController
                         "%#{params[:keyword]}%").includes(:genre).page(params[:page]).per(6)
     # @userは、shared/searchの条件分岐の際、userのidが必要なため定義
     @user = User.find(current_user.id)
+    @search_keyword = params[:keyword]
     render :index
   end
 
