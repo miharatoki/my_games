@@ -9,8 +9,9 @@ class UsersController < ApplicationController
         order('created_at DESC').includes(:genre).page(params[:page]).per(6)
     else
       # ソートしていたら、ソート内容でレコードを所得
-      @posts = Post.where(user_id: params[:id]).
-        order(params[:sort]).includes(:genre).page(params[:page]).per(6)
+      # @posts = Post.where(user_id: params[:id]).
+      #   order(params[:sort]).includes(:genre).page(params[:page]).per(6)
+      @posts = User.user_post_sort(params[:sort], params[:id]).includes(:genre).page(params[:page]).per(6)
     end
   end
 
@@ -52,6 +53,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:user_id])
       @posts = Post.where(user_id: @user.id,
                           genre_id: params[:genre]).includes(:genre).page(params[:page]).per(6)
+      @genre = Genre.find(params[:genre])
       render :show
     end
   end
@@ -61,6 +63,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     searched_posts = Post.where('title LIKE ?', "%#{params[:keyword]}%")
     @posts = searched_posts.where(user_id: @user.id).includes(:genre).page(params[:page]).per(6)
+    @search_keyword = params[:keyword]
     render :show
   end
 

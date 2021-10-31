@@ -2,8 +2,12 @@
   <% if comment.user.id == current_user.id %>
     <!--自分のコメントの場合-->
     <div class='d-flex justify-content-end my-2 my-comment'>
+      <!--コメント日時-->
+      <div class='offset-1 d-flex align-items-end mr-1'>
+        <%= comment.created_at.strftime('%Y-%m-%d') %>
+      </div>
       <!--コメント-->
-      <div class='offset-1 text-break p-1 comment'>
+      <div class='text-break p-1 comment'>
         <%= safe_join(comment.comment.split("\n"), tag(:br)) %>
       </div>
       <!--アカウント画像-->

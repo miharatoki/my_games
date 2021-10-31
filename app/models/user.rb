@@ -47,4 +47,26 @@ class User < ApplicationRecord
                           receiver_id: follower.id, action: 'post')
     end
   end
+
+  def self.user_post_sort(sort, user_id)
+    sort_word =
+    if sort == '新着順'
+      'created_at DESC'
+    elsif sort == '投稿順'
+      'created_at ASC'
+    elsif sort == '総合評価'
+      'total_score DESC'
+    elsif sort == 'ストーリー'
+      'story_score DESC'
+    elsif sort == 'グラフィック'
+      'graphic_score DESC'
+    elsif sort == '主題歌・BGM'
+      'sound_score DESC'
+    elsif sort == '操作性'
+      'operability_score DESC'
+    elsif sort == 'ゲームバランス'
+      'balance_score DESC'
+    end
+    Post.where(user_id: user_id).order(sort_word)
+  end
 end
